@@ -1,0 +1,75 @@
+{
+    "id": "1783D_0",
+    "problemId": "1783D",
+    "subTestNumber": "17",
+    "description": [
+        {
+            "input": "NA0KMSAxIDEgMQ0K",
+            "answer": "Mwo="
+        },
+        {
+            "input": "NQ0KMSAyIDMgNSAwDQo=",
+            "answer": "Nwo="
+        },
+        {
+            "input": "Mw0KNjYgMTggMjkNCg==",
+            "answer": "Mgo="
+        },
+        {
+            "input": "MTANCjc1IDMxIDIyIDQwIDc0IDYwIDEwIDMgOSA0OA0K",
+            "answer": "MjU2Cg=="
+        },
+        {
+            "input": "MTgNCjc0IDkyIDUyIDM2IDQ4IDUxIDMzIDY0IDQzIDk1IDkyIDc4IDM1IDc3IDU1IDI1IDUwIDYNCg==",
+            "answer": "NjQ5NjAK"
+        },
+        {
+            "input": "Mw0KNDQgNjEgNzENCg==",
+            "answer": "Mgo="
+        },
+        {
+            "input": "MTANCjUzIDQxIDQzIDI5IDg2IDM0IDEwMCA1NCA2OCA2DQo=",
+            "answer": "MjU2Cg=="
+        },
+        {
+            "input": "MTgNCjg3IDAgOTUgNTkgMyAyNSAyMiA0NyAzNSA4NyA1OSA1NyA0NCA0NSA3NSA1OCA4MCA2MQ0K",
+            "answer": "MzI2NDgK"
+        },
+        {
+            "input": "Mw0KNTcgMzcgMjQNCg==",
+            "answer": "Mgo="
+        },
+        {
+            "input": "MTANCjY3IDE3IDg1IDYzIDQwIDg3IDQ0IDQgNjAgMzENCg==",
+            "answer": "MjU2Cg=="
+        },
+        {
+            "input": "MTgNCjY1IDkgMTQgNDggNTggNjYgNjcgOTggODMgNzggOTEgNjkgMTkgMzUgNSA1NyAxOSA3MQ0K",
+            "answer": "NjUxODIK"
+        },
+        {
+            "input": "Mw0KMzUgMzUgMzQNCg==",
+            "answer": "Mgo="
+        },
+        {
+            "input": "MTANCjQ1IDI3IDk1IDUzIDk2IDYwIDY3IDU1IDUxIDIyDQo=",
+            "answer": "MjU2Cg=="
+        },
+        {
+            "input": "MTgNCjEwIDc2IDU3IDgyIDIgNTEgNzkgNDggNDIgNjkgOTEgMzYgOTUgNCAyNSA2NyAxNSAyNA0K",
+            "answer": "NjQ5OTgK"
+        },
+        {
+            "input": "Mw0KODEgMTIgNTQNCg==",
+            "answer": "Mgo="
+        },
+        {
+            "input": "MTANCjIzIDM2IDE0IDc1IDQwIDM0IDQ1IDUgMTAgMTMNCg==",
+            "answer": "MjU2Cg=="
+        },
+        {
+            "input": "MTgNCjg5IDE3IDY3IDcyIDU3IDU4IDY4IDk5IDMzIDYwIDIzIDgxIDIgOTUgNTYgNjYgMTIgMzQNCg==",
+            "answer": "NjUwMTgK"
+        }
+    ]
+}

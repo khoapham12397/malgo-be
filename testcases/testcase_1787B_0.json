@@ -1,0 +1,15 @@
+{
+    "id": "1787B_0",
+    "problemId": "1787B",
+    "subTestNumber": "2",
+    "description": [
+        {
+            "input": "Nw0KMTAwDQoxMA0KODY0DQoxMzAwNTYxOTINCjEwMDAwMDAwMDANCjINCjk5OTk5OTAxOA0K",
+            "answer": "MjAKMTAKMjIKMTE4CjkwCjIKMzMzMzMzMDA5Cg=="
+        },
+        {
+            "input": "MQ0KNDE5NDMwNA0K",
+            "answer": "NDQK"
+        }
+    ]
+}

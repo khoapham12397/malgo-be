@@ -1,0 +1,23 @@
+{
+    "id": "1800B_0",
+    "problemId": "1800B",
+    "subTestNumber": "4",
+    "description": [
+        {
+            "answer": "NQowCjEKMwoyCg==",
+            "input": "NQ0KMTEgMg0KYUFhYUJBQ2FjYkUNCjIgMg0KYWINCjQgMQ0KYWFCQg0KNiAwDQphYkJBY0MNCjUgMw0KY2JjY2INCg=="
+        },
+        {
+            "answer": "MAo=",
+            "input": "MQ0KMyAwDQptaGsNCg=="
+        },
+        {
+            "answer": "MAo=",
+            "input": "MQ0KMTkgMA0KYWFhYWFhYWFhYWFhYWFhYWFhYQ0K"
+        },
+        {
+            "answer": "NQo=",
+            "input": "MQ0KMTkgNQ0KYWFhYWFhYWFhYWFhYWFhYWFhYQ0K"
+        }
+    ]
+}

@@ -3,6 +3,7 @@ import {getTestCaseOrigin} from "../services/testcaseService";
 import {insertSubmission } from "../redis/submissionService";
 import {generator} from "../utils/genId";
 import { apiJudge, ChildSubmissionBatchParam, TestCaseDescription } from "../judgeApi";
+import { createSubmissionDBV2, SubmissionParam } from "../services/submissionService";
 
 export const testCreateBatchSubmission = async()=>{
     try{
@@ -91,4 +92,28 @@ export const checkSubmissionStatus = async()=>{
     }catch(error){
         console.log(error);
     }
+}
+export const testSubmissionService = async () =>{
+    const param: SubmissionParam = {
+        contestId: undefined,
+        language: "71",
+        maxScore: 0,
+        penaltyTime: 0,
+        problemId: '1792A',
+        sourceCode: "Zm9yIHMgaW5bKm9wZW4oMCldWzI6OjJdOnByaW50KGxlbihhOj1zLnNwbGl0KCkpLWEuY291bnQoJzEnKS8vMik=",
+        username: 'khoa.pham12397@ami1cXdWCn497Qto3rZWT9'
+    }
+    // cu tao 1 thang dung;  da:.
+    const subId = await createSubmissionDBV2(param);
+    
+}
+
+let cnt = 0;
+export const startTestSub = ()=>{
+const testMulitSub = setInterval(()=>{
+    testSubmissionService();
+    cnt++;
+
+    if(cnt >= 100) clearInterval(testMulitSub);
+},200);
 }

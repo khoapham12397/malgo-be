@@ -1,0 +1,47 @@
+{
+    "id": "1792B_0",
+    "problemId": "1792B",
+    "subTestNumber": "10",
+    "description": [
+        {
+            "answer": "NQoxCjE1CjcK",
+            "input": "NA0KNSAwIDAgMA0KMCAwIDAgNQ0KMiA1IDEwIDYNCjMgMCAwIDcNCg=="
+        },
+        {
+            "answer": "MjAwMDAyMDAzCg==",
+            "input": "MQ0KMTAwMSAxMDAwMDAwMDAgMTAwMDAwMDAwIDEwMDAwMDAwMA0K"
+        },
+        {
+            "answer": "MjAwMDAwMDAzCg==",
+            "input": "MQ0KMSAxMDAwMDAwMDAgMTAwMDAwMDAwIDEwMDAwMDAwMA0K"
+        },
+        {
+            "answer": "NDAK",
+            "input": "MQ0KMjUgNSA1IDUNCg=="
+        },
+        {
+            "answer": "NDAwMQo=",
+            "input": "MQ0KNDAwMSAwIDAgMA0K"
+        },
+        {
+            "answer": "MjAwMDAwMDAzCg==",
+            "input": "MQ0KMSAxMDAwMDAwMDAgMTAwMDAwMDAwIDEyMzQNCg=="
+        },
+        {
+            "answer": "MjAwMDAwMDAzCg==",
+            "input": "MQ0KMSAxMDAwMDAwMDAgMTAwMDAwMDAwIDEyMzgNCg=="
+        },
+        {
+            "answer": "MjAwMDAwMDAyCg==",
+            "input": "MQ0KMSAxMDAwMDAwMDAgMTAwMDAwMDAwIDENCg=="
+        },
+        {
+            "answer": "MjAwMDAwMDAzCjIwMDAwMDAwMwoyMDAwMDAwMDMKMjAwMDAwMDAzCjIwMDAwMDAwMwo=",
+            "input": "NQ0KMSAxMDAwMDAwMDAgMTAwMDAwMDAwIDEwMDAwMDAwMA0KMSAxMDAwMDAwMDAgMTAwMDAwMDAwIDEwMDAwMDAwMA0KMSAxMDAwMDAwMDAgMTAwMDAwMDAwIDEwMDAwMDAwMA0KMSAxMDAwMDAwMDAgMTAwMDAwMDAwIDEwMDAwMDAwMA0KMSAxMDAwMDAwMDAgMTAwMDAwMDAwIDEwMDAwMDAwMA0K"
+        },
+        {
+            "answer": "MjAwMDAwMDAzCjIwMDAwMDAwMwoyMDAwMDAwMDMKMjAwMDAwMDAzCjIwMDAwMDAwMwoyMDAwMDAwMDMKMjAwMDAwMDAzCjIwMDAwMDAwMwoyMDAwMDAwMDMKMjAwMDAwMDAzCjIwMDAwMDAwMwoyMDAwMDAwMDMKMjAwMDAwMDAzCjIwMDAwMDAwMwoyMDAwMDAwMDMK",
+            "input": "MTUNCjEgMTAwMDAwMDAwIDEwMDAwMDAwMCAxMDAwMDAwMDANCjEgMTAwMDAwMDAwIDEwMDAwMDAwMCAxMDAwMDAwMDANCjEgMTAwMDAwMDAwIDEwMDAwMDAwMCAxMDAwMDAwMDANCjEgMTAwMDAwMDAwIDEwMDAwMDAwMCAxMDAwMDAwMDANCjEgMTAwMDAwMDAwIDEwMDAwMDAwMCAxMDAwMDAwMDANCjEgMTAwMDAwMDAwIDEwMDAwMDAwMCAxMDAwMDAwMDANCjEgMTAwMDAwMDAwIDEwMDAwMDAwMCAxMDAwMDAwMDANCjEgMTAwMDAwMDAwIDEwMDAwMDAwMCAxMDAwMDAwMDANCjEgMTAwMDAwMDAwIDEwMDAwMDAwMCAxMDAwMDAwMDANCjEgMTAwMDAwMDAwIDEwMDAwMDAwMCAxMDAwMDAwMDANCjEgMTAwMDAwMDAwIDEwMDAwMDAwMCAxMDAwMDAwMDANCjEgMTAwMDAwMDAwIDEwMDAwMDAwMCAxMDAwMDAwMDANCjEgMTAwMDAwMDAwIDEwMDAwMDAwMCAxMDAwMDAwMDANCjEgMTAwMDAwMDAwIDEwMDAwMDAwMCAxMDAwMDAwMDANCjEgMTAwMDAwMDAwIDEwMDAwMDAwMCAxMDAwMDAwMDANCg=="
+        }
+    ]
+}

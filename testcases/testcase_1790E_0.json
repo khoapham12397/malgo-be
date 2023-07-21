@@ -1,0 +1,19 @@
+{
+    "id": "1790E_0",
+    "problemId": "1790E",
+    "subTestNumber": "3",
+    "description": [
+        {
+            "input": "Ng0KMg0KNQ0KMTANCjYNCjE4DQozNg0K",
+            "answer": "MyAxCi0xCjE1IDUKLTEKMjcgOQo1NCAxOAo="
+        },
+        {
+            "input": "MQ0KMQ0K",
+            "answer": "LTEK"
+        },
+        {
+            "input": "MQ0KMTQ0NDQ4DQo=",
+            "answer": "LTEK"
+        }
+    ]
+}

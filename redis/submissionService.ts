@@ -1,13 +1,12 @@
-import { createClient } from "redis";
-import { ShareParam } from "../controllers/userController2";
-
 import dotenv from 'dotenv';
 import { generator } from "../utils/genId";
 import { ChildSubmissionBatchParam, getBatchSubmissionContest, PostSubContestParam, sendSubmissionBatch, sendSubmissionBatchList, sendSubmissionContest } from "../judgeApi";
 import { gettingToken,  startGetToken, startSendSubmission, startSubmitToken, stopGetToken, stopSubmitToken, submissionProcessRunning, submitSubmissionScheduler, submitTokenContestScheduler, submitTokenScheduler, tokenProcessRunning } from "../scheduler";
 import {redisClient} from "./baseService";
-dotenv.config();
 
+dotenv.config();
+const MAX_SIZE_SUBMISSION_BATCH = 20;
+ 
 const getPendingTokenQueueKey = ()=>{
     return "token:pending:queue";
 }
@@ -15,10 +14,38 @@ const getPendingTokenQueueKey = ()=>{
 const getPendingSubmissionQueueKey = () =>{
     return "submission:pending:queue";
 }
+const getPendingSubmissionQueueKeyV2 = () =>{
+    return "submission:pending:queue:v2";
+}
 
 export const insertPendingSubmission = async (params: ChildSubmissionBatchParam, submissionId: string)=>{
     try{
-        const submissions : Array<any> = [];
+        const numberItem = Math.ceil(params.testcaseList.length / MAX_SIZE_SUBMISSION_BATCH);
+        const lst :Array<string> = [];
+        for(let i = 0; i< numberItem ;i++) {
+            const startInd = i * MAX_SIZE_SUBMISSION_BATCH;
+            const submissions :Array<any> = [];
+            for(let j= startInd;j< Math.min(params.testcaseList.length, startInd + MAX_SIZE_SUBMISSION_BATCH);j++){
+                const x= {
+                    language_id: params.languageId,
+                    source_code: params.sourceCode,
+                    stdin: params.testcaseList[j].input,
+                    expected_output: params.testcaseList[j].answer
+                }
+                submissions.push(x);
+            }
+             
+            const sub = {
+                id: submissionId,
+                data: {submissions: submissions},
+            }
+            console.log('add submissionlst: size=' + submissions.length);
+            lst.push(JSON.stringify(sub));
+        }
+
+        await redisClient.LPUSH(getPendingSubmissionQueueKey(), lst);
+
+        /*
         params.testcaseList.forEach(testcase=>{
             const x = {
                 language_id: params.languageId,
@@ -28,16 +55,7 @@ export const insertPendingSubmission = async (params: ChildSubmissionBatchParam,
             };
             submissions.push(x);
         });
-        
-        const data = {
-            submissions: submissions
-        }; 
-        const sub = {
-            id: submissionId,
-            data: data,
-        }
-
-        await redisClient.LPUSH(getPendingSubmissionQueueKey(), JSON.stringify(sub));
+        */
         if(!submissionProcessRunning) {
             console.log(`restart submission process , status = ${submissionProcessRunning}`);
             //submitSubmissionScheduler.start();
@@ -48,6 +66,28 @@ export const insertPendingSubmission = async (params: ChildSubmissionBatchParam,
         console.log(error);
     }
 }
+export type InsertPendingSubParam = {
+    submissionId: string;
+    languageId: number;
+    sourceCode: string; // base64encoded
+    testfile: string;
+}
+
+export const insertPendingSubmissionV2 = async (params: InsertPendingSubParam)=>{
+    try {
+        const submissionStr = params.submissionId+":"+params.languageId+":"+params.sourceCode+":"+ params.testfile;
+        
+        await redisClient.LPUSH(getPendingSubmissionQueueKeyV2(), submissionStr);
+        if(!submissionProcessRunning) {
+            console.log(`restart submission process , status = ${submissionProcessRunning}`);
+            //submitSubmissionScheduler.start();
+            startSendSubmission();
+        }
+    }catch(error){
+        console.log(error);
+    }
+}
+
 export const insertPendingSubmissionDirectly = async (subStr: string) =>{
     try{
         await redisClient.LPUSH(getPendingSubmissionQueueKey(), subStr);
@@ -55,8 +95,23 @@ export const insertPendingSubmissionDirectly = async (subStr: string) =>{
             console.log(`restart submission process , status = ${submissionProcessRunning}`);
             submitSubmissionScheduler.start();
         }
+        
     }catch(error){
         console.log(error);
+    }
+}
+
+export const insertPendingSubmissionDirectlyV2 = async(submissionStr: string) =>{
+    try {
+        await redisClient.LPUSH(getPendingSubmissionQueueKeyV2(), submissionStr);
+        if(!submissionProcessRunning) {
+            console.log(`restart submission process , status = ${submissionProcessRunning}`);
+            //submitSubmissionScheduler.start();
+            startSendSubmission();
+        }
+    }catch(error){
+        console.log(error);
+        throw error;
     }
 }
 export const insertPendingTokens = async (tokens :Array<any>, submissionId:string) =>{
@@ -103,6 +158,21 @@ export const getPendingSubmissionList = async (up: number )=>{
         return lst;
 
     }catch(error){
+        console.log(error);
+    }
+}
+
+export const getPendingSubmissionListV2 = async (up: number)=>{
+    try{
+        const lst = [];
+        for(let i=0;i<up;i++) {
+            const submissionStr = await redisClient.RPOP(getPendingSubmissionQueueKeyV2());
+            if(submissionStr) lst.push(submissionStr);
+            else break;
+        }
+        return lst;
+    }
+    catch(error){
         console.log(error);
     }
 }

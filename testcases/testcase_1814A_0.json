@@ -1,0 +1,59 @@
+{
+    "id": "1814A_0",
+    "problemId": "1814A",
+    "subTestNumber": "13",
+    "description": [
+        {
+            "input": "NA0KNSAzDQo2IDENCjcgNA0KOCA4DQo=",
+            "answer": "WUVTCllFUwpOTwpZRVMK"
+        },
+        {
+            "input": "MQ0KMTAwMDAwMDAwMDAwMDAwMDAwMCAzDQo=",
+            "answer": "WUVTCg=="
+        },
+        {
+            "input": "MQ0KMTAwMDAwMDAwMDAwMDAwMDAxIDQNCg==",
+            "answer": "Tk8K"
+        },
+        {
+            "input": "MQ0KOTk5OTk5OTk5OTk5OTk5OTkgNA0K",
+            "answer": "Tk8K"
+        },
+        {
+            "input": "MQ0KOTk5OTk5OTk5OTk5OTk5IDQNCg==",
+            "answer": "Tk8K"
+        },
+        {
+            "input": "MQ0KMTAwMDAwMDAwMDAwMDAxIDQNCg==",
+            "answer": "Tk8K"
+        },
+        {
+            "input": "MQ0KOTk5OTk5OTk5OTk5OTk5OTk5IDQNCg==",
+            "answer": "Tk8K"
+        },
+        {
+            "input": "MQ0KMTAwMDAwMDAwMDAxIDQNCg==",
+            "answer": "Tk8K"
+        },
+        {
+            "input": "NA0KMTAwMDAwMDAwMDAxIDQNCjEwMDAwMDAwMDAwMSAzDQoxMDAwMDAwMDAwMDAgNA0KMTAwMDAwMDAwMDAwIDMNCg==",
+            "answer": "Tk8KWUVTCllFUwpZRVMK"
+        },
+        {
+            "input": "MQ0KMTAwMDAwMDAwMDAwMDAwMSA0DQo=",
+            "answer": "Tk8K"
+        },
+        {
+            "input": "MTANCjk5OTk5OTk5OTk5OTk5OTk5IDQNCjk5OTk5OTk5OTk5OTk5OTk5IDYNCjk5OTk5OTk5OTk5OTk5OTk5IDgNCjk5OTk5OTk5OTk5OTk5OTk5IDEwDQo5OTk5OTk5OTk5OTk5OTk5OSAxMg0KOTk5OTk5OTk5OTk5OTk5OTkgMTQNCjk5OTk5OTk5OTk5OTk5OTk5IDE2DQo5OTk5OTk5OTk5OTk5OTk5OSAxOA0KOTk5OTk5OTk5OTk5OTk5OTkgMjANCjk5OTk5OTk5OTk5OTk5OTk3IDQNCg==",
+            "answer": "Tk8KTk8KTk8KTk8KTk8KTk8KTk8KTk8KTk8KTk8K"
+        },
+        {
+            "input": "MQ0KMTAwMDAwMDAwMDAwMDAwMDEgNA0K",
+            "answer": "Tk8K"
+        },
+        {
+            "input": "NQ0KMTAwMDAwMDAwMDAwMDAwMDAxIDQNCjEwMDAwMDAwMDAwMDAwMDAwMyA0DQoxMDAwMDAwMDAwMDAwMDAwMDcgNA0KMTAwMDAwMDAwMDAwMDAwMDA1IDQNCjEwMDAwMDAwMDAwMDAwMDAwMCA0DQo=",
+            "answer": "Tk8KTk8KTk8KTk8KWUVTCg=="
+        }
+    ]
+}

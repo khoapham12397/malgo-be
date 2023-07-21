@@ -1,0 +1,23 @@
+{
+    "id": "1796A_0",
+    "problemId": "1796A",
+    "subTestNumber": "4",
+    "description": [
+        {
+            "answer": "WUVTCllFUwpOTwo=",
+            "input": "Mw0KMw0KRkZCDQo4DQpCRkZCRkZCRg0KMw0KQkJCDQo="
+        },
+        {
+            "answer": "WUVTCg==",
+            "input": "MQ0KMQ0KRg0K"
+        },
+        {
+            "answer": "WUVTCg==",
+            "input": "MQ0KMg0KQkYNCg=="
+        },
+        {
+            "answer": "WUVTCg==",
+            "input": "MQ0KMQ0KQg0K"
+        }
+    ]
+}

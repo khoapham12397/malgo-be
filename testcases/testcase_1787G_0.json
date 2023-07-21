@@ -1,0 +1,27 @@
+{
+    "id": "1787G_0",
+    "problemId": "1787G",
+    "subTestNumber": "5",
+    "description": [
+        {
+            "input": "NSA0DQo0IDEgMyA0DQo1IDIgNCA0DQozIDEgMyAyDQoxIDIgNSAxDQowIDQNCjAgMw0KMCAyDQoxIDMNCg==",
+            "answer": "NQo1CjAKMwo="
+        },
+        {
+            "input": "NSA1DQo0IDEgNCA0DQo0IDUgMiAyDQozIDEgMiA0DQozIDIgMyAxDQowIDMNCjAgNA0KMSAzDQoxIDQNCjAgMQ0K",
+            "answer": "MgowCjMKNgozCg=="
+        },
+        {
+            "input": "NiA5DQozIDIgMiAzDQoyIDQgNCAyDQozIDEgNSA1DQo2IDQgMyAyDQo1IDMgMSAzDQowIDINCjAgNA0KMCA1DQowIDYNCjEgMg0KMSA0DQoxIDUNCjAgMw0KMSA2DQo=",
+            "answer": "NQo1CjUKNQo1CjUKNQowCjcK"
+        },
+        {
+            "input": "MSAyDQowIDENCjEgMQ0K",
+            "answer": "MAowCg=="
+        },
+        {
+            "input": "NCAyDQoxIDIgMSAxDQoxIDMgMSAxDQoxIDQgMSAxDQowIDENCjEgMQ0K",
+            "answer": "MAowCg=="
+        }
+    ]
+}

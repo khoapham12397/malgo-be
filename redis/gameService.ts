@@ -62,7 +62,7 @@ export const insertMatch = async (roomId :string,match: any) => {
     }
 }
 
-export const initQuizList = ()=>{
+export const initQuizList = async()=>{
     const quizList = [
         {position : "9-10", quizData: {
         description: "Với số nguyên dương N ta tính tích các chữ số của nó, tổng các chữ số của nó rồi cộng hai kết quả lại. Tổng cuối cùng ký hiệu là S(N ). Hỏi trong các số nguyên từ 1 đến 100 (kể cả 1 và 100) có bao nhiêu số N thỏa mãn S(N ) = N ?"
@@ -78,6 +78,7 @@ export const initQuizList = ()=>{
     }
     ];
     const arr:Array<string> = [];
+    const resultLst:any = {};
 
     quizList.forEach(quiz=>{
         arr.push(quiz.position);
@@ -86,9 +87,12 @@ export const initQuizList = ()=>{
             quizData: quiz.quizData,
             quizPoint: 100,
         }));
+        resultLst[quiz.position] = quiz.quizData.result;
     });
+
+    await redisClient.HSET('round:r1:quiz', arr);
+    await redisClient.HSET('round:r1:quiz:result', resultLst);
     
-    redisClient.HSET('round:r1:quiz', arr);
 }
 export const createRoom =  async (roomId: string, roundId: string, socketList : Array<any>)=>{
     try{

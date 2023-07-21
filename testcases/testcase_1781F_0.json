@@ -1,0 +1,87 @@
+{
+    "id": "1781F_0",
+    "problemId": "1781F",
+    "subTestNumber": 20,
+    "description": [
+        {
+            "input": "MSA3NTAwDQo=",
+            "answer": "MjQ5NTYxMDg5Cg=="
+        },
+        {
+            "input": "MiA2MDAwDQo=",
+            "answer": "NTE5MDg3MDY0Cg=="
+        },
+        {
+            "input": "NSA0MDAwDQo=",
+            "answer": "MTE5Mzg3NzQzCg=="
+        },
+        {
+            "input": "MTAgNzc3Nw0K",
+            "answer": "MTc1MDQzNTc0Cg=="
+        },
+        {
+            "input": "MTAwIDc3NzcNCg==",
+            "answer": "ODQ5MzUyNzgxCg=="
+        },
+        {
+            "input": "MjAwIDc3NzcNCg==",
+            "answer": "MjE3MDE1NjYzCg=="
+        },
+        {
+            "input": "MzAwIDc3NzcNCg==",
+            "answer": "ODcwMDQzNjUwCg=="
+        },
+        {
+            "input": "NDAwIDc3NzcNCg==",
+            "answer": "MTY0MDM5MTU1Cg=="
+        },
+        {
+            "input": "NTAwIDc3NzcNCg==",
+            "answer": "Mjc3ODUxMzIyCg=="
+        },
+        {
+            "input": "NTAwIDANCg==",
+            "answer": "MAo="
+        },
+        {
+            "input": "NTAwIDEwMDAwDQo=",
+            "answer": "MQo="
+        },
+        {
+            "input": "MSAwDQo=",
+            "answer": "MAo="
+        },
+        {
+            "input": "MSAxMDAwMA0K",
+            "answer": "MQo="
+        },
+        {
+            "input": "NDA5IDkyMA0K",
+            "answer": "Nzg0NDQxNDQ5Cg=="
+        },
+        {
+            "input": "NDQxIDM3MTINCg==",
+            "answer": "NDQ2MzQ4ODUyCg=="
+        },
+        {
+            "input": "NTAwIDg3NTgNCg==",
+            "answer": "NzU1MjIxNjc5Cg=="
+        },
+        {
+            "input": "NDAxIDczMjQNCg==",
+            "answer": "NjE4MjkzNjg1Cg=="
+        },
+        {
+            "input": "NDIyIDEzNjUNCg==",
+            "answer": "MTIzMzI1MTA4Cg=="
+        },
+        {
+            "input": "NDk1IDU3ODcNCg==",
+            "answer": "NjIwOTczMTM5Cg=="
+        },
+        {
+            "input": "ODYgMzI2MA0K",
+            "answer": "MzQxMzYxNjg5Cg=="
+        }
+    ]
+}

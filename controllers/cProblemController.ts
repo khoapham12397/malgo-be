@@ -52,8 +52,8 @@ type GetProblemsParam = {
 export const getCodingProblemsCtl = async (req: Request, res: Response) => {
   try {
     const params: GetProblemsParam = req.body;
-    console.log('params: ');
-    console.log(params);
+    //console.log('params: ');
+    //console.log(params);
     const result = await getCodingProblems(params);
     return res.status(200).json({ successed: true, data: result }).end();
   } catch (err) {

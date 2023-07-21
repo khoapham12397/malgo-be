@@ -1,7 +1,7 @@
 import cron, { ScheduleOptions } from 'node-cron';
 import { clearInterval } from 'timers';
-import { getBatchSubmission, getBatchSubmissionContest, sendSubmissionBatch, sendSubmissionBatchList } from './judgeApi';
-import {getPendingSubmission, getPendingSubmissionList, getPendingTokenContest, getPendingTokenContestList, taskGetPendingTokens} from "./redis/submissionService";
+import { getBatchSubmission, getBatchSubmissionContest, sendSubmissionBatch, sendSubmissionBatchList, sendSubmissionBatchListV2 } from './judgeApi';
+import {getPendingSubmission, getPendingSubmissionList, getPendingSubmissionListV2, getPendingTokenContest, getPendingTokenContestList, taskGetPendingTokens} from "./redis/submissionService";
 
 const scheduleTokenOptions: ScheduleOptions = {
     scheduled: false,
@@ -74,15 +74,15 @@ const scheduleSubmission = async () => {
     submissionProcessRunning = true;
 
     try{
-        const subs = await getPendingSubmissionList(2);
+        const subs = await getPendingSubmissionListV2(5);
         
         if(subs && subs.length>0) {
             subQueueEmptyCnt = 0;
-            await sendSubmissionBatchList(subs);
+            await sendSubmissionBatchListV2(subs);
         }
         else {
             subQueueEmptyCnt++;
-            if(subQueueEmptyCnt === 10) {
+            if(subQueueEmptyCnt === 50) {
                 console.log('STOP submission process');
                 submissionProcessRunning = false;
                 await submitSubmissionScheduler.stop();
@@ -99,6 +99,7 @@ const submitSubmissionScheduler = cron.schedule("*/1 * * * * *",scheduleSubmissi
 const submitTokenContestScheduler = cron.schedule("*/1 * * * * *",scheduleTokenContest, scheduleTokenContestOptions);
 //const getTokenContest=setInterval(scheduleTokenContest, 50);
 
+
 let getTokenContest : any;
 export {submitTokenScheduler, submitSubmissionScheduler,submitTokenContestScheduler,scheduleOff,
     scheduleTokenContest, processed, tokenProcessRunning, submissionProcessRunning,
@@ -107,7 +108,7 @@ let gettingToken = false;
 
 export const startGetToken = ()=>{
     gettingToken = true;
-    getTokenContest = setTimeout(()=>getPendingTokenContest(20), 50);
+    getTokenContest = setTimeout(()=>getPendingTokenContest(20), 200);
 
 }
 export const stopGetToken = () =>{
@@ -121,7 +122,7 @@ export {gettingToken};
 export const startSubmitToken = ()=>{
     //gettingToken = true;
     tokenProcessRunning = true;
-    submitToken = setInterval(scheduleToken, 200);
+    submitToken = setInterval(scheduleToken, 1000);
     
 }
 export const stopSubmitToken = () =>{

@@ -1,0 +1,11 @@
+{
+    "id": "1825B_0",
+    "problemId": "1825B",
+    "subTestNumber": "1",
+    "description": [
+        {
+            "input": "NQ0KMiAyDQoxIDMgMSA0DQoyIDINCi0xIC0xIC0xIC0xDQoyIDMNCjcgOCA5IC0zIDEwIDgNCjMgMg0KNCA4IC0zIDAgLTcgMQ0KNCAzDQotMzIwMzAgNTk1NTQgMTY4NTQgLTg1OTI3IDY4MDYwIC02NDQ2MCAtNzk1NDcgOTA5MzIgODUwNjMgODI3MDMgLTEyMDAxIDM4NzYyDQo=",
+            "answer": "OQowCjY0CjcxCjE5MzM3MTEK"
+        }
+    ]
+}

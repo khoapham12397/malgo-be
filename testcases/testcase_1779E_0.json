@@ -1,0 +1,59 @@
+{
+    "id": "1779E_0",
+    "problemId": "1779E",
+    "subTestNumber": "13",
+    "description": [
+        {
+            "input": "Mw0KMDEwDQowMDENCjEwMA0K",
+            "answer": "Mw=="
+        },
+        {
+            "input": "NQ0KMDExMTENCjAwMTExDQowMDAxMQ0KMDAwMDENCjAwMDAwDQo=",
+            "answer": "OQ=="
+        },
+        {
+            "input": "Mw0KMDExDQowMDENCjAwMA0K",
+            "answer": "NQ=="
+        },
+        {
+            "input": "Mw0KMDAxDQoxMDENCjAwMA0K",
+            "answer": "NQ=="
+        },
+        {
+            "input": "NA0KMDAwMA0KMTAwMQ0KMTEwMQ0KMTAwMA0K",
+            "answer": "Nw=="
+        },
+        {
+            "input": "NQ0KMDExMTENCjAwMDExDQowMTAxMQ0KMDAwMDANCjAwMDEwDQo=",
+            "answer": "OQ=="
+        },
+        {
+            "input": "Ng0KMDAwMDAwDQoxMDAwMDANCjExMDAwMA0KMTExMDExDQoxMTEwMDENCjExMTAwMA0K",
+            "answer": "MTE="
+        },
+        {
+            "input": "Nw0KMDAxMDAwMQ0KMTAxMTEwMQ0KMDAwMDAwMQ0KMTAxMDAwMQ0KMTAxMTAwMQ0KMTExMTEwMQ0KMDAwMDAwMA0K",
+            "answer": "MTM="
+        },
+        {
+            "input": "OA0KMDAwMDAwMDANCjEwMTAwMDAwDQoxMDAwMDAwMA0KMTExMDEwMTENCjExMTAwMDExDQoxMTExMTAxMQ0KMTExMDAwMDENCjExMTAwMDAwDQo=",
+            "answer": "MTU="
+        },
+        {
+            "input": "OQ0KMDAxMTExMTAxDQoxMDExMTExMDENCjAwMDExMTEwMQ0KMDAwMDEwMDAwDQowMDAwMDAwMDANCjAwMDExMDAwMA0KMDAwMTExMDAwDQoxMTExMTExMDENCjAwMDExMTEwMA0K",
+            "answer": "MTc="
+        },
+        {
+            "input": "MTANCjAxMTEwMDAxMTENCjAwMDAwMDAxMDENCjAxMDAwMDAxMDENCjAxMTAwMDAxMTENCjExMTEwMTExMTENCjExMTEwMDExMTENCjExMTEwMDAxMTENCjAwMDAwMDAwMDANCjAxMTAwMDAxMDENCjAwMDAwMDAxMDANCg==",
+            "answer": "MTk="
+        },
+        {
+            "input": "MjANCjAxMTAwMDAwMDAwMDAwMDAwMDAwDQowMDAwMDAwMDAwMDAwMDAwMDAwMA0KMDEwMDAwMDAwMDAwMDAwMDAwMDANCjExMTAwMTExMDAwMTAxMDExMTAwDQoxMTExMDExMTExMDEwMTExMTExMQ0KMTExMDAwMTEwMDAxMDEwMTExMDANCjExMTAwMDAxMDAwMDAwMDExMTAwDQoxMTEwMDAwMDAwMDAwMDAxMDEwMA0KMTExMTAxMTEwMTAxMDExMTExMTENCjExMTEwMTExMDAwMTAxMDExMTAwDQoxMTExMTExMTExMDEwMTExMTExMQ0KMTExMDAwMTEwMDAwMDAwMTExMDANCjExMTExMTExMTExMTAxMTExMTExDQoxMTEwMDAxMTAwMDEwMDAxMTEwMA0KMTExMTAxMTEwMTAxMDEwMTExMTANCjExMTAwMDAwMDAwMDAwMDAwMTAwDQoxMTEwMDAwMTAwMDAwMDAxMDEwMA0KMTExMDAwMDAwMDAwMDAwMDAwMDANCjExMTEwMTExMDEwMTAxMDExMTAwDQoxMTExMDExMTAxMDEwMTExMTExMA0K",
+            "answer": "Mzk="
+        },
+        {
+            "input": "MjANCjAwMDAwMDAxMDEwMDAxMTAwMDEwDQoxMDEwMTExMTExMDAwMTExMTAxMQ0KMTAwMDExMTExMTExMTExMDExMTENCjExMTAxMDExMDEwMTAxMTEwMTEwDQoxMDAwMDAxMTAxMTExMTEwMTExMA0KMTAwMTEwMTEwMTAxMDExMDEwMTANCjEwMDAwMDAxMDEwMDAwMTAwMDEwDQowMDAwMDAwMDAwMDAwMDAwMDAxMA0KMTAwMTExMTEwMTAwMDExMDExMTENCjAwMDAwMDAxMDAwMDAxMDAwMDEwDQoxMTAxMDExMTExMDEwMTEwMTExMQ0KMTEwMDAwMTExMTAwMTExMTAwMTENCjExMDEwMTExMTExMDAxMTEwMDExDQowMDAwMDAxMTAwMDAwMDEwMDAxMA0KMDAwMDAwMDEwMTAwMDAwMDAwMTANCjEwMTAxMTExMTExMDAxMTAwMTExDQoxMDAxMDAxMTAxMDExMTExMDAxMQ0KMTEwMDAxMTEwMTAxMTExMDEwMTANCjAwMDAwMDAwMDAwMDAwMDAwMDAwDQoxMDAxMTExMTAxMDAwMTEwMDExMA0K",
+            "answer": "MzM="
+        }
+    ]
+}

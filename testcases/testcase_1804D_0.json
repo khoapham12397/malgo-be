@@ -1,0 +1,15 @@
+{
+    "id": "1804D_0",
+    "problemId": "1804D",
+    "subTestNumber": "2",
+    "description": [
+        {
+            "answer": "NyAxMAo=",
+            "input": "NSA0DQowMTAwDQoxMTAwDQowMTEwDQoxMDEwDQoxMDExDQo="
+        },
+        {
+            "answer": "MyA0Cg==",
+            "input": "MSA4DQowMTAxMTEwMA0K"
+        }
+    ]
+}

@@ -1,0 +1,19 @@
+{
+    "id": "1793F_0",
+    "problemId": "1793F",
+    "subTestNumber": "3",
+    "description": [
+        {
+            "answer": "MgoxCjEK",
+            "input": "MyAzDQoxIDMgMg0KMSAyDQoyIDMNCjEgMw0K"
+        },
+        {
+            "answer": "MwoyCjIK",
+            "input": "NSAzDQo0IDEgNSAzIDINCjEgMg0KMyA0DQoyIDQNCg=="
+        },
+        {
+            "answer": "Mgo0CjIKMQo=",
+            "input": "NyA0DQoyIDYgMSA3IDMgNSA0DQo0IDYNCjEgMg0KMyA2DQoxIDMNCg=="
+        }
+    ]
+}

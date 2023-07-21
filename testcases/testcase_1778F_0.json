@@ -1,0 +1,15 @@
+{
+    "id": "1778F_0",
+    "problemId": "1778F",
+    "subTestNumber": "2",
+    "description": [
+        {
+            "input": "Mg0KNSAyDQoyNCAxMiAyNCA2IDEyDQoxIDINCjEgMw0KMiA0DQoyIDUNCjUgMw0KMjQgMTIgMjQgNiAxMg0KMSAyDQoxIDMNCjIgNA0KMiA1DQo=",
+            "answer": "Mjg4CjU3Ngo="
+        },
+        {
+            "input": "MQ0KNSA0DQo2NTAgNDU0IDI1OSA3OSA0MjQNCjEgMg0KMSAzDQoxIDQNCjMgNQ0K",
+            "answer": "NjUwCg=="
+        }
+    ]
+}

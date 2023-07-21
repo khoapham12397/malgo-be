@@ -1,0 +1,15 @@
+{
+    "id": "1826C_0",
+    "problemId": "1826C",
+    "subTestNumber": "2",
+    "description": [
+        {
+            "input": "NQ0KMyAyDQo0IDINCjUgMw0KMTAwMDAwMCAxMDAwMDAwDQoxIDEwMDAwMDANCg==",
+            "answer": "WUVTCk5PCllFUwpOTwpZRVMK"
+        },
+        {
+            "input": "MQ0KMSAxDQo=",
+            "answer": "WUVTCg=="
+        }
+    ]
+}

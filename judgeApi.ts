@@ -1,10 +1,13 @@
 import dotenv from 'dotenv';
 import axios from "axios";
-import {insertPendingContestToken, insertPendingSubmissionDirectly, insertPendingTokens, UpdateSubContestParam, updateSubmissionContestStatus, updateSubmissionStatusV2} from "./redis/submissionService";
+import {insertPendingContestToken, insertPendingSubmissionDirectly, insertPendingSubmissionDirectlyV2, insertPendingTokens, UpdateSubContestParam, updateSubmissionContestStatus, updateSubmissionStatusV2} from "./redis/submissionService";
 import { getTestCaseOrigin } from './services/testcaseService';
 import CustomAPIError from './config/CustomAPIError';
 import { fail } from 'assert';
 import { updateSubmissonDBStatus } from './services/submissionService';
+import  fs  from 'fs';
+import test from 'node:test';
+import { time } from 'console';
 
 
 dotenv.config()
@@ -78,12 +81,13 @@ export const createChildSubmissionBatch = async (params: ChildSubmissionBatchPar
         if(result.status == 201) {
           const tokens = result.data;
           await insertPendingTokens(tokens, submissionId);
-
+          
           return [];
         }
     }catch(error){
+      console.log('error at create child submission batch');
       console.log(error);
-    }
+     }
 }
 
 
@@ -102,10 +106,46 @@ export const sendSubmissionBatch = async (subStr: string)=>{
     
   }catch(error){
     failTime++;
+    console.log(error);
     console.log(`pick sub return to queue : ${sub.id}:  ${failTime}`);
     //await insertPendingSubmission()
     
     await insertPendingSubmissionDirectly(subStr);
+  }
+}
+export const sendSubmissionBatchV2 = async (submissionStr: string)=> {
+  //format : submissionStr submissionId:languageId:soureCode:testfile
+  const subArr = submissionStr.split(':');
+
+  try{
+    console.log(`send sub: ${submissionStr}`)
+    const testcase = JSON.parse(fs.readFileSync(subArr[3]).toString());
+    
+    const submissions = testcase.description.map((testItem:TestCaseDescription) => ({
+      language_id: subArr[1],
+      source_code: subArr[2],
+      stdin: testItem.input,
+      expected_output: testItem.answer,
+    }));
+
+    //console.log(submissions);
+    const url = '/submissions/batch?base64_encoded=true';
+
+    const result = await apiJudge.post(url, {submissions: submissions });
+    if(result.status ===201) {
+      const tokens = result.data;
+      console.log('submit success, tokens: ');
+      //console.log(tokens);
+      await insertPendingTokens(tokens, subArr[0]);
+    }
+  
+  }catch(error){
+    failTime++;
+    //console.log(error);
+    console.log(`pick sub return to queue : ${subArr[0]}:  ${failTime}`);
+    //await insertPendingSubmission()
+    
+    await insertPendingSubmissionDirectlyV2(submissionStr);
   }
 }
 
@@ -114,7 +154,11 @@ export const sendSubmissionBatchList = async (subs: Array<string>) =>{
     sendSubmissionBatch(subStr);
   });
 }
-
+export const sendSubmissionBatchListV2 = async (submissionStrs: Array<string>) =>{
+  submissionStrs.forEach(subStr=>{
+    sendSubmissionBatchV2(subStr);
+  })
+}
 export const getBatchSubmission = async(tokens : Array<any>)=>{
   try{
     const mapTokenSubmission = new Map<string,{submissionId:string, index: number}>();
@@ -141,7 +185,12 @@ export const getBatchSubmission = async(tokens : Array<any>)=>{
 
     if(result.status===200) {
       const submissions = result.data.submissions;
+      
+      console.log('get result by token ');
+      //console.log(submissions);
+
       submissions.forEach((item:any)=>{
+      
         const submissionAndIndex = mapTokenSubmission.get(item.token);
         if(submissionAndIndex) {
           const arr = mapUpdateSubmission.get(submissionAndIndex.submissionId);
@@ -157,6 +206,8 @@ export const getBatchSubmission = async(tokens : Array<any>)=>{
           else {
             arr.push({
               statusId: item.status.id, 
+              time: item.time,
+              memory: item.memory,
               index : submissionAndIndex.index,
               token: item.token,
             })
@@ -166,13 +217,13 @@ export const getBatchSubmission = async(tokens : Array<any>)=>{
      
 
       const arrUpdate = Array.from(mapUpdateSubmission);
-      arrUpdate.forEach(item=>{
-        // van de nen change the nao cho de ks dung://a:
+      for(let i=0;i< arrUpdate.length;i++){
+        
 
         //updateSubmissionStatusV2(item[0],item[1]);
-        updateSubmissonDBStatus(item[0], item[1]);
+        updateSubmissonDBStatus(arrUpdate[i][0], arrUpdate[i][1]);
         
-      });
+      }
     }
   }catch(error){
     console.log(error);

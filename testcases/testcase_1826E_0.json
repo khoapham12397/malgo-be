@@ -1,0 +1,31 @@
+{
+    "id": "1826E_0",
+    "problemId": "1826E",
+    "subTestNumber": "6",
+    "description": [
+        {
+            "input": "MyA1DQoxMCAxMCAxMCAxMCAxMA0KMSAyIDMgNCA1DQoxIDUgMiAzIDQNCjIgMyA0IDUgMQ0K",
+            "answer": "MzAK"
+        },
+        {
+            "input": "MyA1DQoxMCAxMCAxMCAxMCA1MA0KMSAyIDMgNCA1DQoxIDUgMiAzIDQNCjIgMyA0IDUgMQ0K",
+            "answer": "NTAK"
+        },
+        {
+            "input": "MSAxDQoxMDAwMDAwMDAwDQoxDQo=",
+            "answer": "MTAwMDAwMDAwMAo="
+        },
+        {
+            "input": "NSA1DQoxMDAwMDAwMDAwIDEwMDAwMDAwMDAgMTAwMDAwMDAwMCAxMDAwMDAwMDAwIDEwMDAwMDAwMDANCjUgNCAzIDIgMQ0KNSA0IDMgMiAxDQo1IDQgMyAyIDENCjUgNCAzIDIgMQ0KNSA0IDMgMiAxDQo=",
+            "answer": "NTAwMDAwMDAwMAo="
+        },
+        {
+            "input": "MSAzDQoxIDIgMw0KMyAzIDMNCg==",
+            "answer": "Mwo="
+        },
+        {
+            "input": "MyAzDQo1IDUgNQ0KMSAyIDMNCjEgMyAyDQozIDEgMg0K",
+            "answer": "NQo="
+        }
+    ]
+}

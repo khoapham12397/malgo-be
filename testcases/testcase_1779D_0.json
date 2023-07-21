@@ -1,0 +1,27 @@
+{
+    "id": "1779D_0",
+    "problemId": "1779D",
+    "subTestNumber": "5",
+    "description": [
+        {
+            "input": "Nw0KMw0KMyAzIDMNCjIgMSAyDQoyDQoxIDINCjYNCjMgNCA0IDYgMyA0DQozIDEgMiAzIDIgMw0KMw0KMyAyIDMNCjEwDQoxIDIgMyA0IDUgNiA3IDggOSAxMA0KMSAyIDMgNCA1IDYgNyA4IDkgMTANCjEwDQoxIDIgMyA0IDUgNiA3IDggOSAxMA0KMw0KMSAxIDENCjEgMSAyDQoxMg0KNCAyIDQgMyAxIDUgNiAzIDUgNiAyIDENCjEzDQo3IDkgNCA1IDMgMyAzIDYgOCAxMCAzIDIgNQ0KNSAzIDEgNSAzIDIgMiA1IDggNSAxIDEgNQ0KOA0KMSA1IDMgNSA0IDIgMyAxDQoxMw0KNyA5IDQgNSAzIDMgMyA2IDggMTAgMyAyIDUNCjUgMyAxIDUgMyAyIDIgNSA4IDUgMSAxIDUNCjcNCjEgNSAzIDQgMiAzIDENCjMNCjE5NzQ3ODQzIDI3MzY0NjcgOTM4NTc4Mzk3DQoyMDM5ODQ0IDIwMzk4NDQgMjAzOTg0NA0KMQ0KMjAzOTg0NA0K",
+            "answer": "WUVTCk5PCllFUwpOTwpZRVMKTk8KWUVTCg=="
+        },
+        {
+            "input": "MQ0KNQ0KMyA0IDQgMiAzDQoyIDQgNCAyIDINCjENCjINCg==",
+            "answer": "Tk8K"
+        },
+        {
+            "input": "MQ0KNA0KMTAwIDEwMCAxMDAgMTAwDQoyIDEgMyAyDQozDQoxIDIgMw0K",
+            "answer": "Tk8K"
+        },
+        {
+            "input": "MQ0KNA0KMTAgMTAgMTAgMTANCjMgMiA1IDINCjMNCjIgMyA1DQo=",
+            "answer": "Tk8K"
+        },
+        {
+            "input": "MQ0KNA0KNiAzIDIgMg0KNSAxIDIgMQ0KMg0KMSA1DQo=",
+            "answer": "Tk8K"
+        }
+    ]
+}

@@ -1,0 +1,47 @@
+{
+    "id": "1824E_0",
+    "problemId": "1824E",
+    "subTestNumber": "10",
+    "description": [
+        {
+            "input": "Mw0KMSAyIDINCjEgMSAyDQoxIDIgMiAxDQoxIDMgMSAyDQo=",
+            "answer": "OA=="
+        },
+        {
+            "input": "NQ0KMiA0IDIgMSAxDQoyIDQgNCA0IDQNCjIgNSAzIDMNCjMgNSAyIDQNCjQgMiA1IDUNCjUgMSAxIDUNCg==",
+            "answer": "MzU="
+        },
+        {
+            "input": "Ng0KNSA3IDEwIDcgOSA0DQo2IDkgNyA5IDggNQ0KMiAxIDUgMQ0KMyAyIDIgNA0KNCAzIDYgMw0KNSAxIDcgNA0KNiA1IDYgOA0K",
+            "answer": "MjE2"
+        },
+        {
+            "input": "NQ0KMTAwMCAxMDAwIDEgMTAwMCAxMDAwDQoxMDAwIDEwMDAgMSAxMDAwIDEwMDANCjEgMiAxIDENCjIgMyAxMDAwIDEwMDANCjMgNCAxMDAwIDEwMDANCjMgNSAxMDAwIDEwMDANCg==",
+            "answer": "NzAwMDAwMA=="
+        },
+        {
+            "input": "MjANCjMyNSAyMTEgOTUgNDQ5IDg5IDQwOCAxNTYgMzcyIDE5MSAxNjEgNzEgMTE1IDQwNSA0MTUgMzg0IDE3IDQwIDUzIDQ4NSAyNjMNCjI2NiAzNzYgMjA1IDU3IDE5MyAzOTMgNDAxIDQ4NyA1IDM5NyAyODkgOTggNDM5IDE5MyAzODAgMjcgMjMgMzIxIDQyMSAyMTENCjIgMTUgMzM0IDMyDQozIDEyIDE4MSAzNjQNCjQgMTkgMTQ1IDQwNA0KNSAxIDIyMSAzMTgNCjYgMTUgNDczIDEzMw0KNyA0IDM5NCA0NDYNCjggNSAyMDYgMjQwDQo5IDE2IDI4IDQzNA0KMTAgMTMgOCAyMzUNCjExIDE2IDQ5NSAxNjQNCjEyIDcgMTQ4IDg2DQoxMyA1IDExMyAyOTMNCjE0IDE2IDE1NSAxMzcNCjE1IDEzIDIzNCA0NzkNCjE2IDEyIDE2NCAzMjANCjE3IDExIDEwMSA0NTUNCjE4IDggNDA5IDE2OQ0KMTkgOCAxNjEgNDI3DQoyMCAxMyA3IDQ3OA0K",
+            "answer": "MTAyMTIzNQ=="
+        },
+        {
+            "input": "Ng0KMTAwIDEwMCAxIDEwMCAxIDEwMA0KMSAxIDEgMSAxIDENCjEgMyAxIDENCjIgMyAxIDENCjMgNCAxIDENCjMgNSAxMDAgMQ0KNSA2IDEgMQ0K",
+            "answer": "MzAw"
+        },
+        {
+            "input": "NQ0KMiAxIDUgMSA1DQo1IDMgMiAzIDINCjIgMSAyIDMNCjMgNSA0IDMNCjQgMiAyIDMNCjUgNCA1IDINCg==",
+            "answer": "MzA="
+        },
+        {
+            "input": "NQ0KMiAxIDMgMiAxDQo0IDEgMSAzIDMNCjIgMSAzIDMNCjMgNCAyIDUNCjQgMiA0IDINCjUgNCAxIDENCg==",
+            "answer": "MzI="
+        },
+        {
+            "input": "NQ0KMjQ0MDMgMTkzNDg3IDM2NjQ0IDE1MDU1NyA2OTkwDQoxMjIwMjEgMjM3MzcgODk3NjUgMzE1NDggMTkyOTg0DQoxIDIgMTY2NjAwIDExMjM2Ng0KMiAzIDE5MTQxMiAxNzUzMjUNCjMgNCAxNTU0OTIgNDcxMDINCjMgNSAxNDc5OTMgMTA1ODQ5DQo=",
+            "answer": "MzQ3MTk5NDk3NzA="
+        },
+        {
+            "input": "NA0KNSAxIDQgMQ0KMyAxIDQgMg0KMSAyIDIgNA0KMSAzIDEgMw0KMyA0IDQgMg0K",
+            "answer": "MTk="
+        }
+    ]
+}

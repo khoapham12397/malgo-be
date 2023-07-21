@@ -1,9 +1,9 @@
 import { Prisma, PrismaClient } from "@prisma/client";
 import CustomAPIError from "../config/CustomAPIError";
-import { insertPendingSubmission, insertPendingTokenDirectly, insertSubmission, insertSubmissionContest } from "../redis/submissionService";
+import { insertPendingSubmission, insertPendingSubmissionV2, InsertPendingSubParam, insertPendingTokenDirectly, insertSubmission, insertSubmissionContest } from "../redis/submissionService";
 import { generator } from "../utils/genId";
 import { ChildSubmissionBatchParam, createChildSubmissionBatch, PostSubContestParam, sendSubmissionContest, TestCaseDescription } from "../judgeApi";
-import { getTestCaseOrigin } from "./testcaseService";
+import { getNumberSubTest, getTestCaseID, getTestCaseOrigin, getTestfileName } from "./testcaseService";
 import { udpateUserContest, UpdateUserContestParam } from "../redis/contestService";
 
 const prisma = new PrismaClient();
@@ -72,12 +72,28 @@ const judgeStatus = [
 ]
 export const createSubmissionDB = async(params: SubmissionParam)=>{
     try {
+        
         const testcase = await getTestCaseOrigin(params.problemId);
         if(!testcase) {
             throw new CustomAPIError('There are no testcase for this problem', 500);
         }
-        //testcase.description.length;
-        const status = testcase.description.map((item:any) => "1");
+        // create Submission in DB 
+
+        const chidlSubBatchParam :ChildSubmissionBatchParam=  {
+            languageId: Number(params.language),
+            sourceCode: params.sourceCode,
+            testcaseList: testcase.description as Array<TestCaseDescription>,
+        }
+
+        //createChildSubmissionBatch(chidlSubBatchParam,submissionId);
+        
+              
+        const status = Array(testcase.subTestNumber).fill({
+            id: 1, 
+            time: null,
+            memory: null,
+        });
+
         let statisticInfo = {};
 
         if(params.contestId) {
@@ -102,17 +118,66 @@ export const createSubmissionDB = async(params: SubmissionParam)=>{
                 result: 'PENDING',
             }
         });        
+        insertPendingSubmission(chidlSubBatchParam, submission.id);
 
-        //const submissionId = await insertSubmission(params, testcase.subTestNumber);
+        return submission.id;
+                
+    }catch(error: any) {
+        console.log(error);
+        throw error;
+    }
+}
+export const createSubmissionDBV2 = async(params: SubmissionParam)=>{
+    try {
         
-        const chidlSubBatchParam :ChildSubmissionBatchParam=  {
-            languageId: Number(params.language),
-            sourceCode: params.sourceCode,
-            testcaseList: testcase.description as Array<TestCaseDescription>,
+
+        const subTestNumber = await getNumberSubTest(getTestCaseID(params.problemId));
+        console.log('sub test num: '+ subTestNumber);
+
+        if(subTestNumber === 0) throw new CustomAPIError('There are no testcase for this problem', 500);
+              
+        const status = Array(subTestNumber).fill({
+            id: 1, 
+            time: null,
+            memory: null,
+        });
+
+        let statisticInfo = {};
+
+        if(params.contestId) {
+            statisticInfo = {
+                penaltyTime: params.penaltyTime,
+                maxScore: params.maxScore,
+            }
         }
 
-        //createChildSubmissionBatch(chidlSubBatchParam,submissionId);
-        insertPendingSubmission(chidlSubBatchParam, submission.id);
+        const submission = await prisma.submission.create({
+            data: {
+                id: generator.nextId().toString(),
+                code: params.sourceCode,
+                createTime: new Date(Date.now()),
+                language: params.language.toString(),
+                problemId: params.problemId,
+                shared: true,
+                contestId: params.contestId?params.contestId:null,
+                statistic_info: statisticInfo as Prisma.JsonObject,
+                status: status as Prisma.JsonArray,
+                username: params.username,
+                result: 'PENDING',
+            }
+        });        
+        
+        const testfile = getTestfileName(params.problemId);
+        if(!testfile) throw new CustomAPIError('No testcase',500);
+        //const submissionId = await insertSubmission(params, testcase.subTestNumber); // oldest version 
+        const pr : InsertPendingSubParam= {
+            languageId: Number(params.language),
+            sourceCode: params.sourceCode,
+            submissionId: submission.id,
+            testfile: testfile
+        }
+        insertPendingSubmissionV2(pr);
+        
         return submission.id;
                 
     }catch(error: any) {
@@ -121,17 +186,18 @@ export const createSubmissionDB = async(params: SubmissionParam)=>{
     }
 }
 
-
 type StatusUpdate = {
     statusId: number;
     index: number;
     token: string;
+    time: number | null | undefined,
+    memory: number | null | undefined,
 }
 export const updateSubmissonDBStatus = async(submissionId: string, statusArr: Array<StatusUpdate>) =>{
     try{
-        const nextTokens : Array<string> = [];
+            const nextTokens : Array<string> = [];
 
-        const submission :any = (await prisma.submission.findUnique({
+            const submission :any = (await prisma.submission.findUnique({
             where: {
                 id :submissionId,
             },
@@ -153,21 +219,25 @@ export const updateSubmissonDBStatus = async(submissionId: string, statusArr: Ar
             if(item.statusId < 3) {
                 nextTokens.push(item.token+':'+item.index);
             }
-            status[item.index] = item.statusId;
+            status[item.index] = {
+                id: item.statusId,
+                time: item.time?item.time:null,
+                memory: item.memory?item.memory:null,
+            }
         });
-        
+               
 
         let updateData : any; 
-        if(nextTokens.length === 0){      
+        if(status.filter((item:any) => item < 3).length === 0){      
             let result:any = 3;
             for(let i=0;i<status.length;i++) {
-                if(Number(status[i]) != result) {
-                    result = Number(status[i]);
+                if(Number(status[i].id) != result) {
+                    result = Number(status[i].id);
                     break;
                 }
             }       
-            result= result>7?'RUNTIME_ERROR':judgeStatus[result];
-
+            result = result>7?'RUNTIME_ERROR':judgeStatus[result];
+            
             updateData  = {
                 status: status as Prisma.JsonArray,
                 result: result,
@@ -204,7 +274,9 @@ export const updateSubmissonDBStatus = async(submissionId: string, statusArr: Ar
             //await redisClient.LPUSH(getPendingTokenQueueKey(), JSON.stringify([submissionId, nextTokens]));
             await insertPendingTokenDirectly(JSON.stringify([submissionId, nextTokens]));            
         }
+        
     }catch(error){
+        console.log(error);
         throw error;
     }
     

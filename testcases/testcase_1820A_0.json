@@ -1,0 +1,15 @@
+{
+    "id": "1820A_0",
+    "problemId": "1820A",
+    "subTestNumber": "2",
+    "description": [
+        {
+            "input": "Nw0KXl9fX19fX14NCl9fX15fXl5eX15fX19eDQpeXw0KXg0KXl9eXl5eXl9eX15eDQpfX19eXg0KXw0K",
+            "answer": "NQo1CjEKMQowCjMKMgo="
+        },
+        {
+            "input": "Nw0KXg0KXg0KXg0KXg0KXg0KXg0KXg0K",
+            "answer": "MQoxCjEKMQoxCjEKMQo="
+        }
+    ]
+}

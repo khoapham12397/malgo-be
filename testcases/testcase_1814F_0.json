@@ -1,0 +1,31 @@
+{
+    "id": "1814F_0",
+    "problemId": "1814F",
+    "subTestNumber": "6",
+    "description": [
+        {
+            "input": "NiA1DQozIDUNCjEgMg0KMiA0DQoyIDMNCjMgMw0KNCA2DQoxIDMNCjYgMQ0KMyA1DQozIDYNCjIgMw0K",
+            "answer": "MSAzIDUgNiA="
+        },
+        {
+            "input": "MyAxDQoyIDMNCjEgNA0KMSAxDQoxIDMNCg==",
+            "answer": "MSA="
+        },
+        {
+            "input": "NSA1DQoxIDMNCjIgMw0KMiAyDQozIDUNCjIgNA0KMSAyDQoyIDMNCjMgNA0KNCAxDQo0IDUNCg==",
+            "answer": "MSAyIDMgNCA1IA=="
+        },
+        {
+            "input": "MSAwDQo0IDEwDQo=",
+            "answer": "MSA="
+        },
+        {
+            "input": "MTAgMjANCjEgNQ0KNCA0DQozIDQNCjEgNA0KMyA1DQo3IDcNCjEgNA0KNCA1DQoyIDUNCjEgMQ0KMTAgNA0KOSA4DQo1IDENCjIgNg0KNyAxDQoxIDEwDQo3IDgNCjcgNg0KMTAgOA0KNCA2DQoyIDMNCjUgNA0KNSA4DQo0IDkNCjEwIDYNCjQgMg0KNiA4DQoyIDkNCjggMQ0KMSA5DQo=",
+            "answer": "MSAyIDMgNCA1IDcgOCA5IDEwIA=="
+        },
+        {
+            "input": "NSAwDQoxIDQNCjEgMQ0KNSA4DQoyIDEwDQoxIDMNCg==",
+            "answer": "MSA="
+        }
+    ]
+}

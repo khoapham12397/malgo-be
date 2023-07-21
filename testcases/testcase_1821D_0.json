@@ -1,0 +1,19 @@
+{
+    "id": "1821D_0",
+    "problemId": "1821D",
+    "subTestNumber": "3",
+    "description": [
+        {
+            "input": "NA0KMiAzDQoxIDMNCjEgNA0KNCAyMA0KMTAgMTMgMTYgMTkNCjExIDE0IDE3IDIwDQoyIDMNCjEgMw0KMSAxMA0KMiA0DQo5OSA5OTk5OTk5OTkNCjEwMCAxMDAwMDAwMDAwDQo=",
+            "answer": "OAotMQo3CjEwMDAwMDAwMDQK"
+        },
+        {
+            "input": "MQ0KMSAxMDAwMDAwMDAwDQo5OTk5OTk5OTkNCjEwMDAwMDAwMDANCg==",
+            "answer": "LTEK"
+        },
+        {
+            "input": "Mg0KMiA1Mg0KMSA2DQoxIDcNCjIgNTINCjEgNg0KMSA3DQo=",
+            "answer": "LTEKLTEK"
+        }
+    ]
+}

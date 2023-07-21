@@ -1,0 +1,75 @@
+{
+    "id": "1814D_0",
+    "problemId": "1814D",
+    "subTestNumber": "17",
+    "description": [
+        {
+            "input": "NQ0KNCAyDQo2IDMgMTMgNw0KMSAyIDEgMg0KMyAyDQoxMDAgMTAxIDEwMg0KMTAwIDk5IDk4DQo1IDANCjEgMTIgNCA0IDMNCjEyIDEgMyAzIDQNCjIgNTANCjEwMDAgMTANCjEwMDAwMDAwMDAgMQ0KMyA1DQoxIDE5IDExDQo0OSA0IDcyDQo=",
+            "answer": "MgozCjAKMQoyCg=="
+        },
+        {
+            "input": "MQ0KMTMgMw0KNyA1IDcgOCA5IDggOCAzIDkgOCA3IDEgNg0KMyAxMCAxIDYgMyA1IDEgNiA1IDQgNCAyIDQNCg==",
+            "answer": "MTMK"
+        },
+        {
+            "input": "MQ0KOCAyDQoxMCAyMCAzMCAxIDEgMSAxIDENCjEgMSAxIDEgMSAxIDEgMQ0K",
+            "answer": "OAo="
+        },
+        {
+            "input": "MQ0KMyAyDQoyIDIgMTcNCjEgMSA1DQo=",
+            "answer": "Mgo="
+        },
+        {
+            "input": "MQ0KNiAyDQoyIDQgOCAxIDEgMQ0KMSAxIDEgMSAxIDENCg==",
+            "answer": "NQo="
+        },
+        {
+            "input": "MQ0KOCAzDQo4IDMgMiAxIDcgMiA2IDEwDQoxIDEwIDIgOCA4IDIgMiA2DQo=",
+            "answer": "OAo="
+        },
+        {
+            "input": "MQ0KMyAyDQoyIDggMQ0KMSAxIDENCg==",
+            "answer": "Mgo="
+        },
+        {
+            "input": "MQ0KMyAyDQoyIDcgOQ0KMSAzIDUNCg==",
+            "answer": "Mwo="
+        },
+        {
+            "input": "MQ0KMyAyDQo1IDcgNA0KMSAxIDENCg==",
+            "answer": "Mwo="
+        },
+        {
+            "input": "MQ0KNCAzDQoyMSAyMyA2IDUNCjEgMSA0IDUNCg==",
+            "answer": "NAo="
+        },
+        {
+            "input": "MQ0KNSA1DQo0OTEgNDkzIDkgOCA3DQoxIDEgNTUgNjIgNzENCg==",
+            "answer": "NQo="
+        },
+        {
+            "input": "MQ0KMyAxMA0KNTAgMjIgMTANCjIgNCA5DQo=",
+            "answer": "Mgo="
+        },
+        {
+            "input": "MQ0KMyAyDQoxMDAgMyA5OA0KMSAzNCAyDQo=",
+            "answer": "Mgo="
+        },
+        {
+            "input": "MQ0KNiAzDQozIDEgNCAxIDEgMw0KNSAzIDEgMSAxIDINCg==",
+            "answer": "Mgo="
+        },
+        {
+            "input": "MQ0KNSAxNQ0KMSA5IDggNSAxDQo0IDEwIDEgNyA4DQo=",
+            "answer": "Mgo="
+        },
+        {
+            "input": "MQ0KMTYgMTENCjQgOCA5IDEgNCAxMCA3IDUgNSAxIDQgMyAyIDQgNSA3DQo3IDcgMiAyIDIgOCA4IDEgMTAgMyA5IDEgNCA3IDMgMw0K",
+            "answer": "MTAK"
+        },
+        {
+            "input": "MQ0KMyAxMA0KMTAgMTAgMTAwDQoxIDEgMQ0K",
+            "answer": "Mgo="
+        }
+    ]
+}

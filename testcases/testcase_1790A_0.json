@@ -1,0 +1,87 @@
+{
+    "id": "1790A_0",
+    "problemId": "1790A",
+    "subTestNumber": "20",
+    "description": [
+        {
+            "input": "OQ0KMDAwDQozDQo0MTQxNTkyNjUzDQoxNDE1OTI2NTM1ODk3OTMyMzg0NjI2NDMzODMyNzkNCjMxNDIwDQozMTQxNQ0KMzE0MTU5MjY1MzU4DQoyNzE4Mg0KMzE0MTU5MjY1MzU4OTc5MzIzODQ2MjY0MzM4MzI3DQo=",
+            "answer": "MAoxCjAKMAozCjUKMTIKMAozMAo="
+        },
+        {
+            "input": "MQ0KMDANCg==",
+            "answer": "MAo="
+        },
+        {
+            "input": "MQ0KMQ0K",
+            "answer": "MAo="
+        },
+        {
+            "input": "MQ0KMzQ0NA0K",
+            "answer": "MQo="
+        },
+        {
+            "input": "MQ0KMzENCg==",
+            "answer": "Mgo="
+        },
+        {
+            "input": "MQ0KMw0K",
+            "answer": "MQo="
+        },
+        {
+            "input": "Mw0KMzE0DQozMTUNCjMxNA0K",
+            "answer": "MwoyCjMK"
+        },
+        {
+            "input": "Mg0KMA0KMA0K",
+            "answer": "MAowCg=="
+        },
+        {
+            "input": "MQ0KMA0K",
+            "answer": "MAo="
+        },
+        {
+            "input": "Mw0KNQ0KNQ0KODQNCg==",
+            "answer": "MAowCjAK"
+        },
+        {
+            "input": "Mw0KOA0KNQ0KODQNCg==",
+            "answer": "MAowCjAK"
+        },
+        {
+            "input": "Mw0KOA0KNQ0KOA0K",
+            "answer": "MAowCjAK"
+        },
+        {
+            "input": "Mw0KOA0KOA0KOA0K",
+            "answer": "MAowCjAK"
+        },
+        {
+            "input": "Mg0KOA0KODg4ODg4ODgNCg==",
+            "answer": "MAowCg=="
+        },
+        {
+            "input": "Mg0KMDMxNA0KMDAwMzAwMA0K",
+            "answer": "MAowCg=="
+        },
+        {
+            "input": "Mg0KOA0KODg4OA0K",
+            "answer": "MAowCg=="
+        },
+        {
+            "input": "Mw0KMQ0KMQ0KMQ0K",
+            "answer": "MAowCjAK"
+        },
+        {
+            "input": "Mw0KOA0KODgNCjg4OA0K",
+            "answer": "MAowCjAK"
+        },
+        {
+            "input": "MQ0KMzE0MTU2NTM1ODg4ODANCg==",
+            "answer": "NQo="
+        },
+        {
+            "input": "MQ0KMzE0MTU5MjY1Mw0K",
+            "answer": "MTAK"
+        }
+    ]
+}

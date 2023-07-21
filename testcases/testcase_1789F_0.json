@@ -1,0 +1,87 @@
+{
+    "id": "1789F_0",
+    "problemId": "1789F",
+    "subTestNumber": 20,
+    "description": [
+        {
+            "input": "YnVhYQ0K",
+            "answer": "Mgo="
+        },
+        {
+            "input": "Y29kZWZvcmNlc3JvdW5kDQo=",
+            "answer": "Ngo="
+        },
+        {
+            "input": "b29vb29vb29vb29hYWFhZWFhaWF1am9vb29vb29vb29vb28NCg==",
+            "answer": "MjQK"
+        },
+        {
+            "input": "emVybw0K",
+            "answer": "MAo="
+        },
+        {
+            "input": "bg0K",
+            "answer": "MAo="
+        },
+        {
+            "input": "ZG8NCg==",
+            "answer": "MAo="
+        },
+        {
+            "input": "c2FjDQo=",
+            "answer": "MAo="
+        },
+        {
+            "input": "eGFlaXcNCg==",
+            "answer": "MAo="
+        },
+        {
+            "input": "cGxscmx4bmMNCg==",
+            "answer": "Mwo="
+        },
+        {
+            "input": "cWFveWh3Y3J6b2NkZ2Z4YmRmb3MNCg==",
+            "answer": "NAo="
+        },
+        {
+            "input": "Y2Z4bmhud2Vjanh0bW9tenN3YmRyeXpqY2NyZXBneHJwcXp4bWxtcGh3dmlld2RqcmoNCg==",
+            "answer": "MTgK"
+        },
+        {
+            "input": "bmxkYWtkcXNkZXVqc3hkeGltbm5sdnd0Z2tvZW9ka2RjY2lzandqd2tpdGVqZGF1aHJtcmpvbGRzaXhqeWtrb2xmZ3N0cGJveHB1ZWJpd20NCg==",
+            "answer": "MjgK"
+        },
+        {
+            "input": "dnl5dnZ2eXUNCg==",
+            "answer": "NAo="
+        },
+        {
+            "input": "a2tzc3F4a3MNCg==",
+            "answer": "NAo="
+        },
+        {
+            "input": "bXp6em1keWQNCg==",
+            "answer": "Mwo="
+        },
+        {
+            "input": "cnJybXptZ2cNCg==",
+            "answer": "Mwo="
+        },
+        {
+            "input": "eWRjZGRjY2MNCg==",
+            "answer": "NAo="
+        },
+        {
+            "input": "cHBzZHJzZHINCg==",
+            "answer": "Ngo="
+        },
+        {
+            "input": "aGdtZ2dnbWcNCg==",
+            "answer": "Ngo="
+        },
+        {
+            "input": "aGh3ZW5od3cNCg==",
+            "answer": "NAo="
+        }
+    ]
+}

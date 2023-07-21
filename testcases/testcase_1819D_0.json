@@ -1,0 +1,15 @@
+{
+    "id": "1819D_0",
+    "problemId": "1819D",
+    "subTestNumber": "2",
+    "description": [
+        {
+            "input": "NA0KMyA0DQoyIDEgMg0KMiA0IDENCjIgMSAyDQo0IDQNCjIgMSAyDQoyIDMgNA0KMA0KMSAxDQoyIDUNCjANCjANCjUgMw0KMA0KMyAxIDIgMw0KMiAzIDENCjANCjEgMw0K",
+            "answer": "MgoxCjUKMwo="
+        },
+        {
+            "input": "Mg0KMSAxDQoxIDENCjEgMjAwMDAwDQowDQo=",
+            "answer": "MQoyMDAwMDAK"
+        }
+    ]
+}

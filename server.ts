@@ -21,12 +21,14 @@ import { isAuthenticated } from './middleware/authMiddleware';
 import {getBatchSubmission} from "./judgeApi";
 import submissonRoute from "./routes/submissionRoute";
 import {submitSubmissionScheduler, submitTokenScheduler,submitTokenContestScheduler, scheduleTokenContest, startGetToken, startSubmitToken, startSendSubmission} from "./scheduler";
-import {testCreateBatchSubmission, testCreateSubmission} from "./testSubmission/testCreateBatchSubmisson";
+import {  testCreateBatchSubmission, testCreateSubmission} from "./testSubmission/testCreateBatchSubmisson";
 import contestRouter from "./routes/contestRoute";
 import {exRating} from  "./services/ratingService";
 import { initRedisClient } from './redis/baseService';
 import gameRouter from './routes/gameRoute';
 import { initQuizList } from './redis/gameService';
+import { cleanTestCase, readTestCaseFile } from './services/testcaseService';
+import {changeStatusFormatSubmission, deleteSubmission} from './services/cleanDataService';
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -203,12 +205,14 @@ const server =  app.listen(PORT,async() => {
   await initRedisClient();
   initQuizList();
   initIOSocket(server);
+  //readTestCaseFile('testcases/testcase_1792A_0.json');
   await startSendSubmission();
   //await submitTokenScheduler.start();
+
   startSubmitToken();
-  checkSubmissionStatus();
   
-  console.log(exRating());
+  //deleteSubmission();
+  //startTestSub();
   //createThreadIndex();
   //saveThreadsFromDBToElastic();
   //getThreadContentById('1688658795788');

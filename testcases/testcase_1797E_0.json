@@ -1,0 +1,15 @@
+{
+    "id": "1797E_0",
+    "problemId": "1797E",
+    "subTestNumber": "2",
+    "description": [
+        {
+            "answer": "MTAKMgoxCg==",
+            "input": "NSA0DQo4IDEgNiAzIDcNCjIgMSA1DQoyIDMgNA0KMSAxIDMNCjIgMyA0DQo="
+        },
+        {
+            "answer": "NDIK",
+            "input": "NSAyMg0KNDgyMzYzMyA0ODIzNjMzIDQ4MjM2MzMgNDgyMzYzMyA0ODIzNjMzDQoxIDIgMg0KMSAyIDINCjEgMiAyDQoxIDIgMg0KMSAyIDINCjEgMiAyDQoxIDIgMg0KMSAyIDINCjEgMiAyDQoxIDIgMg0KMSAyIDINCjEgMiAyDQoxIDIgMg0KMSAyIDINCjEgMiAyDQoxIDIgMg0KMSAyIDINCjEgMiAyDQoxIDIgMg0KMSAyIDINCjEgMiAyDQoyIDIgNA0K"
+        }
+    ]
+}

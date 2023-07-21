@@ -1,0 +1,27 @@
+{
+    "id": "1805D_0",
+    "problemId": "1805D",
+    "subTestNumber": "5",
+    "description": [
+        {
+            "answer": "MSAxIDIgNCA2IDYgCg==",
+            "input": "Ng0KMSAyDQoxIDMNCjIgNA0KMiA1DQozIDYNCg=="
+        },
+        {
+            "answer": "MSAxIDMgNSA1IAo=",
+            "input": "NQ0KMSAyDQoyIDMNCjMgNA0KMyA1DQo="
+        },
+        {
+            "answer": "MSAxIDEgMiA1IDggMTAgMTAgMTAgMTAgCg==",
+            "input": "MTANCjcgMTANCjEgMg0KMSA5DQoxMCAxDQo0IDgNCjEwIDUNCjcgNg0KMyA3DQo5IDQNCg=="
+        },
+        {
+            "answer": "MSAyIAo=",
+            "input": "Mg0KMSAyDQo="
+        },
+        {
+            "answer": "MSAyIDQgNCAK",
+            "input": "NA0KMSAyDQoyIDMNCjIgNA0K"
+        }
+    ]
+}

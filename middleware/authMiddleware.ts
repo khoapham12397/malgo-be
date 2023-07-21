@@ -83,7 +83,7 @@ export const isAuthenticatedOption = async(
     try{      
       const token = req.headers['authorization'];
       console.log(token);
-      if(token) {
+      if(token && token.length > 7) {
         const username = getUsernameFromToken(token.substring(7));
         console.log("find out token");
         merge(req, {username: username});

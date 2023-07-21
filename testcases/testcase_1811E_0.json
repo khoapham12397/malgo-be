@@ -1,0 +1,23 @@
+{
+    "id": "1811E_0",
+    "problemId": "1811E",
+    "subTestNumber": "4",
+    "description": [
+        {
+            "input": "Nw0KMw0KNQ0KMjINCjEwDQoxMDANCjEyMzQ1DQo4MjcyNjQ2MzQ5MTINCg==",
+            "answer": "Mwo2CjI1CjExCjEyMQoxODkzNwoyOTMyMjg1MzIwODkwCg=="
+        },
+        {
+            "input": "MQ0KMTU0MTcNCg==",
+            "answer": "MjMxMzAK"
+        },
+        {
+            "input": "MQ0KMTI1NTI0MjM4NDM1DQo=",
+            "answer": "Mzk5OTk5OTk5OTk5Cg=="
+        },
+        {
+            "input": "MQ0KMTM5NDcxMzc2MDMNCg==",
+            "answer": "Mzk5OTk5OTk5OTkK"
+        }
+    ]
+}

@@ -1,0 +1,87 @@
+{
+    "id": "1784F_0",
+    "problemId": "1784F",
+    "subTestNumber": 20,
+    "description": [
+        {
+            "input": "MyAxDQo=",
+            "answer": "Mgo="
+        },
+        {
+            "input": "MyAyDQo=",
+            "answer": "Mwo="
+        },
+        {
+            "input": "MyAzDQo=",
+            "answer": "MQo="
+        },
+        {
+            "input": "NyA0DQo=",
+            "answer": "MTEK"
+        },
+        {
+            "input": "MjMgOA0K",
+            "answer": "ODgK"
+        },
+        {
+            "input": "MTAwIDc3DQo=",
+            "answer": "ODI1NDMwNDc0Cg=="
+        },
+        {
+            "input": "MjAwIDc3DQo=",
+            "answer": "MTYxMjk2NzQ4Cg=="
+        },
+        {
+            "input": "MTIzNCAyMzkNCg==",
+            "answer": "MTY0MDAzNTI2Cg=="
+        },
+        {
+            "input": "NTU1NSA0NDQ0DQo=",
+            "answer": "NDQ2ODU5MDEzCg=="
+        },
+        {
+            "input": "MSAxDQo=",
+            "answer": "MQo="
+        },
+        {
+            "input": "MiAxDQo=",
+            "answer": "Mgo="
+        },
+        {
+            "input": "MiAyDQo=",
+            "answer": "MQo="
+        },
+        {
+            "input": "NTAyMTYgNTAyMTUNCg==",
+            "answer": "NTAyMTYK"
+        },
+        {
+            "input": "MTIzNDU2IDk4NzY1DQo=",
+            "answer": "MTU1NjE1NDIwCg=="
+        },
+        {
+            "input": "OTg3NjU0IDEyMzQ1Ng0K",
+            "answer": "NjAwODI2MTk1Cg=="
+        },
+        {
+            "input": "MTAwMDAwMCA3Nzc3NzcNCg==",
+            "answer": "ODM0Njg4NzYzCg=="
+        },
+        {
+            "input": "MTAwMDAwMCA5ODc2NTQNCg==",
+            "answer": "MTcwNTQzMwo="
+        },
+        {
+            "input": "MTAwMDAwMCAxDQo=",
+            "answer": "Mgo="
+        },
+        {
+            "input": "MTAwMDAwMCA1MDAwMDANCg==",
+            "answer": "MjM5MDkxOTMyCg=="
+        },
+        {
+            "input": "OTk5OTk5IDQ5OTk5OQ0K",
+            "answer": "NTk3OTA1MTA2Cg=="
+        }
+    ]
+}

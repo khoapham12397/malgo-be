@@ -1,0 +1,15 @@
+{
+    "id": "1780E_0",
+    "problemId": "1780E",
+    "subTestNumber": "2",
+    "description": [
+        {
+            "input": "Nw0KMiA0DQoxNiAyNA0KMiA2DQoxIDEwDQozIDMNCjI1NjIgMjU2OA0KMTI1IDEwMDA5MA0K",
+            "answer": "Mgo2CjMKNQowCjUKNTAwNDUK"
+        },
+        {
+            "input": "MQ0KMTAwMDAwMDAwMCAxMDAwMDAwMDAwDQo=",
+            "answer": "MAo="
+        }
+    ]
+}

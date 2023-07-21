@@ -1,0 +1,71 @@
+{
+    "id": "1804C_0",
+    "problemId": "1804C",
+    "subTestNumber": "16",
+    "description": [
+        {
+            "answer": "Tm8KWWVzClllcwpZZXMKTm8KTm8KTm8K",
+            "input": "Nw0KNSAyIDENCjUgMiAyDQoxMCAwIDEwMA0KMTEgNyAxMDANCjMgMSAxMDAwDQozMSAwIDEwDQoxMDAgNDkgNw0K"
+        },
+        {
+            "answer": "WWVzCk5vCg==",
+            "input": "Mg0KMTAwMDAwIDAgMTAwMDAwMDAwMA0KMTAwMDAwIDk5OTk4IDEwMDAwMDAwMDANCg=="
+        },
+        {
+            "answer": "WWVzCk5vCg==",
+            "input": "Mg0KMTAwMDAwIDAgOTA2MjQNCjEwMDAwMCAwIDkwNjIzDQo="
+        },
+        {
+            "answer": "Tm8KTm8K",
+            "input": "Mg0KMTAwMDAwIDQzOTkzIDEwMDAwMDANCjEwMDAwMCA4NTExOCAxMDAwMDAwDQo="
+        },
+        {
+            "answer": "Tm8KTm8KWWVzClllcwpZZXMKTm8KTm8KTm8KWWVzCk5vCg==",
+            "input": "MTANCjIwMDAwIDExMzEgMTAwMDANCjIwMDAwIDI2MDEgMTAwMDANCjIwMDAwIDE5NTA0IDEwMDAwDQoyMDAwMCAxMzAzOSAxMDAwMA0KMjAwMDAgMjk2MCAxMDAwMA0KMjAwMDAgMTYyNDggMTAwMDANCjIwMDAwIDIyMDggMTAwMDANCjIwMDAwIDIwNDcgMTAwMDANCjIwMDAwIDM5OTkgMTAwMDANCjIwMDAwIDExNTA1IDEwMDAwDQo="
+        },
+        {
+            "answer": "Tm8KTm8KWWVzClllcwpObwpObwpObwpObwpObwpZZXMK",
+            "input": "MTANCjMzMzY0IDIwODA2IDI5MDA5DQoxMTI0NyA2MDk0IDE0NjkxDQoxMjEyOCA4OTcgMzYyODgNCjc4MzggNzIwNiAzNzM3DQoxMjkyNCA4OTc0IDQyNDI5DQo2NjgzIDU1MTAgMTIxODENCjE2Mjg5IDEwMjczIDk1NzcNCjIyNjM3IDE5NTk2IDQ0NzANCjI5OTA5IDEzMDA1IDM4MA0KMzIyMTIgNTAwMiAzNTY5MA0K"
+        },
+        {
+            "answer": "WWVzClllcwpZZXMKWWVzClllcwpZZXMKWWVzClllcwpZZXMKWWVzClllcwpZZXMKWWVzClllcwpZZXMK",
+            "input": "MTUNCjY1NTM2IDAgMTAwMDAwMDAwMA0KMzI3NjggMCAxMDAwMDAwMDAwDQoxNjM4NCAwIDEwMDAwMDAwMDANCjgxOTIgMCAxMDAwMDAwMDAwDQo0MDk2IDAgMTAwMDAwMDAwMA0KMjA0OCAwIDEwMDAwMDAwMDANCjEwMjQgMCAxMDAwMDAwMDAwDQo1MTIgMCAxMDAwMDAwMDAwDQoyNTYgMCAxMDAwMDAwMDAwDQoxMjggMCAxMDAwMDAwMDAwDQo2NCAwIDEwMDAwMDAwMDANCjMyIDAgMTAwMDAwMDAwMA0KMTYgMCAxMDAwMDAwMDAwDQo4IDAgMTAwMDAwMDAwMA0KNCAwIDEwMDAwMDAwMDANCg=="
+        },
+        {
+            "answer": "WWVzCk5vCg==",
+            "input": "Mg0KMTAwMDAwIDQ5OTk5IDI4MTI2DQoxMDAwMDAgNDk5OTkgMjgxMjUNCg=="
+        },
+        {
+            "answer": "WWVzCk5vCg==",
+            "input": "Mg0KMTAwMDAwIDk5OTk1IDI2MjE0DQoxMDAwMDAgOTk5OTUgMjYyMTMNCg=="
+        },
+        {
+            "answer": "WWVzCg==",
+            "input": "MQ0KMTI4IDAgMTAwMDAwMDAwMA0K"
+        },
+        {
+            "answer": "Tm8KTm8KTm8KTm8K",
+            "input": "NA0KNTAwMDAgMSAxMDAwMDAwMDAwDQo1MDAwMCAxIDEwMDAwMDAwMDANCjUwMDAwIDEgMTAwMDAwMDAwMA0KNTAwMDAgMSAxMDAwMDAwMDAwDQo="
+        },
+        {
+            "answer": "Tm8KTm8K",
+            "input": "Mg0KMTAwMDAwIDEgMTAwMDAwMDAwMA0KMTAwMDAwIDEgMTAwMDAwMDAwMA0K"
+        },
+        {
+            "answer": "Tm8KTm8K",
+            "input": "Mg0KOTk4ODIgMSAxMDAwMDAwMDAwDQo5OTg4MyAxIDEwMDAwMDAwMDANCg=="
+        },
+        {
+            "answer": "Tm8KTm8KTm8K",
+            "input": "Mw0KOTk5OTkgMSAxMDAwMDAwMDAwDQo5OTk5OCAxIDEwMDAwMDAwMDANCjMgMSAxMDAwMDAwMDAwDQo="
+        },
+        {
+            "answer": "Tm8KTm8K",
+            "input": "Mg0KOTk5OTkgMSAxMDAwMDAwMDAwDQo5OTk5OCAxIDEwMDAwMDAwMDANCg=="
+        },
+        {
+            "answer": "Tm8KTm8K",
+            "input": "Mg0KOTk5OTcgMSAxMDAwMDAwMDAwDQo5OTk5NiAxIDEwMDAwMDAwMDANCg=="
+        }
+    ]
+}

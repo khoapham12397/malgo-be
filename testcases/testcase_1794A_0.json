@@ -1,0 +1,15 @@
+{
+    "id": "1794A_0",
+    "problemId": "1794A",
+    "subTestNumber": "2",
+    "description": [
+        {
+            "answer": "Tk8KWUVTCllFUwpOTwpZRVMK",
+            "input": "NQ0KNA0KYmNkIGNkIGEgZCBhYmMgYWINCjMNCmkgaW8gaSBvaQ0KMg0KZyBnDQozDQp0IGFsIGx0IGENCjQNCmJiYSBhIGFiIGEgYWJiIGJhDQo="
+        },
+        {
+            "answer": "WUVTCg==",
+            "input": "MQ0KMTUNCm50bCBudGxnZCBudGxnZHNkdWRzIGRzZGdsdG4gZ2x0biB1ZHNkZ2x0biBudGxnZHNkdWRzZGdsIGRnbHRuIG50IHNkZ2x0biBsZ2RzZHVkc2RnbHRuIGdkc2R1ZHNkZ2x0biBudGxnZHNkdWQgbnRsZ2RzZCBudGxnZHNkdSBudGxnZHNkdWRzZGdsdCBkdWRzZGdsdG4gbnRsZ2RzIG50bGdkc2R1ZHNkIG4gbiBudGxnZHNkdWRzZGcgc2R1ZHNkZ2x0biBkc2R1ZHNkZ2x0biB0bGdkc2R1ZHNkZ2x0biBudGxnIHRuIGx0bg0K"
+        }
+    ]
+}

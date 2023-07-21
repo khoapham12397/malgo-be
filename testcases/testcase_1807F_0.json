@@ -1,0 +1,51 @@
+{
+    "id": "1807F_0",
+    "problemId": "1807F",
+    "subTestNumber": "11",
+    "description": [
+        {
+            "answer": "MwotMQoxCi0xCjQKMAo=",
+            "input": "Ng0KNSA3IDEgNyAyIDQgREwNCjUgNyAxIDcgMyAyIERMDQozIDMgMSAzIDIgMiBVUg0KMiA0IDIgMSAyIDIgRFINCjQgMyAxIDEgMSAzIFVMDQo2IDQgMSAyIDMgNCBEUg0K"
+        },
+        {
+            "answer": "LTEKLTEKMgozNQotMQotMQowCi0xCjAKMTIK",
+            "input": "MTANCjE0IDQgMTEgMiAxMCAyIERMDQo2IDggNSA4IDUgMSBVUg0KMTUgOSAyIDUgOCA1IFVSDQoyNiAzIDIxIDEgMyAxIFVMDQoxOCA2IDMgNSA3IDIgVVINCjMxIDMyIDE0IDI1IDIwIDQgRFINCjQgNSAyIDQgMiA0IERMDQoxMyAxMyA4IDQgNCAxMSBVUg0KNCAyIDMgMSAzIDEgRFINCjEyIDE1IDkgNCAyIDkgREwNCg=="
+        },
+        {
+            "answer": "LTEK",
+            "input": "MQ0KMTQ0IDE4MCAzOCA0MCAxMjcgMTMwIFVSDQo="
+        },
+        {
+            "answer": "LTEK",
+            "input": "MQ0KMjE0IDIyMCAxMDEgMjQgMjQgMTMgVVINCg=="
+        },
+        {
+            "answer": "MzAyCg==",
+            "input": "MQ0KMTYzIDIxNiA2NyAxODUgMTI1IDgxIFVMDQo="
+        },
+        {
+            "answer": "LTEK",
+            "input": "MQ0KMiAyNTAwMCAyIDEgMSAyNDk5OSBVTA0K"
+        },
+        {
+            "answer": "MjQ5OTkK",
+            "input": "MQ0KMiAyNTAwMCAyIDEgMSAyNTAwMCBVTA0K"
+        },
+        {
+            "answer": "NDk5OTYK",
+            "input": "MQ0KMiAyNTAwMCAyIDIgMSAxIFVSDQo="
+        },
+        {
+            "answer": "NDUxNzAK",
+            "input": "MQ0KMjQ5OTkgMiAyMTc2NSAxIDIzNDA3IDEgVUwNCg=="
+        },
+        {
+            "answer": "MjIyMTYK",
+            "input": "MQ0KNCAxMTExMSAzIDIzIDEgMSBVUg0K"
+        },
+        {
+            "answer": "LTEK",
+            "input": "MQ0KMjQ5OTkgMiAyNDQzMCAyIDY4NDggMSBVTA0K"
+        }
+    ]
+}

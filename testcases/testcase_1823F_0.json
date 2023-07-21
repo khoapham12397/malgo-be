@@ -1,0 +1,35 @@
+{
+    "id": "1823F_0",
+    "problemId": "1823F",
+    "subTestNumber": "7",
+    "description": [
+        {
+            "input": "MyAxIDMNCjEgMg0KMiAzDQo=",
+            "answer": "MiAyIDEgCg=="
+        },
+        {
+            "input": "NCAxIDMNCjEgMg0KMiAzDQoxIDQNCg==",
+            "answer": "NCAyIDEgMiAK"
+        },
+        {
+            "input": "OCAyIDYNCjYgNA0KNiAyDQo1IDQNCjMgMQ0KMiAzDQo3IDQNCjggMg0K",
+            "answer": "MSAzIDIgMCAwIDEgMCAxIAo="
+        },
+        {
+            "input": "MiAyIDENCjIgMQ0K",
+            "answer": "MSAxIAo="
+        },
+        {
+            "input": "MyAzIDENCjEgMw0KMiAxDQo=",
+            "answer": "MSAwIDEgCg=="
+        },
+        {
+            "input": "NSAyIDUNCjMgNA0KMSAzDQo0IDINCjUgMw0K",
+            "answer": "MSAzIDMgNCAxIAo="
+        },
+        {
+            "input": "MTkgMTMgMTcNCjE1IDcNCjggMTgNCjE0IDE4DQoxMSA5DQoxMiA5DQo3IDEzDQo0IDYNCjE3IDE2DQoxOSAxNA0KMSA1DQoxIDQNCjMgMTkNCjEzIDExDQoxNiAyDQoxNSA1DQoxMiA4DQoyIDMNCjYgMTANCg==",
+            "answer": "MjIgNCA2IDIyIDIyIDIyIDIyIDE0IDE4IDExIDIwIDE2IDIyIDEwIDIyIDIgMSAxMiA4IAo="
+        }
+    ]
+}

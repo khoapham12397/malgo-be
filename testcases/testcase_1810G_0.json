@@ -1,0 +1,11 @@
+{
+    "id": "1810G_0",
+    "problemId": "1810G",
+    "subTestNumber": "1",
+    "description": [
+        {
+            "input": "NA0KMg0KMSAyDQoxIDINCjEgMiAzDQozDQoxIDMNCjEgNA0KNSA1DQoxIDEgMSAxDQozDQoyIDUNCjQgNg0KMCAyDQo0IDMgMiAxDQo1DQo1IDYNCjUgNw0KMSA2DQoxIDMNCjQgNw0KOSAwIDQgNSAyIDQNCg==",
+            "answer": "NTAwMDAwMDA1IDc1MDAwMDAwNyAKMSAxIDEgCjIwMDAwMDAwNSAzMzMzMzMzMzkgMzMzMzMzMzM5IAo1MDAwMDAwMDUgODgwOTUyMzkxIDgwMTU4NzMxMSA3ODE3NDYwNDEgNzg5MzA0NjIwIAo="
+        }
+    ]
+}

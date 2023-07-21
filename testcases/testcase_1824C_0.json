@@ -1,0 +1,31 @@
+{
+    "id": "1824C_0",
+    "problemId": "1824C",
+    "subTestNumber": "6",
+    "description": [
+        {
+            "input": "Ng0KMyA1IDcgNSA4IDQNCjEgMg0KMSAzDQoxIDQNCjMgNQ0KNCA2DQo=",
+            "answer": "Mw=="
+        },
+        {
+            "input": "OA0KNyAxMCA3IDE2IDE5IDkgMTYgMTENCjEgNQ0KNCAyDQo2IDUNCjUgMg0KNyAyDQoyIDMNCjMgOA0K",
+            "answer": "Mw=="
+        },
+        {
+            "input": "NA0KMSAyIDEgMg0KMSAyDQoyIDMNCjQgMw0K",
+            "answer": "MA=="
+        },
+        {
+            "input": "OQ0KNCAzIDYgMSA1IDUgNSAyIDcNCjEgMg0KMiAzDQo0IDENCjQgNQ0KNCA2DQo0IDcNCjggMQ0KOCA5DQo=",
+            "answer": "Mg=="
+        },
+        {
+            "input": "Mg0KMSAxDQoxIDINCg==",
+            "answer": "MA=="
+        },
+        {
+            "input": "OA0KMzA0NjkzNTEyIDc3NDEyODI0MCAyOTkwMTA3MCA3ODE3MTMyMDIgNDEwNDE5MzU3IDkxNDc1MDUxNCAzMDkyNzIxNjkgNjA2Njk0OTcNCjEgMg0KMiAzDQozIDQNCjMgNQ0KMiA2DQo1IDcNCjQgOA0K",
+            "answer": "Mw=="
+        }
+    ]
+}

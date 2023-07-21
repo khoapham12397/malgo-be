@@ -1,6 +1,6 @@
 import express from 'express';
 import CustomAPIError from '../config/CustomAPIError';
-import { createSubmissionContest, createSubmissionDB, getSubmissionList, getSubmissionsProblem, getSubmissionStatus } from '../services/submissionService';
+import { createSubmissionContest, createSubmissionDB, createSubmissionDBV2, getSubmissionList, getSubmissionsProblem, getSubmissionStatus } from '../services/submissionService';
 import { SubmissionParam } from '../services/submissionService';
 
 export const createSubmissionCtl = async (req: express.Request,res: express.Response)=>{
@@ -11,7 +11,7 @@ export const createSubmissionCtl = async (req: express.Request,res: express.Resp
             throw new CustomAPIError('Not permission',403);    
         }
         */
-        const submissionId = await createSubmissionDB(req.body as SubmissionParam);// base64 encode src;
+        const submissionId = await createSubmissionDBV2(req.body as SubmissionParam);// base64 encode src;
         return res.status(201).json({
             successed: true, data: {submissionId: submissionId}
         }).end();

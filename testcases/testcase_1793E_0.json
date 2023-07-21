@@ -1,0 +1,47 @@
+{
+    "id": "1793E_0",
+    "problemId": "1793E",
+    "subTestNumber": "10",
+    "description": [
+        {
+            "answer": "NQo1CjMK",
+            "input": "NQ0KMSAyIDIgMiAyDQozDQoyDQozDQo0DQo="
+        },
+        {
+            "answer": "NQo0Cg==",
+            "input": "Ng0KMSAyIDMgNCA1IDYNCjINCjINCjMNCg=="
+        },
+        {
+            "answer": "Ngo1CjEK",
+            "input": "Ng0KNCA0IDEgNCA0IDQNCjMNCjINCjMNCjQNCg=="
+        },
+        {
+            "answer": "MgoyCg==",
+            "input": "Mg0KMSAxDQoyDQoyDQoyDQo="
+        },
+        {
+            "answer": "NTAKNTAKNTAKMzUKNTAKNTAKNTAKMjcKNTAKNTAKMzEKNTAKNTAKNDEKNTAKNTAKNDMKNDcKNTAKNTAKNTAKNTAKNTAKNTAKNTAKNTAKMzcKNTAKNTAKNTAKMzMKNTAKNTAKNDUKNTAKNTAKNTAKNTAKNTAKNTAK",
+            "input": "NTANCjEgMSAxIDEgMSAyIDEgMiAxIDIgMSAyIDEgMiAxIDIgMSAxIDIgMiAyIDIgMiAyIDEgMSAxIDIgMSAyIDEgMSAyIDEgMSAxIDEgMiAyIDEgMiAyIDEgMiAyIDEgMiAxIDIgMQ0KNDANCjIyDQoyOQ0KMg0KNDYNCjgNCjIxDQo5DQo1MA0KMjUNCjExDQo0OA0KMTUNCjI2DQo0Mw0KMTYNCjE4DQo0Mg0KNDANCjMwDQozNQ0KNA0KMzQNCjM3DQozOA0KMTQNCjEzDQo0NQ0KMw0KMzINCjI3DQo0Nw0KMTkNCjUNCjQxDQoyNA0KMzYNCjIwDQo2DQozMQ0KMTANCg=="
+        },
+        {
+            "answer": "MQo=",
+            "input": "Mg0KMSAyDQoxDQoyDQo="
+        },
+        {
+            "answer": "MAowCjAKMAowCg==",
+            "input": "Mg0KMiAyDQo1DQoyDQoyDQoyDQoyDQoyDQo="
+        },
+        {
+            "answer": "OQo0CjEKOAo0CjEKOAo0CjQKNAo0CjUKOQo5CjkKOAoxCjQKOQo1Cg==",
+            "input": "MTANCjggNiA3IDEwIDcgMyAzIDEgMyA3DQoyMA0KMw0KNw0KOQ0KNA0KNg0KOQ0KNA0KOA0KNw0KNg0KNw0KNQ0KMg0KMg0KMg0KNA0KMTANCjgNCjMNCjUNCg=="
+        },
+        {
+            "answer": "MzEKMTIKMzAKNDEKNDkKMjgKMzMKNAozNAoxCjMKNDYKOQoyNwozOQoyCjQ4CjIKNDcKMQo0MwozNwoxOAo3CjM2CjUwCjI2CjQyCjIKMzIKMwoyNQo3CjE0CjM4CjYKMgo4CjQ0CjIyCg==",
+            "input": "NTANCjIzIDEzIDI0IDI1IDIzIDEzIDIyIDIzIDI4IDQ3IDExIDIyIDM2IDMwIDIxIDI4IDE0IDIwIDI4IDI3IDI2IDMwIDQgMzIgMSAyNSAyNCAyMiAyMiAxOCAzMiAyMSAyOSAyMSAxNyAyNiAxOCAyNCA0OSAyNyA5IDMzIDIxIDE2IDI0IDE4IDI0IDQwIDIwIDIzDQo0MA0KMjENCjMyDQoyMg0KMTENCjMNCjI0DQoxOQ0KNDANCjE4DQo0OA0KNDENCjYNCjM0DQoyNQ0KMTMNCjQ2DQo0DQo0Mw0KNQ0KNTANCjkNCjE1DQozMA0KMzYNCjE2DQoyDQoyNg0KMTANCjQ3DQoyMA0KNDINCjI3DQozNw0KMzENCjE0DQozOA0KNDUNCjM1DQo4DQoyOQ0K"
+        },
+        {
+            "answer": "MgoyCjIKMgoyCjIKMgoyCjIKMgo=",
+            "input": "Mg0KMSAxDQoxMA0KMg0KMg0KMg0KMg0KMg0KMg0KMg0KMg0KMg0KMg0K"
+        }
+    ]
+}

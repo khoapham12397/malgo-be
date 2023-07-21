@@ -19,7 +19,12 @@ export const initRoom = async (roomId: string, roundId: string, socketList: Arra
             matchState[`quiz:${quizKey}`] = initState;
             matchState[`quiz:solved:${quizKey}`] = JSON.stringify([]);
         });
-       
+        console.log('quizResult list keys:');
+        console.log(Object.keys(quizResultLst));
+
+        console.log(`create match ID: ${roomId}`);
+        console.log(matchState);
+
         socketList.forEach(item=> {
             matchState['socket:'+item.socketId] = JSON.stringify({
                 username: item.username, point: 0, solvedQuizs : {}

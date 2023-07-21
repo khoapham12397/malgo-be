@@ -1,0 +1,43 @@
+{
+    "id": "1780G_0",
+    "problemId": "1780G",
+    "subTestNumber": "9",
+    "description": [
+        {
+            "input": "Nw0KYWJhY2FiYQ0K",
+            "answer": "MTEK"
+        },
+        {
+            "input": "OA0KYWJhYWJhYmENCg==",
+            "answer": "MTEK"
+        },
+        {
+            "input": "MTANCmRlYWRpbnNpZGUNCg==",
+            "answer": "MTIK"
+        },
+        {
+            "input": "NQ0KYWFhYWENCg==",
+            "answer": "MTIK"
+        },
+        {
+            "input": "MQ0Kdg0K",
+            "answer": "MQo="
+        },
+        {
+            "input": "MTANCnVyeHd0d3R4bWENCg==",
+            "answer": "MTIK"
+        },
+        {
+            "input": "MTANCmFscGRyYmV4cmENCg==",
+            "answer": "MTAK"
+        },
+        {
+            "input": "MTAwDQplb3l5eXR4dWxlZGdqa3lua2FyanVxcmdwdHB6ZHhydXZmaGVnc3d1eWJsa21vYmdya3NocXBsa3lqaWFnbm5iZGp5d29zZWpheXd5cGFla2JqdWZqZ25sYm1ieHViZndpdmJ1DQo=",
+            "answer": "MTE0Cg=="
+        },
+        {
+            "input": "MTAwDQprZWljbnFtdXFpbmhzbXR1ZHFjaWxvY3hrYnFnemhia2l0bXF3dHRkeW95dmNieGluY3dqcnl6a251YnBhY3NuZ29yZXhhbGRmdXJvbmRiZWRub3dlbW5ubHBoaGJveWNmYXZzDQo=",
+            "answer": "MTA2Cg=="
+        }
+    ]
+}
