@@ -2,7 +2,7 @@ import {Client} from "@elastic/elasticsearch";
 import { estypes } from '@elastic/elasticsearch';
 
 import dotenv from "dotenv";
-import { getAllThreadsContent } from "../services/threadService";
+import { getAllThreadsContent,getThreadsContentByIds } from "../services/threadService";
 dotenv.config();
 
 const cloudId = process.env.ELASTIC_CLOUD_ID||'Malgo:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvOjQ0MyQ3NDE1MDMzZGU3MTM0ZDVkOTg4ZmVkMGYzMTc1YTYxYyRhNjliMGI4NDk5ZTg0YTAzYjRlMjYyNGU3ZDNiYTQzNw=='
@@ -115,6 +115,7 @@ export const getThreadContentById = async(threadId : string)=>{
 
 export const deleteThreadById = async(threadId: string) =>{
     try{
+        console.log('delete thread: '+ threadId);
         const result = await client.delete({
             index: 'thread',
             id: threadId,
@@ -145,7 +146,24 @@ export const saveThreadsFromDBToElastic = async ()=>{
         console.log(error);
     }
 }
-
+export const saveThreadsFromDBToElasticByIdList = async (ids: Array<string>) =>{
+    try{
+        const threads = await getThreadsContentByIds(ids);
+        
+        const operations = threads.flatMap(doc => [{ index: { _index: 'thread',_id: doc.id } }, doc]);
+        const bulkResponse = await client.bulk({
+            refresh : true, 
+            body: operations,
+        });
+        console.log(bulkResponse);
+        const count = await client.count({ index: 'thread' })
+        console.log(count);
+        
+    }
+    catch(error){
+        console.log(error);
+    }
+}
 export const deleteAllThread = async()=>{
     try{
         const response = await client.deleteByQuery({

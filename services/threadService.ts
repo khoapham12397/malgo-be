@@ -747,3 +747,25 @@ export const getAllThreadsContent = async () =>{
     throw error;
   }
 }
+export const getThreadsContentByIds = async (ids: Array<string>)=>{
+  try{
+    const threads = await prisma.thread.findMany({
+      where: {
+        id: {
+          in: ids,
+        }
+      },
+      select :{
+        id: true, 
+        content: true, 
+        authorId: true,
+        title: true,
+      }
+    })
+    return threads;
+  } 
+  catch(error){
+    console.log(error);
+    throw error;
+  }
+}

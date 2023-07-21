@@ -23,6 +23,8 @@ import contestRouter from "./routes/contestRoute";
 import { initRedisClient } from './redis/baseService';
 import gameRouter from './routes/gameRoute';
 import { initQuizList } from './redis/gameService';
+import { addThreadToElastic, deleteThreadById, getThreadContentById, saveThreadsFromDBToElasticByIdList } from './elasticsearch/searchService';
+import { threadId } from 'worker_threads';
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -200,9 +202,10 @@ const server =  app.listen(PORT,async() => {
   initQuizList();
   initIOSocket(server);
   //readTestCaseFile('testcases/testcase_1792A_0.json');
+  
   await startSendSubmission();
   //await submitTokenScheduler.start();
-
+  //saveThreadsFromDBToElasticByIdList(['1688439637476','1688658795788','1688718073516'])
   startSubmitToken();
   
   //deleteSubmission();
