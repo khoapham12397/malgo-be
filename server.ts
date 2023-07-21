@@ -16,19 +16,13 @@ import multer from 'multer';
 import path from 'path';
 import userRouter from './routes/userRoute';
 import {initIOSocket} from './socket-server';
-import {checkSubmissionStatus} from './redis/submissionService';
 import { isAuthenticated } from './middleware/authMiddleware';
-import {getBatchSubmission} from "./judgeApi";
 import submissonRoute from "./routes/submissionRoute";
 import {submitSubmissionScheduler, submitTokenScheduler,submitTokenContestScheduler, scheduleTokenContest, startGetToken, startSubmitToken, startSendSubmission} from "./scheduler";
-import {  testCreateBatchSubmission, testCreateSubmission} from "./testSubmission/testCreateBatchSubmisson";
 import contestRouter from "./routes/contestRoute";
-import {exRating} from  "./services/ratingService";
 import { initRedisClient } from './redis/baseService';
 import gameRouter from './routes/gameRoute';
 import { initQuizList } from './redis/gameService';
-import { cleanTestCase, readTestCaseFile } from './services/testcaseService';
-import {changeStatusFormatSubmission, deleteSubmission} from './services/cleanDataService';
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
