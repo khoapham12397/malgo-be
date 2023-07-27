@@ -1,11 +1,11 @@
 {
-    "id": "1779G_0",
-    "problemId": "1779G",
-    "subTestNumber": "1",
-    "description": [
-        {
-            "input": "Mw0KMw0KMDAxDQowMDENCjAxMA0KMQ0KMA0KMA0KMA0KMw0KMTExDQowMTENCjEwMA0K",
-            "answer": "MgowCjMK"
-        }
-    ]
+  "id": "1779G_0",
+  "problemId": "1779G",
+  "subTestNumber": "1",
+  "description": [
+    {
+      "input": "Mw0KMw0KMDAxDQowMDENCjAxMA0KMQ0KMA0KMA0KMA0KMw0KMTExDQowMTENCjEwMA0K",
+      "answer": "MgowCjMK"
+    }
+  ]
 }

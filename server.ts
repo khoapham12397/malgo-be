@@ -18,13 +18,13 @@ import userRouter from './routes/userRoute';
 import {initIOSocket} from './socket-server';
 import { isAuthenticated } from './middleware/authMiddleware';
 import submissonRoute from "./routes/submissionRoute";
-import {submitSubmissionScheduler, submitTokenScheduler,submitTokenContestScheduler, scheduleTokenContest, startGetToken, startSubmitToken, startSendSubmission} from "./scheduler";
+import { startSubmitToken, startSendSubmission} from "./scheduler";
 import contestRouter from "./routes/contestRoute";
 import { initRedisClient } from './redis/baseService';
 import gameRouter from './routes/gameRoute';
 import { initQuizList } from './redis/gameService';
-import { addThreadToElastic, deleteThreadById, getThreadContentById, saveThreadsFromDBToElasticByIdList } from './elasticsearch/searchService';
-import { threadId } from 'worker_threads';
+import { initNamespaceCodingProblem , getRecommendProblemsForUser} from './services/recommendService';
+import {checkContestListAndCalRating} from './services/ratingService';
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -68,7 +68,6 @@ app.use(credentialsMiddleware);
 app.use(express.json());
 app.use(cors());
 
-//app.use('/pdf', express.static(appRoot.path + '/static'));
 app.post('/images', function (req: express.Request, res) {
 
   multi_upload(req, res, function (err) {
@@ -176,9 +175,10 @@ app.use('/api/admin', verifyToken, adminRouter);
 
 
 app.use('/images', express.static(path.resolve(__dirname ,'../images/')));
+
+
+
 app.use('/api/codingproblem', codingProblemRouter);
-
-
 app.use('/api/mathproblem',mathProblemRouter);
 app.use('/api/discussion', threadRouter);
 app.use('/api/user2', isAuthenticated,userRouter);
@@ -195,42 +195,36 @@ app.use(notFoundMiddleware);
 
 const PORT =process.env.PORT || 5000;
 let cnt= 0;
+
 const server =  app.listen(PORT,async() => {
-  console.log(`Server is listening on port 8080`);
+  console.log(`Server is listening on port `+PORT);
   
   await initRedisClient();
   initQuizList();
   initIOSocket(server);
-  //readTestCaseFile('testcases/testcase_1792A_0.json');
   
   await startSendSubmission();
   //await submitTokenScheduler.start();
-  //saveThreadsFromDBToElasticByIdList(['1688439637476','1688658795788','1688718073516'])
   startSubmitToken();
   
-  //deleteSubmission();
-  //startTestSub();
-  //createThreadIndex();
-  //saveThreadsFromDBToElastic();
-  //getThreadContentById('1688658795788');
-  //deleteAllThread();
-  
-  /*
-  generateApiKeys('thread')
-  .then(console.log)
-  .catch((err:any)=>{
-    console.log(err);
+  initNamespaceCodingProblem()
+  .then(()=> {
+    return getRecommendProblemsForUser('khoakmp123@aBYbJcTz2Qx6afmgPdWYNj');
   })
-  */
-  //startGetToken();
-  //await submitTokenContestScheduler.start();
-  /*
-  const job = setInterval(async ()=>{
-    await testCreateBatchSubmission()
-    cnt++;
-    console.log(`req cnt: ${cnt}`);
-    if(cnt >= 100) clearInterval(job);
-  }, 300);
-  */
+  .then(rs =>{
+    console.log(rs);
+  })
+  .catch(error => {
+    console.log(error);
+  })
+  checkContestListAndCalRating()
+  .then(result=>{
+
+  })
+  .catch(error=>{
+    console.log(error);
+  });
+  
+  
 });
 

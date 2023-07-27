@@ -478,4 +478,86 @@ export const findSubmissionStatus = async (submissionId: string) =>{
         throw error;
     }   
 }
+export const getSubmitedSetOfUserKey = (username:string) =>{
+    return `user:submited_problems:${username}`;
+}
+
+export const insertSingleProblemSubmited = async (username: string, codingProblemId: string)=>{
+    try{       
+        const result=await redisClient.SADD(getSubmitedSetOfUserKey(username), codingProblemId);
+        return result;
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+export const initUserSubmitedSet = async ()=>{
+    try{
+        const lst = await getAllProblemUserSubmited();
+        const rs=[];
+        for(let i=0;i<lst.length;i++) {
+            const ok = await redisClient.SADD(getSubmitedSetOfUserKey(lst[i].username), lst[i].problemId);
+            rs.push(ok);
+        }
+        return rs;
+    }catch(error){
+        throw error;
+    }
+}
+import {CODING_PROBLEM_NP, RecommenderSystemEvent} from "../services/recommendService";
+import { getAllProblemUserSubmited } from '../services/submissionService';
+
+export const scanProbSubmitedAllUser = async()=>{
+    try{    
+        
+        const eventList:Array<RecommenderSystemEvent> = [];
+        /**
+         * ger.events([
+    {
+      namespace: CODING_PROBLEM_NAMESPACE,
+      person: 'yutaka',
+      action: 'likes',
+      thing: 'xmen',
+      expires_at: '2025-06-06'
+    },
+         */
+        let cursor = 0;
+        while(true){
+            const result = await redisClient.scan(cursor, {
+                MATCH: 'user:submited_problems:*',
+            });
+           
+            for(let i=0;i<result.keys.length;i++) {
+                const probIds = await redisClient.sMembers(result.keys[i]);
+                probIds.forEach(probId=>{
+                    eventList.push({
+                        action: 'likes',
+                        person: result.keys[i].split(':')[2],
+                        expires_at: (new Date(Date.now()+ 365*2*24*60*1000)).toString(),
+                        namespace: CODING_PROBLEM_NP,
+                        thing : probId,
+                     });
+                });
+            }
+            //console.log(`cursor: ${result.cursor}`);
+
+            if(result.cursor === 0) break;
+            cursor = result.cursor;
+        }
+        
+        return eventList;
+
+    }catch(error){
+        throw error;
+    }
+}
+
+export const excludeProblemsInSubmitedSet = async (username: string, problems: Array<string>)=>{
+    try{
+        const result = await redisClient.smIsMember(getSubmitedSetOfUserKey(username), problems);
+        return problems.filter((item,index)=> result[index] === false);
+    }catch(error){
+        throw error;
+    }
+} 
 

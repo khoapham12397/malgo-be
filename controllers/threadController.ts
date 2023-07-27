@@ -1,7 +1,7 @@
-import { PrismaClient } from '@prisma/client';
-import express from 'express';
-import CustomAPIError from '../config/CustomAPIError';
-import { searchSimilarThread } from '../elasticsearch/searchService';
+import { PrismaClient } from "@prisma/client";
+import express from "express";
+import CustomAPIError from "../config/CustomAPIError";
+import { searchSimilarThread } from "../elasticsearch/searchService";
 import {
   createThread,
   editThread,
@@ -11,11 +11,11 @@ import {
   getThread,
   getThreadList,
   likeComment,
-  likeThread
-} from '../services/threadService';
-import { getUsername } from '../utils/checkUser';
+  likeThread,
+} from "../services/threadService";
+import { getUsername } from "../utils/checkUser";
 
-import { generateCommentId, generateThreadId } from '../utils/genId';
+import { generateCommentId, generateThreadId } from "../utils/genId";
 
 const prisma = new PrismaClient();
 
@@ -30,7 +30,7 @@ type CreateThreadParam = {
 };
 
 const createSummary = (content: string): string => {
-  return '';
+  return "";
 };
 
 export const createThreadCtl = async (
@@ -40,8 +40,6 @@ export const createThreadCtl = async (
   try {
     const params: CreateThreadParam = req.body;
 
-    //const summary = params.summary ===null?createSummary(params.content):params.summary;
-    //const username = getUsername(req);
     const result = await createThread(params, params.username);
     res.status(201).json({ successed: true, result });
   } catch (error) {
@@ -93,17 +91,12 @@ export const getThreadListCtl = async (
   res: express.Response
 ) => {
   try {
-    
     //let {category, type, page ,username} = req.query;
     const username = getUsername(req, req.query.username as string);
-    console.log(`${username} get threadlist`);
-    const resultData = await getThreadList(
-      req.query,
-      username
-    );
-    
+    const resultData = await getThreadList(req.query, username);
+
     res.status(200).json({ successed: true, data: resultData });
-  } catch (error : any) {
+  } catch (error: any) {
     console.log(error);
     res.sendStatus(400).json({ msg: error.message });
   }
@@ -124,7 +117,7 @@ export const getThreadCtl = async (
     if (responseData != null) {
       res.status(200).json({ successed: true, data: responseData });
     } else
-      res.status(404).json({ successed: false, message: 'thread not found' });
+      res.status(404).json({ successed: false, message: "thread not found" });
   } catch (error) {
     console.log(error);
     res.sendStatus(400);
@@ -199,8 +192,8 @@ export const getChildCommentsCtl = async (
     const { rootCmtId, skip, take } = req.query;
     //const username = getUsername(req);
 
-    if (typeof rootCmtId != 'string') {
-      throw Error('bad request');
+    if (typeof rootCmtId != "string") {
+      throw Error("bad request");
     }
     const result = await getChildComments(
       req.query,
@@ -209,7 +202,7 @@ export const getChildCommentsCtl = async (
 
     res.status(200).json({
       successed: true,
-      data: result
+      data: result,
     });
   } catch (error) {
     console.log(error);
@@ -231,9 +224,9 @@ export const addCommentCtl = async (
   res: express.Response
 ) => {
   try {
-    prisma.$transaction(async tx => {
+    prisma.$transaction(async (tx) => {
       const params: AddCommentParam = req.body;
-      console.log('add comment by username: ' + params.username);
+      //console.log('add comment by username: ' + params.username);
       const cmtId = generateCommentId();
       //const username = getUsername(req);
       let depth = 0;
@@ -242,8 +235,8 @@ export const addCommentCtl = async (
         const parentCmt = await prisma.comment.findUnique({
           where: { id: params.parentId },
           select: {
-            depth: true
-          }
+            depth: true,
+          },
         });
         if (parentCmt) {
           depth = parentCmt.depth + 1;
@@ -252,9 +245,9 @@ export const addCommentCtl = async (
           where: { id: params.rootId },
           data: {
             totalChildren: {
-              increment: 1
-            }
-          }
+              increment: 1,
+            },
+          },
         });
       }
 
@@ -268,19 +261,19 @@ export const addCommentCtl = async (
           threadId: params.threadId,
           creatorId: params.username,
           depth: depth,
-          totalChildren: 0
-        }
+          totalChildren: 0,
+        },
       });
       await prisma.thread.update({
         where: { id: params.threadId },
         data: {
           totalComments: {
-            increment: 1
+            increment: 1,
           },
           totalRootComments: {
-            increment: params.parentId == null ? 1 : 0
-          }
-        }
+            increment: params.parentId == null ? 1 : 0,
+          },
+        },
       });
       const comment: CommentData = {
         content: cmt.content,
@@ -289,13 +282,13 @@ export const addCommentCtl = async (
         id: cmt.id,
         likes: cmt.likes,
         parent: {
-          id: cmt.parentId ? cmt.parentId : '',
-          author: cmt.parentUsername ? cmt.parentUsername : ''
+          id: cmt.parentId ? cmt.parentId : "",
+          author: cmt.parentUsername ? cmt.parentUsername : "",
         },
         rootId: cmt.rootId,
         threadId: cmt.threadId,
         vote: 0,
-        isLike: false
+        isLike: false,
       };
       res
         .status(201)
@@ -319,8 +312,8 @@ export const likeThreadCtl = async (
   try {
     const params: LikeThreadParams = req.body;
 
-    if (typeof params.threadId != 'string') {
-      throw Error('Invalid Thread ID');
+    if (typeof params.threadId != "string") {
+      throw Error("Invalid Thread ID");
     }
     //const username = getUsername(req);
     const result = await likeThread(params.threadId, params.username);
@@ -344,7 +337,7 @@ export const likeCommentCtl = async (
   try {
     const params: LikeCommentParams = req.body;
 
-    if (typeof params.commentId != 'string') throw Error('Invalid comment id');
+    if (typeof params.commentId != "string") throw Error("Invalid comment id");
     //const username = getUsername(req);
     const result = await likeComment(params.commentId, params.username);
     if (result) {
@@ -366,7 +359,7 @@ export const getCategoriesAndTagsCtl = async (
       .status(200)
       .json({
         successed: true,
-        data: result
+        data: result,
       })
       .end();
   } catch (error) {
@@ -389,28 +382,35 @@ export const editThreadCtl = async (
 ) => {
   try {
     const params: EditThreadParams = req.body;
-    const username = getUsername(req,'');
-    if(!username) throw new CustomAPIError('Not Authenticated', 403);
+    const username = getUsername(req, "");
+    if (!username) throw new CustomAPIError("Not Authenticated", 403);
     const result = await editThread(params, username);
     if (result) return res.status(200).json({ successed: true, data: params });
     return res.status(400).json({ successed: false }).end();
   } catch (error: any) {
-    return res.status(error.statusCode).json({ successed: false , message: error.message}).end();
+    return res
+      .status(error.statusCode)
+      .json({ successed: false, message: error.message })
+      .end();
   }
 };
 
-export const searchSimilarThreadCtl = async( 
+export const searchSimilarThreadCtl = async (
   req: express.Request,
-  res: express.Response) =>{
-    try{
-      const threads = await searchSimilarThread(req.body.content);
-      return res.status(200).json({
-        successed: true, data: {
-          threads: threads,
-        }
-      });
-    }
-    catch(error:any){
-      return res.status(error.statusCode).json({ successed: false , message: error.message}).end();
-    }
-}
+  res: express.Response
+) => {
+  try {
+    const threads = await searchSimilarThread(req.body.content);
+    return res.status(200).json({
+      successed: true,
+      data: {
+        threads: threads,
+      },
+    });
+  } catch (error: any) {
+    return res
+      .status(error.statusCode)
+      .json({ successed: false, message: error.message })
+      .end();
+  }
+};

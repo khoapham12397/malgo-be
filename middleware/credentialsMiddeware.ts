@@ -1,5 +1,5 @@
-import { Request, Response, NextFunction } from 'express';
-import { allowedOrigins } from '../config/corsOptions';
+import { Request, Response, NextFunction } from "express";
+import { allowedOrigins } from "../config/corsOptions";
 
 const credentialsMiddleware = (
   req: Request,
@@ -8,7 +8,7 @@ const credentialsMiddleware = (
 ) => {
   const origin = req.headers.origin as string;
   if (allowedOrigins.includes(origin)) {
-    res.header('Access-Control-Allow-Credentials', 'true');
+    res.header("Access-Control-Allow-Credentials", "true");
   }
   next();
 };

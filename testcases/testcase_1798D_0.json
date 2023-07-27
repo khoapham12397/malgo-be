@@ -1,11 +1,11 @@
 {
-    "id": "1798D_0",
-    "problemId": "1798D",
-    "subTestNumber": "1",
-    "description": [
-        {
-            "answer": "WWVzCjQgLTUgMyAtMiAKWWVzCjIgLTMgMiAtMyAyIApZZXMKMSAtMyAxIDEgMSAtMyAxIDEgClllcwoxIC0xIDAgClllcwo0IC00IDMgLTQgNCAtMyAwIApObwpZZXMKMTMgLTE3IDE1IC0xOCAxMiAtMTggMTMgCg==",
-            "input": "Nw0KNA0KMyA0IC0yIC01DQo1DQoyIDIgMiAtMyAtMw0KOA0KLTMgLTMgMSAxIDEgMSAxIDENCjMNCjAgMSAtMQ0KNw0KLTMgNCAzIDQgLTQgLTQgMA0KMQ0KMA0KNw0KLTE4IDEzIC0xOCAtMTcgMTIgMTUgMTMNCg=="
-        }
-    ]
+  "id": "1798D_0",
+  "problemId": "1798D",
+  "subTestNumber": "1",
+  "description": [
+    {
+      "answer": "WWVzCjQgLTUgMyAtMiAKWWVzCjIgLTMgMiAtMyAyIApZZXMKMSAtMyAxIDEgMSAtMyAxIDEgClllcwoxIC0xIDAgClllcwo0IC00IDMgLTQgNCAtMyAwIApObwpZZXMKMTMgLTE3IDE1IC0xOCAxMiAtMTggMTMgCg==",
+      "input": "Nw0KNA0KMyA0IC0yIC01DQo1DQoyIDIgMiAtMyAtMw0KOA0KLTMgLTMgMSAxIDEgMSAxIDENCjMNCjAgMSAtMQ0KNw0KLTMgNCAzIDQgLTQgLTQgMA0KMQ0KMA0KNw0KLTE4IDEzIC0xOCAtMTcgMTIgMTUgMTMNCg=="
+    }
+  ]
 }

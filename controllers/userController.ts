@@ -1,8 +1,8 @@
-import { PrismaClient, User, UserProfile } from '@prisma/client';
-import { Request, RequestHandler, Response } from 'express';
-import { StatusCodes } from 'http-status-codes';
-import CustomAPIError from '../config/CustomAPIError';
-import { getUserByUsername } from '../services/userService';
+import { PrismaClient, User, UserProfile } from "@prisma/client";
+import { Request, RequestHandler, Response } from "express";
+import { StatusCodes } from "http-status-codes";
+import CustomAPIError from "../config/CustomAPIError";
+import { getUserByUsername } from "../services/userService";
 
 const prisma = new PrismaClient();
 
@@ -11,14 +11,14 @@ export const getAllProblems: RequestHandler = async (
   req: Request,
   res: Response
 ) => {
-  return res.status(StatusCodes.OK).json({ message: 'Get all problems' });
+  return res.status(StatusCodes.OK).json({ message: "Get all problems" });
 };
 
 export const getAllThreads: RequestHandler = async (
   req: Request,
   res: Response
 ) => {
-  return res.status(StatusCodes.OK).json({ message: 'Get all threads' });
+  return res.status(StatusCodes.OK).json({ message: "Get all threads" });
 };
 
 export const getProblemsBySearchTerm: RequestHandler = async (
@@ -75,7 +75,7 @@ export const getUserProfile: RequestHandler = async (
       | null = await getUserByUsername(username, true);
 
     if (!userFromDB) {
-      throw new CustomAPIError('User not found!', StatusCodes.NOT_FOUND);
+      throw new CustomAPIError("User not found!", StatusCodes.NOT_FOUND);
     }
 
     const { real_name, avatar } = userFromDB.UserProfile as {
@@ -85,11 +85,11 @@ export const getUserProfile: RequestHandler = async (
 
     return res.status(StatusCodes.OK).json({
       success: true,
-      message: 'Get user profile successfully',
+      message: "Get user profile successfully",
       email: userFromDB.email,
       username: userFromDB.username,
       name: real_name,
-      picture: avatar
+      picture: avatar,
     });
   } catch (error: any) {
     console.log(error.message);

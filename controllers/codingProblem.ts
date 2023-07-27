@@ -1,5 +1,5 @@
-import { Request, Response } from 'express';
-import { PrismaClient } from '@prisma/client';
+import { Request, Response } from "express";
+import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
@@ -9,33 +9,33 @@ export const getProblem = async (req: Request, res: Response) => {
 
     const codingProblem = await prisma.codingProblem.findUnique({
       where: {
-        id: problemId
+        id: problemId,
       },
       include: {
         authors: {
           select: {
-            username: true
-          }
+            username: true,
+          },
         },
         tags: {
           select: {
-            tagId: true
-          }
-        }
-      }
+            tagId: true,
+          },
+        },
+      },
     });
 
     if (!codingProblem) {
       return res
         .status(404)
-        .json({ successed: false, message: 'Problem not found' });
+        .json({ successed: false, message: "Problem not found" });
     }
 
     return res
       .status(200)
       .json({
         successed: true,
-        data: codingProblem
+        data: codingProblem,
       })
       .end();
   } catch (error) {
@@ -44,7 +44,7 @@ export const getProblem = async (req: Request, res: Response) => {
       .status(400)
       .json({
         successed: false,
-        message: error
+        message: error,
       })
       .end();
   }
@@ -62,8 +62,8 @@ type GetProblemsParam = {
 export const getCodingProblems = async (req: Request, res: Response) => {
   try {
     const params: GetProblemsParam = req.body;
-    console.log('params: ');
-    console.log(params);
+    //console.log('params: ');
+    //console.log(params);
     // cai nay la dung okdung:
     const { category, startDif, endDif, tagList, page, q } = params;
     const pageNum = page == undefined ? 1 : Number(page);
@@ -72,7 +72,7 @@ export const getCodingProblems = async (req: Request, res: Response) => {
     if (tagList != undefined)
       tags = tagList.map((item: string) => Number(item));
 
-    console.log(tags);
+    //console.log(tags);
     const filter = {
       categoryId:
         category != undefined && category != null
@@ -83,17 +83,17 @@ export const getCodingProblems = async (req: Request, res: Response) => {
         gte:
           startDif != undefined && startDif != null
             ? Number(startDif)
-            : undefined
+            : undefined,
       },
       tags: {
         some: {
           tagId: {
-            in: tags.length > 0 ? tags : undefined
-          }
-        }
-      }
+            in: tags.length > 0 ? tags : undefined,
+          },
+        },
+      },
     };
-    console.log(filter);
+    //console.log(filter);
     const problems = await prisma.codingProblem.findMany({
       skip: skip,
       take: 20,
@@ -102,30 +102,30 @@ export const getCodingProblems = async (req: Request, res: Response) => {
         title: true,
         category: {
           select: {
-            name: true
-          }
+            name: true,
+          },
         },
         difficulty: true,
         practicePoint: true,
         acceptedNumber: true,
-        submissionNumber: true
+        submissionNumber: true,
       },
       where: filter,
       orderBy:
         q != undefined
           ? ({
               _relevance: {
-                fields: ['title'],
+                fields: ["title"],
                 search: q as string,
-                sort: 'desc'
-              }
+                sort: "desc",
+              },
             } as any)
-          : undefined
+          : undefined,
     });
-    console.log(problems);
+    //console.log(problems);
 
     const total = await prisma.codingProblem.count({
-      where: filter
+      where: filter,
     });
     const totalPage = Math.floor(total / 20) + (total % 20 == 0 ? 0 : 1);
 
@@ -136,8 +136,8 @@ export const getCodingProblems = async (req: Request, res: Response) => {
         data: {
           problems: problems,
           totalPage: totalPage,
-          total: total
-        }
+          total: total,
+        },
       })
       .end();
   } catch (err) {
@@ -154,13 +154,13 @@ export const getProblems = async (req: Request, res: Response) => {
     const skip = (Number(pageNum) - 1) * 20;
     let tags: Array<number> = [];
     if (q != undefined) {
-      console.log('query str:' + (q as string));
+      //console.log('query str:' + (q as string));
     }
 
     if (type != undefined) {
-      if (typeof type == 'object') {
+      if (typeof type == "object") {
         const lst = Object.values(type);
-        lst.map(x => tags.push(Number(x)));
+        lst.map((x) => tags.push(Number(x)));
       } else tags.push(Number(type));
     }
 
@@ -174,17 +174,17 @@ export const getProblems = async (req: Request, res: Response) => {
         gte:
           startDif != undefined && startDif != null
             ? Number(startDif)
-            : undefined
+            : undefined,
       },
       tags: {
         some: {
           tagId: {
-            in: tags.length > 0 ? tags : undefined
-          }
-        }
-      }
+            in: tags.length > 0 ? tags : undefined,
+          },
+        },
+      },
     };
-    console.log(filter);
+    //console.log(filter);
     const result = await prisma.codingProblem.findMany({
       skip: skip,
       take: 20,
@@ -193,25 +193,25 @@ export const getProblems = async (req: Request, res: Response) => {
         title: true,
         category: {
           select: {
-            name: true
-          }
+            name: true,
+          },
         },
         difficulty: true,
         practicePoint: true,
         acceptedNumber: true,
-        submissionNumber: true
+        submissionNumber: true,
       },
       where: filter,
       orderBy:
         q != undefined && q != null
           ? ({
               _relevance: {
-                fields: ['title'],
+                fields: ["title"],
                 search: q as string,
-                sort: 'desc'
-              }
+                sort: "desc",
+              },
             } as any)
-          : undefined
+          : undefined,
     });
 
     return res.status(200).json({ successed: true, data: result }).end();
@@ -257,8 +257,8 @@ export const getCategoriesAndTags = async (req: Request, res: Response) => {
         successed: true,
         data: {
           categories: categories,
-          tags: tags
-        }
+          tags: tags,
+        },
       })
       .end();
   } catch (error) {

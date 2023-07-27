@@ -1,27 +1,27 @@
 {
-    "id": "1811B_0",
-    "problemId": "1811B",
-    "subTestNumber": "5",
-    "description": [
-        {
-            "input": "NQ0KMiAxIDEgMiAyDQo0IDEgNCAzIDMNCjggMSAzIDQgNg0KMTAwIDEwIDIwIDUwIDEwMA0KMTAwMDAwMDAwMCAxMjM0NTY3ODkgOTg3NjU0MzIxIDk5ODI0NDM1MyA1MDAwMDAwMDQNCg==",
-            "answer": "MAoxCjIKOQoxMDU5MDAzMgo="
-        },
-        {
-            "input": "Mw0KMiAxIDEgMiAyDQo0IDEgNCAzIDMNCjggMSAzIDQgNg0K",
-            "answer": "MAoxCjIK"
-        },
-        {
-            "input": "MQ0KNCAxIDEgMyAzDQo=",
-            "answer": "MQo="
-        },
-        {
-            "input": "MQ0KMiAxIDEgMiAyDQo=",
-            "answer": "MAo="
-        },
-        {
-            "input": "MQ0KMTkxOTgxMCAxMTQ1MTQgMTE0NTE0IDIzMyAyMzMzDQo=",
-            "answer": "MTE0MjgxCg=="
-        }
-    ]
+  "id": "1811B_0",
+  "problemId": "1811B",
+  "subTestNumber": "5",
+  "description": [
+    {
+      "input": "NQ0KMiAxIDEgMiAyDQo0IDEgNCAzIDMNCjggMSAzIDQgNg0KMTAwIDEwIDIwIDUwIDEwMA0KMTAwMDAwMDAwMCAxMjM0NTY3ODkgOTg3NjU0MzIxIDk5ODI0NDM1MyA1MDAwMDAwMDQNCg==",
+      "answer": "MAoxCjIKOQoxMDU5MDAzMgo="
+    },
+    {
+      "input": "Mw0KMiAxIDEgMiAyDQo0IDEgNCAzIDMNCjggMSAzIDQgNg0K",
+      "answer": "MAoxCjIK"
+    },
+    {
+      "input": "MQ0KNCAxIDEgMyAzDQo=",
+      "answer": "MQo="
+    },
+    {
+      "input": "MQ0KMiAxIDEgMiAyDQo=",
+      "answer": "MAo="
+    },
+    {
+      "input": "MQ0KMTkxOTgxMCAxMTQ1MTQgMTE0NTE0IDIzMyAyMzMzDQo=",
+      "answer": "MTE0MjgxCg=="
+    }
+  ]
 }

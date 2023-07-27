@@ -1,13 +1,13 @@
-import { Request, RequestHandler, Response } from 'express';
-import { StatusCodes } from 'http-status-codes';
-import CustomAPIError from '../config/CustomAPIError';
-import { RequestWithAuthAndUser } from '../config/Interface';
+import { Request, RequestHandler, Response } from "express";
+import { StatusCodes } from "http-status-codes";
+import CustomAPIError from "../config/CustomAPIError";
+import { RequestWithAuthAndUser } from "../config/Interface";
 import {
   deleteThreadById,
   disableUser,
   enableUser,
-  getAllUsers
-} from '../services/adminService';
+  getAllUsers,
+} from "../services/adminService";
 
 export const getAllUsersController: RequestHandler = async (
   req: Request,
@@ -27,21 +27,21 @@ export const disableUserController: RequestHandler = async (
 
     if (!currentUser) {
       throw new CustomAPIError(
-        'You are not logged in!',
+        "You are not logged in!",
         StatusCodes.UNAUTHORIZED
       );
     }
 
     if (!usernameToDisable) {
       throw new CustomAPIError(
-        'Username is required!',
+        "Username is required!",
         StatusCodes.BAD_REQUEST
       );
     }
 
     if (currentUser?.username === usernameToDisable) {
       throw new CustomAPIError(
-        'You cannot disable yourself!',
+        "You cannot disable yourself!",
         StatusCodes.BAD_REQUEST
       );
     }
@@ -66,21 +66,21 @@ export const enableUserController: RequestHandler = async (
 
     if (!currentUser) {
       throw new CustomAPIError(
-        'You are not logged in!',
+        "You are not logged in!",
         StatusCodes.UNAUTHORIZED
       );
     }
 
     if (!usernameToEnable) {
       throw new CustomAPIError(
-        'Username is required!',
+        "Username is required!",
         StatusCodes.BAD_REQUEST
       );
     }
 
     if (currentUser?.username === usernameToEnable) {
       throw new CustomAPIError(
-        'You cannot enable yourself!',
+        "You cannot enable yourself!",
         StatusCodes.BAD_REQUEST
       );
     }
@@ -104,7 +104,7 @@ export const deleteThreadController: RequestHandler = async (
 
     if (!threadId) {
       throw new CustomAPIError(
-        'Thread ID is required!',
+        "Thread ID is required!",
         StatusCodes.BAD_REQUEST
       );
     }

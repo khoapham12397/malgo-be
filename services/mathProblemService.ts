@@ -1,12 +1,12 @@
-import { PrismaClient } from '@prisma/client';
-import { uuid } from 'short-uuid';
+import { PrismaClient } from "@prisma/client";
+import { uuid } from "short-uuid";
 import {
   CreateMathNoteParam,
   CreateMathProbSetParam,
   EditMathNoteParam,
   EditMathProbParam,
-  GetMathNoteParam
-} from '../controllers/mathProblemController';
+  GetMathNoteParam,
+} from "../controllers/mathProblemController";
 const prisma = new PrismaClient();
 
 export const getProblem = async (
@@ -16,24 +16,24 @@ export const getProblem = async (
   try {
     const problem = await prisma.mathProblem.findUnique({
       where: {
-        id: problemId
+        id: problemId,
       },
       include: {
         category: {
           select: {
             id: true,
-            name: true
-          }
+            name: true,
+          },
         },
         authors: {
           select: {
-            username: true
-          }
+            username: true,
+          },
         },
         tags: {
           select: {
-            tagId: true
-          }
+            tagId: true,
+          },
         },
         problemSet: {
           select: {
@@ -42,13 +42,13 @@ export const getProblem = async (
                 id: true,
                 title: true,
                 creatorId: true,
-                numberProb: true
-              }
+                numberProb: true,
+              },
             },
-            order: true
-          }
-        }
-      }
+            order: true,
+          },
+        },
+      },
     });
     if (problem) {
       problem.prevProblems = problem.prevProblems
@@ -57,26 +57,26 @@ export const getProblem = async (
       problem.nextProblems = problem.nextProblems
         ? JSON.parse(problem.nextProblems)
         : [];
-    } else throw Error('Problem not found');
+    } else throw Error("Problem not found");
 
     if (username) {
       const id = {
         creatorId: username,
-        mathProblemId: problemId
+        mathProblemId: problemId,
       };
 
       const mathNote = await prisma.mathNote.findUnique({
         where: {
-          mathProblemId_creatorId: id
-        }
+          mathProblemId_creatorId: id,
+        },
       });
       if (mathNote && mathNote.imageLink)
         mathNote.imageLink = JSON.parse(mathNote.imageLink);
 
       const mathSolution = await prisma.mathSolution.findUnique({
         where: {
-          mathProblemId_creatorId: id
-        }
+          mathProblemId_creatorId: id,
+        },
       });
       if (mathSolution && mathSolution.imageLink)
         mathSolution.imageLink = JSON.parse(mathSolution.imageLink);
@@ -84,7 +84,7 @@ export const getProblem = async (
       return {
         mathProblem: problem,
         mathNote: mathNote,
-        mathSolution: mathSolution
+        mathSolution: mathSolution,
       };
     }
     return { mathProblem: problem, mathNote: null, mathSolution: null };
@@ -94,13 +94,14 @@ export const getProblem = async (
   }
 };
 
-type GetProblemsParam = {
+export type GetProblemsParam = {
   category: string | null;
   startDif: number | null;
   endDif: number | null;
   tagList: Array<string>;
   page: number | null;
   q: string | null;
+  init : boolean | undefined;
 };
 
 export const getMathProblems = async (params: GetProblemsParam) => {
@@ -108,7 +109,7 @@ export const getMathProblems = async (params: GetProblemsParam) => {
     //const params : GetProblemsParam = req.body;
     const itemPerPage = 10;
 
-    const { category, startDif, endDif, tagList, page, q } = params;
+    const { category, startDif, endDif, tagList, page, q,init } = params;
 
     const pageNum = page == undefined ? 1 : Number(page);
 
@@ -119,7 +120,7 @@ export const getMathProblems = async (params: GetProblemsParam) => {
     if (tagList != undefined)
       tags = tagList.map((item: string) => Number(item));
 
-    console.log(tags);
+    //console.log(tags);
     const filter = {
       categoryId:
         category != undefined && category != null
@@ -130,21 +131,19 @@ export const getMathProblems = async (params: GetProblemsParam) => {
         gte:
           startDif != undefined && startDif != null
             ? Number(startDif)
-            : undefined
+            : undefined,
       },
       tags:
         tags.length > 0
           ? {
               some: {
                 tagId: {
-                  in: tags
-                }
-              }
+                  in: tags,
+                },
+              },
             }
-          : undefined
+          : undefined,
     };
-
-    const startTime = Date.now();
 
     const problems = await prisma.mathProblem.findMany({
       skip: skip,
@@ -155,42 +154,46 @@ export const getMathProblems = async (params: GetProblemsParam) => {
         category: {
           select: {
             id: true,
-            name: true
-          }
+            name: true,
+          },
         },
         difficulty: true,
         practicePoint: true,
-        description: true
+        description: true,
       },
       where: filter,
       orderBy:
         q != undefined
           ? ({
               _relevance: {
-                fields: ['title'],
+                fields: ["title"],
                 search: q as string,
-                sort: 'desc'
-              }
+                sort: "desc",
+              },
             } as any)
           : {
-              id: 'desc'
-            }
+              id: "desc",
+            },
     });
-    console.log(problems);
-
+    let categoriesAndTags = undefined;
+    if(init){
+      categoriesAndTags = await getCategoriesAndTags();
+    }
     const total = await prisma.mathProblem.count({
-      where: filter
+      where: filter,
     });
-    console.log(Date.now() - startTime);
+
     const totalPage =
       Math.floor(total / itemPerPage) + (total % itemPerPage == 0 ? 0 : 1);
-
+    
     return {
       problems: problems,
       totalPage: totalPage,
       total: total,
-      itemPerPage: itemPerPage
+      itemPerPage: itemPerPage,
+      categoriesAndTags : categoriesAndTags,
     };
+
   } catch (error) {
     throw error;
   }
@@ -202,7 +205,7 @@ export const getCategoriesAndTags = async () => {
     const tags = await prisma.mathProblemTag.findMany();
     return {
       categories: categories,
-      tags: tags
+      tags: tags,
     };
   } catch (error) {
     throw error;
@@ -226,14 +229,14 @@ export const createMathProblem = async (params: CreateMathProblemParam) => {
         tagList.push({
           tag: {
             connect: {
-              id: params.tags[i]
-            }
-          }
+              id: params.tags[i],
+            },
+          },
         });
       }
     }
 
-    console.log(tagList);
+    //console.log(tagList);
     const problem = await prisma.mathProblem.create({
       data: {
         id: uuid(),
@@ -245,10 +248,10 @@ export const createMathProblem = async (params: CreateMathProblemParam) => {
         tags:
           tagList.length > 0
             ? {
-                create: tagList
+                create: tagList,
               }
-            : undefined
-      }
+            : undefined,
+      },
     });
     return problem;
   } catch (error) {
@@ -266,8 +269,8 @@ export const createMathNote = async (
         content: params.content,
         creatorId: params.username,
         mathProblemId: params.problemId,
-        imageLink: imageLink
-      }
+        imageLink: imageLink,
+      },
     });
     if (note && note.imageLink) note.imageLink = JSON.parse(note.imageLink);
 
@@ -278,15 +281,15 @@ export const createMathNote = async (
           content: params.content,
           creatorId: params.username,
           mathProblemId: params.problemId,
-          imageLink: imageLink
-        }
+          imageLink: imageLink,
+        },
       });
       if (sol && sol.imageLink) sol.imageLink = JSON.parse(sol.imageLink);
     }
 
     return {
       note: note,
-      solution: sol
+      solution: sol,
     };
   } catch (error) {
     throw error;
@@ -299,9 +302,9 @@ export const getMathNote = async (params: GetMathNoteParam) => {
       where: {
         mathProblemId_creatorId: {
           creatorId: params.username,
-          mathProblemId: params.mathProblemId
-        }
-      }
+          mathProblemId: params.mathProblemId,
+        },
+      },
     });
     if (note && note.imageLink) note.imageLink = JSON.parse(note.imageLink);
     return note;
@@ -318,25 +321,25 @@ export const editMathNote = async (
     const id = {
       mathProblemId_creatorId: {
         creatorId: params.username,
-        mathProblemId: params.problemId
-      }
+        mathProblemId: params.problemId,
+      },
     };
-    console.log(params.username);
-    console.log(params.problemId);
+    //console.log(params.username);
+    //console.log(params.problemId);
 
     const note = await prisma.mathNote.update({
       where: id,
       data: {
         content: params.content,
-        imageLink: imageLink
-      }
+        imageLink: imageLink,
+      },
     });
     if (note.imageLink) note.imageLink = JSON.parse(note.imageLink);
 
     let newSol = null;
     if (params.addToSolution) {
       const oldSol = await prisma.mathSolution.findUnique({
-        where: id
+        where: id,
       });
 
       if (oldSol) {
@@ -344,8 +347,8 @@ export const editMathNote = async (
           where: id,
           data: {
             content: params.content,
-            imageLink: imageLink
-          }
+            imageLink: imageLink,
+          },
         });
       } else
         newSol = await prisma.mathSolution.create({
@@ -353,15 +356,15 @@ export const editMathNote = async (
             content: params.content,
             creatorId: params.username,
             mathProblemId: params.problemId,
-            imageLink: imageLink
-          }
+            imageLink: imageLink,
+          },
         });
       if (newSol.imageLink) newSol.imageLink = JSON.parse(newSol.imageLink);
     }
 
     return {
       note: note,
-      solution: newSol
+      solution: newSol,
     };
   } catch (error) {
     throw error;
@@ -372,8 +375,8 @@ export const getMathSolutions = async (problemId: string) => {
   try {
     const solutions = await prisma.mathSolution.findMany({
       where: {
-        mathProblemId: problemId
-      }
+        mathProblemId: problemId,
+      },
     });
     for (let i = 0; i < solutions.length; i++) {
       if (solutions[i].imageLink) {
@@ -390,113 +393,113 @@ const processProblemSet = (oldList: Array<any>, newList: Array<any>) => {
   let removeList: Array<any> = [];
   let updateList: Array<any> = [];
 
-  oldList.forEach(item => {
+  oldList.forEach((item) => {
     if (!newList.includes(item)) removeList.push(item);
     else updateList.push(item);
   });
 
   return {
     removeSetList: removeList,
-    updateSetList: updateList
+    updateSetList: updateList,
   };
 };
 
 export const editMathProblem = async (params: EditMathProbParam) => {
   try {
-    console.log(params);
+    //console.log(params);
     //        const lst = [2];
 
-    const tagList: Array<any> = params.tags.map(item => ({
-      tagId: Number(item)
+    const tagList: Array<any> = params.tags.map((item) => ({
+      tagId: Number(item),
     }));
 
-    const tags = params.tags.map(item => Number(item));
+    const tags = params.tags.map((item) => Number(item));
 
     const currentProb = await prisma.mathProblem.findUnique({
       where: {
-        id: params.problemId
+        id: params.problemId,
       },
       select: {
         tags: {
           select: {
-            tagId: true
-          }
+            tagId: true,
+          },
         },
         problemSet: {
           select: {
-            setId: true
-          }
-        }
-      }
+            setId: true,
+          },
+        },
+      },
     });
 
-    if (!currentProb) throw Error('Problem not found');
+    if (!currentProb) throw Error("Problem not found");
 
     const removeTagList: Array<any> = [];
-    currentProb.tags.forEach(item => {
+    currentProb.tags.forEach((item) => {
       if (!tags.includes(item.tagId))
         removeTagList.push({
           mathProblemId: params.problemId,
-          tagId: item.tagId
+          tagId: item.tagId,
         });
     });
 
-    console.log(removeTagList);
+    //console.log(removeTagList);
 
-    let oldSetList = currentProb.problemSet.map(item => item.setId);
-    let newSetList = params.probSetList.map(item => item.setId);
-    console.log('oldSetList');
-    console.log(oldSetList);
+    let oldSetList = currentProb.problemSet.map((item) => item.setId);
+    let newSetList = params.probSetList.map((item) => item.setId);
+    //console.log('oldSetList');
+    //console.log(oldSetList);
 
-    console.log('newSetList');
-    console.log(newSetList);
+    //console.log('newSetList');
+    //console.log(newSetList);
     const { removeSetList, updateSetList } = processProblemSet(
       oldSetList,
       newSetList
     );
-    console.log('removeSetList');
-    console.log(removeSetList);
+    //console.log('removeSetList');
+    //console.log(removeSetList);
 
-    console.log('updateSetList');
-    console.log(updateSetList);
+    //console.log('updateSetList');
+    //console.log(updateSetList);
 
-    const removeSetListFix: Array<any> = removeSetList.map(item => ({
+    const removeSetListFix: Array<any> = removeSetList.map((item) => ({
       setId: item,
-      problemId: params.problemId
+      problemId: params.problemId,
     }));
 
     const updateSetListFix: Array<any> = [];
     const addSetListFix: Array<any> = [];
 
-    params.probSetList.forEach(item => {
+    params.probSetList.forEach((item) => {
       if (updateSetList.includes(item.setId)) {
         updateSetListFix.push({
           data: {
-            order: item.order
+            order: item.order,
           },
           where: {
             setId_problemId: {
               problemId: params.problemId,
-              setId: item.setId
-            }
-          }
+              setId: item.setId,
+            },
+          },
         });
       } else addSetListFix.push({ setId: item.setId, order: item.order });
     });
-    console.log('removeSetListFix');
-    console.log(removeSetListFix);
+    //console.log('removeSetListFix');
+    //console.log(removeSetListFix);
 
-    console.log('updateSetListFix');
-    console.log(updateSetListFix);
+    //console.log('updateSetListFix');
+    //console.log(updateSetListFix);
 
-    console.log('addSetListFix');
-    console.log(addSetListFix);
+    //console.log('addSetListFix');
+    //console.log(addSetListFix);
 
     const startTime = Date.now();
 
     const mathProblem = await prisma.mathProblem.update({
       where: {
-        id: params.problemId
+        id: params.problemId,
       },
       data: {
         categoryId: Number(params.categoryId),
@@ -506,9 +509,9 @@ export const editMathProblem = async (params: EditMathProbParam) => {
         tags: {
           createMany: {
             data: tagList,
-            skipDuplicates: true
+            skipDuplicates: true,
           },
-          deleteMany: removeTagList
+          deleteMany: removeTagList,
         },
         title: params.title,
         prevProblems: params.prevProblems,
@@ -518,34 +521,34 @@ export const editMathProblem = async (params: EditMathProbParam) => {
 
           createMany: {
             data: addSetListFix,
-            skipDuplicates: true
-          }
-        }
-      }
+            skipDuplicates: true,
+          },
+        },
+      },
     });
 
     if (addSetListFix.length > 0) {
-      const lst: Array<string> = addSetListFix.map(item => item.setId);
+      const lst: Array<string> = addSetListFix.map((item) => item.setId);
 
       await prisma.mathProblemSet.updateMany({
         where: {
-          id: { in: lst }
+          id: { in: lst },
         },
         data: {
-          numberProb: { increment: 1 }
-        }
+          numberProb: { increment: 1 },
+        },
       });
     }
     if (removeSetList.length > 0) {
       await prisma.mathProblemSet.updateMany({
         where: {
-          id: { in: removeSetList }
+          id: { in: removeSetList },
         },
-        data: { numberProb: { decrement: 1 } }
+        data: { numberProb: { decrement: 1 } },
       });
     }
     //
-    console.log(Date.now() - startTime);
+    //console.log(Date.now() - startTime);
 
     mathProblem.prevProblems = mathProblem.prevProblems
       ? JSON.parse(mathProblem.prevProblems)
@@ -567,18 +570,18 @@ export const createMathProbSet = async (params: CreateMathProbSetParam) => {
         id: uuid(),
         numberProb: params.problems.length,
         creatorId: params.username,
-        title: params.title
-      }
+        title: params.title,
+      },
     });
 
-    const relList: Array<any> = params.problems.map(item => ({
+    const relList: Array<any> = params.problems.map((item) => ({
       problemId: item.problemId,
       setId: problemSet.id,
-      order: item.order
+      order: item.order,
     }));
 
     await prisma.mathSetProbRel.createMany({
-      data: relList
+      data: relList,
     });
     return problemSet;
   } catch (error) {
@@ -593,7 +596,7 @@ export const getProblemSetList = async (
 ) => {
   try {
     return await prisma.mathProblemSet.findMany({
-      where: undefined
+      where: undefined,
     });
   } catch (error) {
     throw error;
@@ -604,16 +607,16 @@ export const getProblemSet = async (id: string) => {
   try {
     const ps = await prisma.mathProblemSet.findUnique({
       where: {
-        id: id
+        id: id,
       },
       include: {
         problems: {
           select: {
             problem: true,
-            order: true
-          }
-        }
-      }
+            order: true,
+          },
+        },
+      },
     });
     return ps;
   } catch (error) {

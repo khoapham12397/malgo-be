@@ -1,11 +1,11 @@
 {
-    "id": "1825A_0",
-    "problemId": "1825A",
-    "subTestNumber": "1",
-    "description": [
-        {
-            "input": "NA0KYWJhY2FiYQ0KYWFhDQpjb2RlZm9yY2VzZWNyb2ZlZG9jDQpsb2wNCg==",
-            "answer": "NgotMQoxOAoyCg=="
-        }
-    ]
+  "id": "1825A_0",
+  "problemId": "1825A",
+  "subTestNumber": "1",
+  "description": [
+    {
+      "input": "NA0KYWJhY2FiYQ0KYWFhDQpjb2RlZm9yY2VzZWNyb2ZlZG9jDQpsb2wNCg==",
+      "answer": "NgotMQoxOAoyCg=="
+    }
+  ]
 }

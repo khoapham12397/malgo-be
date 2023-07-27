@@ -1,19 +1,19 @@
 {
-    "id": "1790D_0",
-    "problemId": "1790D",
-    "subTestNumber": "3",
-    "description": [
-        {
-            "input": "MTANCjYNCjIgMiAzIDQgMyAxDQo1DQoxMSA4IDcgMTAgOQ0KNg0KMTAwMDAwMDAwMCAxMDAwMDAwMDAwIDEwMDAwMDAwMDAgMTAwMDAwMDAwMCAxMDAwMDAwMDAwIDEwMDAwMDAwMDANCjgNCjEgMSA0IDQgMiAzIDIgMw0KNg0KMSAyIDMgMiAzIDQNCjcNCjEwIDExIDExIDEyIDEyIDEzIDEzDQo3DQo4IDggOSA5IDEwIDEwIDExDQo4DQo0IDE0IDUgMTUgNiAxNiA3IDE3DQo4DQo1IDE1IDYgMTQgOCAxMiA5IDExDQo1DQo0IDIgMiAzIDQNCg==",
-            "answer": "MgoxCjYKMgoyCjIKMgoyCjQKMwo="
-        },
-        {
-            "input": "MQ0KMQ0KOTk5OTk5OTk5DQo=",
-            "answer": "MQo="
-        },
-        {
-            "input": "MQ0KNA0KMTIgNDUgMTIgMTIzNDUNCg==",
-            "answer": "NAo="
-        }
-    ]
+  "id": "1790D_0",
+  "problemId": "1790D",
+  "subTestNumber": "3",
+  "description": [
+    {
+      "input": "MTANCjYNCjIgMiAzIDQgMyAxDQo1DQoxMSA4IDcgMTAgOQ0KNg0KMTAwMDAwMDAwMCAxMDAwMDAwMDAwIDEwMDAwMDAwMDAgMTAwMDAwMDAwMCAxMDAwMDAwMDAwIDEwMDAwMDAwMDANCjgNCjEgMSA0IDQgMiAzIDIgMw0KNg0KMSAyIDMgMiAzIDQNCjcNCjEwIDExIDExIDEyIDEyIDEzIDEzDQo3DQo4IDggOSA5IDEwIDEwIDExDQo4DQo0IDE0IDUgMTUgNiAxNiA3IDE3DQo4DQo1IDE1IDYgMTQgOCAxMiA5IDExDQo1DQo0IDIgMiAzIDQNCg==",
+      "answer": "MgoxCjYKMgoyCjIKMgoyCjQKMwo="
+    },
+    {
+      "input": "MQ0KMQ0KOTk5OTk5OTk5DQo=",
+      "answer": "MQo="
+    },
+    {
+      "input": "MQ0KNA0KMTIgNDUgMTIgMTIzNDUNCg==",
+      "answer": "NAo="
+    }
+  ]
 }

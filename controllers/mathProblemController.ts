@@ -1,5 +1,5 @@
-import { Request, Response } from 'express';
-import { PrismaClient } from '@prisma/client';
+import { Request, Response } from "express";
+import { PrismaClient } from "@prisma/client";
 import {
   createMathNote,
   createMathProblem,
@@ -12,11 +12,12 @@ import {
   getMathSolutions,
   getProblem,
   getProblemSet,
-  getProblemSetList
-} from '../services/mathProblemService';
-import { getUrlImage, multi_upload_img } from '../utils/uploadfiles';
-import multer from 'multer';
-import { checkUserValid } from '../utils/checkUser';
+  getProblemSetList,
+  GetProblemsParam,
+} from "../services/mathProblemService";
+import { getUrlImage, multi_upload_img } from "../utils/uploadfiles";
+import multer from "multer";
+import { checkUserValid } from "../utils/checkUser";
 
 export const getProblemCtl = async (req: Request, res: Response) => {
   try {
@@ -25,12 +26,11 @@ export const getProblemCtl = async (req: Request, res: Response) => {
 
     //console.log("problemId: "+problemId);
     let fixUsername = null;
-    if (typeof username == 'string') {
+    if (typeof username == "string") {
       if (checkUserValid(req, username)) {
         fixUsername = username;
         //console.log(fixUsername);
       }
-      
     }
 
     const mathProblem = await getProblem(problemId, fixUsername);
@@ -38,14 +38,14 @@ export const getProblemCtl = async (req: Request, res: Response) => {
     if (!mathProblem) {
       return res
         .status(404)
-        .json({ successed: false, message: 'Problem not found' });
+        .json({ successed: false, message: "Problem not found" });
     }
 
     return res
       .status(200)
       .json({
         successed: true,
-        data: mathProblem
+        data: mathProblem,
       })
       .end();
   } catch (error) {
@@ -54,28 +54,17 @@ export const getProblemCtl = async (req: Request, res: Response) => {
       .status(400)
       .json({
         successed: false,
-        message: error
+        message: error,
       })
       .end();
   }
 };
 
-type GetProblemsParam = {
-  category: string | null;
-  startDif: number | null;
-  endDif: number | null;
-  tagList: Array<string>;
-  page: number | null;
-  q: string | null;
-};
 
 export const getMathProblemsCtl = async (req: Request, res: Response) => {
   try {
     const params: GetProblemsParam = req.body;
-    console.log('params: ');
-    console.log(params);
     const result = await getMathProblems(params);
-    console.log(result.itemPerPage);
     return res.status(200).json({ successed: true, data: result }).end();
   } catch (err) {
     console.log(err);
@@ -85,7 +74,6 @@ export const getMathProblemsCtl = async (req: Request, res: Response) => {
 
 export const getCategoriesAndTagsCtl = async (req: Request, res: Response) => {
   try {
-    console.log('vao get categories');
     const result = await getCategoriesAndTags();
     res.status(200).json({ successed: true, data: result }).end();
   } catch (error) {
@@ -110,8 +98,8 @@ export const createMathProblemCtl = async (req: Request, res: Response) => {
     return res.status(200).json({
       successed: true,
       data: {
-        mathProblem: problem
-      }
+        mathProblem: problem,
+      },
     });
   } catch (error) {
     return res.status(400).json({ successed: false, message: error });
@@ -127,20 +115,20 @@ export type CreateMathNoteParam = {
 
 export const createMathNoteCtl = async (req: Request, res: Response) => {
   try {
-    console.log('vao controller');
+    //console.log('vao controller');
     await multi_upload_img(req, res, async function (err) {
       if (err instanceof multer.MulterError) {
         // A Multer error occurred when uploading.
         res
           .status(500)
           .send({
-            error: { message: `Multer uploading error: ${err.message}` }
+            error: { message: `Multer uploading error: ${err.message}` },
           })
           .end();
         return;
       } else if (err) {
         // An unknown error occurred when uploading.
-        if (err.name == 'ExtensionError') {
+        if (err.name == "ExtensionError") {
           res
             .status(413)
             .send({ error: { message: err.message } })
@@ -149,7 +137,7 @@ export const createMathNoteCtl = async (req: Request, res: Response) => {
           res
             .status(500)
             .send({
-              error: { message: `unknown uploading error: ${err.message}` }
+              error: { message: `unknown uploading error: ${err.message}` },
             })
             .end();
         }
@@ -161,7 +149,7 @@ export const createMathNoteCtl = async (req: Request, res: Response) => {
       // show body `req.body`
       const fileList = req.files as Array<any>;
       let imageLink = JSON.stringify(
-        fileList.map(item => getUrlImage(item.filename))
+        fileList.map((item) => getUrlImage(item.filename))
       );
       const result = await createMathNote(
         JSON.parse(req.body.data) as CreateMathNoteParam,
@@ -182,22 +170,20 @@ export type GetMathNoteParam = {
 export const getMathNoteCtl = async (req: Request, res: Response) => {
   try {
     const { username, mathProblemId } = req.query;
-    if (typeof username != 'string' || typeof mathProblemId != 'string') {
-      return res
-        .status(400)
-        .json({
-          successed: false,
-          message: 'username or problem does not existed'
-        });
+    if (typeof username != "string" || typeof mathProblemId != "string") {
+      return res.status(400).json({
+        successed: false,
+        message: "username or problem does not existed",
+      });
     }
     if (!checkUserValid(req, username as string)) {
       return res
         .status(400)
-        .json({ successed: false, message: 'invalid username' });
+        .json({ successed: false, message: "invalid username" });
     }
     const params = {
       username: username,
-      mathProblemId: mathProblemId
+      mathProblemId: mathProblemId,
     } as GetMathNoteParam;
 
     const mathNote = await getMathNote(params);
@@ -206,8 +192,8 @@ export const getMathNoteCtl = async (req: Request, res: Response) => {
       .json({
         successed: true,
         data: {
-          mathNote: mathNote
-        }
+          mathNote: mathNote,
+        },
       })
       .end();
   } catch (error) {
@@ -230,13 +216,13 @@ export const editMathNoteCtl = async (req: Request, res: Response) => {
         res
           .status(500)
           .send({
-            error: { message: `Multer uploading error: ${err.message}` }
+            error: { message: `Multer uploading error: ${err.message}` },
           })
           .end();
         return;
       } else if (err) {
         // An unknown error occurred when uploading.
-        if (err.name == 'ExtensionError') {
+        if (err.name == "ExtensionError") {
           res
             .status(413)
             .send({ error: { message: err.message } })
@@ -245,7 +231,7 @@ export const editMathNoteCtl = async (req: Request, res: Response) => {
           res
             .status(500)
             .send({
-              error: { message: `unknown uploading error: ${err.message}` }
+              error: { message: `unknown uploading error: ${err.message}` },
             })
             .end();
         }
@@ -253,7 +239,7 @@ export const editMathNoteCtl = async (req: Request, res: Response) => {
       }
 
       const fileList = req.files as Array<any>;
-      let newImgs = fileList.map(item => getUrlImage(item.filename));
+      let newImgs = fileList.map((item) => getUrlImage(item.filename));
       const params = JSON.parse(req.body.data) as EditMathNoteParam;
 
       let imageLink = JSON.stringify([...params.oldImages, ...newImgs]);
@@ -273,8 +259,8 @@ export const getMathSolutionsCtl = async (req: Request, res: Response) => {
     return res.status(200).json({
       successed: true,
       data: {
-        solutions: solutions
-      }
+        solutions: solutions,
+      },
     });
   } catch (error) {
     return res.status(400).json({ successed: false, message: error }).end();
@@ -297,14 +283,14 @@ export type EditMathProbParam = {
 
 export const editMathProblemCtl = async (req: Request, res: Response) => {
   try {
-    console.log('edit math problem');
+    //console.log('edit math problem');
     const mathProblem = await editMathProblem(req.body as EditMathProbParam);
 
     return res.status(200).json({
       successed: true,
       data: {
-        mathProblem: mathProblem
-      }
+        mathProblem: mathProblem,
+      },
     });
   } catch (error) {
     return res.status(400).json({ successed: false, message: error }).end();
@@ -328,8 +314,8 @@ export const creareMathProbSetCtl = async (req: Request, res: Response) => {
       .json({
         successed: true,
         data: {
-          problemSet: problemSet
-        }
+          problemSet: problemSet,
+        },
       })
       .end();
   } catch (error) {
@@ -342,8 +328,8 @@ export const getProbSetListCtl = async (req: Request, res: Response) => {
     return res.status(200).json({
       successed: true,
       data: {
-        problemSetList: setList
-      }
+        problemSetList: setList,
+      },
     });
   } catch (error) {
     return res.status(400).json({ successed: false, message: error }).end();
@@ -354,15 +340,15 @@ export const getProbSetCtl = async (req: Request, res: Response) => {
   try {
     const { problemSetId } = req.params;
 
-    console.log('id: ' + problemSetId);
+    //console.log('id: ' + problemSetId);
     if (!problemSetId)
-      return res.status(400).json({ successed: false, message: 'Not found' });
+      return res.status(400).json({ successed: false, message: "Not found" });
     const problemSet = await getProblemSet(problemSetId);
     return res.status(200).json({
       successed: true,
       data: {
-        problemSet: problemSet
-      }
+        problemSet: problemSet,
+      },
     });
     //getProblemSet(req.query.id);
   } catch (error) {

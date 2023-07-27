@@ -1,39 +1,39 @@
 {
-    "id": "1800D_0",
-    "problemId": "1800D",
-    "subTestNumber": "8",
-    "description": [
-        {
-            "answer": "NAoxCjUKMwozCjMKMQo=",
-            "input": "Nw0KNg0KYWFhYmNjDQoxMA0KYWFhYWFhYWFhYQ0KNg0KYWJjZGVmDQo3DQphYmFjYWJhDQo2DQpjY2NmZmYNCjQNCmFiYmENCjUNCmFiYWJhDQo="
-        },
-        {
-            "answer": "MQo=",
-            "input": "MQ0KMw0KYWFhDQo="
-        },
-        {
-            "answer": "MTgK",
-            "input": "MQ0KMzgNCnl6d3VsdmZ3a3Zpc2xrcWJhYWFhYWFhYWFhYWFhYWFhYWFhYWFiDQo="
-        },
-        {
-            "answer": "MTcK",
-            "input": "MQ0KMTA0DQpiYmhhbnFlbGJwYnhoeGJrYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFiYg0K"
-        },
-        {
-            "answer": "MTcK",
-            "input": "MQ0KMTgNCmFhaWJmcHJkb2t4dmlwc3FhYQ0K"
-        },
-        {
-            "answer": "MjEK",
-            "input": "MQ0KMjMNCmFha3ZocHltZGFyYWl5bHJwcXl2ZmFhDQo="
-        },
-        {
-            "answer": "MTUK",
-            "input": "MQ0KMTYNCmFhYnVveHh1cnRsZGNmYWENCg=="
-        },
-        {
-            "answer": "MTUK",
-            "input": "MQ0KMTYNCmFhYnRpYnJybnVtb25iYWENCg=="
-        }
-    ]
+  "id": "1800D_0",
+  "problemId": "1800D",
+  "subTestNumber": "8",
+  "description": [
+    {
+      "answer": "NAoxCjUKMwozCjMKMQo=",
+      "input": "Nw0KNg0KYWFhYmNjDQoxMA0KYWFhYWFhYWFhYQ0KNg0KYWJjZGVmDQo3DQphYmFjYWJhDQo2DQpjY2NmZmYNCjQNCmFiYmENCjUNCmFiYWJhDQo="
+    },
+    {
+      "answer": "MQo=",
+      "input": "MQ0KMw0KYWFhDQo="
+    },
+    {
+      "answer": "MTgK",
+      "input": "MQ0KMzgNCnl6d3VsdmZ3a3Zpc2xrcWJhYWFhYWFhYWFhYWFhYWFhYWFhYWFiDQo="
+    },
+    {
+      "answer": "MTcK",
+      "input": "MQ0KMTA0DQpiYmhhbnFlbGJwYnhoeGJrYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFhYWFiYg0K"
+    },
+    {
+      "answer": "MTcK",
+      "input": "MQ0KMTgNCmFhaWJmcHJkb2t4dmlwc3FhYQ0K"
+    },
+    {
+      "answer": "MjEK",
+      "input": "MQ0KMjMNCmFha3ZocHltZGFyYWl5bHJwcXl2ZmFhDQo="
+    },
+    {
+      "answer": "MTUK",
+      "input": "MQ0KMTYNCmFhYnVveHh1cnRsZGNmYWENCg=="
+    },
+    {
+      "answer": "MTUK",
+      "input": "MQ0KMTYNCmFhYnRpYnJybnVtb25iYWENCg=="
+    }
+  ]
 }

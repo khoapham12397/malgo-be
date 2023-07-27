@@ -1,91 +1,120 @@
 import { createClient } from "redis";
 import { ShareParam } from "../controllers/userController2";
-import dotenv from 'dotenv';
+import dotenv from "dotenv";
 import { generator } from "../utils/genId";
-import { ChildSubmissionBatchParam, getBatchSubmissionContest, PostSubContestParam, sendSubmissionBatch, sendSubmissionBatchList, sendSubmissionContest } from "../judgeApi";
-import { gettingToken,  startGetToken, startSendSubmission, startSubmitToken, stopGetToken, stopSubmitToken, submissionProcessRunning, submitSubmissionScheduler, submitTokenContestScheduler, submitTokenScheduler, tokenProcessRunning } from "../scheduler";
+import {
+  ChildSubmissionBatchParam,
+  getBatchSubmissionContest,
+  PostSubContestParam,
+  sendSubmissionBatch,
+  sendSubmissionBatchList,
+  sendSubmissionContest,
+} from "../judgeApi";
+import {
+  gettingToken,
+  startGetToken,
+  startSendSubmission,
+  startSubmitToken,
+  stopGetToken,
+  stopSubmitToken,
+  submissionProcessRunning,
+  submitSubmissionScheduler,
+  submitTokenContestScheduler,
+  submitTokenScheduler,
+  tokenProcessRunning,
+} from "../scheduler";
 
 dotenv.config();
- 
+
 export const redisClient = createClient({
-    url : process.env.REDIS_URL
+  url: process.env.REDIS_URL,
 });
 
-export const initRedisClient = async () =>{
-    redisClient.on('error', error=>{
-        console.log(error);
-    });
-    await redisClient.connect();        
-}
+export const initRedisClient = async () => {
+  redisClient.on("error", (error) => {
+    console.log(error);
+  });
+  await redisClient.connect();
+};
 
-
-const generateUserSocketsKey = (username :string) =>{
-    return `sockets:${username}`;
-}
-export const insertUserSocket = async (username: string, socketId: string) =>{
-    try{
-        const socketsStr = await redisClient.GET(generateUserSocketsKey(username));
-        if(socketsStr) {
-            const sockets = JSON.parse(socketsStr);
-            sockets.push(socketId);
-            await redisClient.SET(generateUserSocketsKey(username), JSON.stringify(sockets));
+const generateUserSocketsKey = (username: string) => {
+  return `sockets:${username}`;
+};
+export const insertUserSocket = async (username: string, socketId: string) => {
+  try {
+    const socketsStr = await redisClient.GET(generateUserSocketsKey(username));
+    if (socketsStr) {
+      const sockets = JSON.parse(socketsStr);
+      sockets.push(socketId);
+      await redisClient.SET(
+        generateUserSocketsKey(username),
+        JSON.stringify(sockets)
+      );
+    } else {
+      const sockets = JSON.stringify([socketId]);
+      await redisClient.SET(generateUserSocketsKey(username), sockets);
+    }
+  } catch (error) {
+    throw error;
+  }
+};
+export const setUserSockets = async (
+  username: string,
+  socketIds: Array<string>
+) => {
+  try {
+    await redisClient.SET(
+      generateUserSocketsKey(username),
+      JSON.stringify(socketIds)
+    );
+  } catch (error) {
+    console.log(error);
+  }
+};
+export const removeUserSocket = async (username: string, socketId: string) => {
+  try {
+    const socketsStr = await redisClient.GET(generateUserSocketsKey(username));
+    if (socketsStr) {
+      const sockets = JSON.parse(socketsStr);
+      for (let i = 0; i < sockets.length; i++) {
+        if (sockets[i] == socketId) {
+          sockets.splice(i, 1);
+          break;
         }
-        else {
-            const sockets = JSON.stringify([socketId]);
-            await redisClient.SET(generateUserSocketsKey(username), sockets);
-        }
-        
-    }catch(error){
-        throw(error);
+      }
+      if (sockets.length == 0) {
+        await redisClient.DEL(generateUserSocketsKey(username));
+      } else {
+        await redisClient.SET(
+          generateUserSocketsKey(username),
+          JSON.stringify(sockets)
+        );
+      }
     }
-}
+  } catch (error) {
+    throw error;
+  }
+};
 
-export const removeUserSocket = async (username: string, socketId: string) =>{
-    try {
-        const socketsStr = await redisClient.GET(generateUserSocketsKey(username));
-        if(socketsStr){
-            const sockets = JSON.parse(socketsStr);
-            for(let i=0;i<sockets.length;i++) {
-                if(sockets[i] == socketId) {
-                    sockets.splice(i,1);
-                    break;
-                }
-            }
-            if(sockets.length == 0){
-                await redisClient.DEL(generateUserSocketsKey(username));
-            }
-            else {
-                await redisClient.SET(generateUserSocketsKey(username), JSON.stringify(sockets));
-            }
-        }         
+export const getUserSockets = async (username: string) => {
+  try {
+    const socketsStr = await redisClient.GET(generateUserSocketsKey(username));
+    if (socketsStr) {
+      return JSON.parse(socketsStr);
     }
-    catch(error){
-        throw(error);
-    }
-}
-
-export const getUserSockets = async (username: string) =>{
-    try{
-        const socketsStr= await redisClient.GET(generateUserSocketsKey(username)); 
-        if(socketsStr) {
-            return JSON.parse(socketsStr);
-        }   
-        return [];
-    }
-    catch(error){
-        throw(error);
-    }
-}
-export const checkUserSocketExist = async (username: string)=>{
-    try{
-        const socketsStr = await redisClient.GET(generateUserSocketsKey(username)); 
-        return socketsStr!==null;
-        
-    }
-    catch(error){
-        throw(error);
-    }
-}
+    return [];
+  } catch (error) {
+    throw error;
+  }
+};
+export const checkUserSocketExist = async (username: string) => {
+  try {
+    const socketsStr = await redisClient.GET(generateUserSocketsKey(username));
+    return socketsStr !== null;
+  } catch (error) {
+    throw error;
+  }
+};
 /*
 const getPendingTokenQueueKey = ()=>{
     return "token:pending:queue";

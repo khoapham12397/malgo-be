@@ -1,11 +1,11 @@
 {
-    "id": "1797C_0",
-    "problemId": "1797C",
-    "subTestNumber": "1",
-    "description": [
-        {
-            "answer": "MiAyIDMKNSAxIDIK",
-            "input": "Mg0KMyA0IDIgMg0KNSAzIDUgMQ0K"
-        }
-    ]
+  "id": "1797C_0",
+  "problemId": "1797C",
+  "subTestNumber": "1",
+  "description": [
+    {
+      "answer": "MiAyIDMKNSAxIDIK",
+      "input": "Mg0KMyA0IDIgMg0KNSAzIDUgMQ0K"
+    }
+  ]
 }

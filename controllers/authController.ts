@@ -1,22 +1,22 @@
-import { User } from '@prisma/client';
-import { Request, RequestHandler, Response } from 'express';
-import { StatusCodes } from 'http-status-codes';
-import shortUUID from 'short-uuid';
+import { User } from "@prisma/client";
+import { Request, RequestHandler, Response } from "express";
+import { StatusCodes } from "http-status-codes";
+import shortUUID from "short-uuid";
 import {
   createUser,
   createUserProfile,
   getUserByEmail,
   getUserProfileFromAuth0,
-  updateUserProfileAfterLogin
-} from '../services/userService';
-import {generateToken} from '../utils/token';
+  updateUserProfileAfterLogin,
+} from "../services/userService";
+import { generateToken } from "../utils/token";
 export const checkAuth: RequestHandler = async (
   req: Request,
   res: Response
 ) => {
   try {
     const userFromAuth0 = await getUserProfileFromAuth0(req);
-    console.log('check auth');
+    console.log("check auth");
     // Find the user in database
     const userFromDB: User | null = await getUserByEmail(userFromAuth0.email);
 
@@ -27,7 +27,7 @@ export const checkAuth: RequestHandler = async (
       const uuid = shortUUID.generate();
 
       // To handle the case multiple users with the same username, we add a unique id to the username to make it unique
-      username = userFromAuth0.nickname + '@' + uuid;
+      username = userFromAuth0.nickname + "@" + uuid;
 
       await createUser(username, userFromAuth0.email, userFromAuth0.sub);
 
@@ -41,11 +41,11 @@ export const checkAuth: RequestHandler = async (
       username = userFromDB.username;
       await updateUserProfileAfterLogin(userFromDB, userFromAuth0);
     }
-    // create accesstoken 
-    
+    // create accesstoken
+
     return res.status(StatusCodes.OK).json({
       success: true,
-      message: 'User logged in successfully 💪💪',
+      message: "User logged in successfully 💪💪",
       username,
       email: userFromAuth0.email,
       token: generateToken(username),

@@ -1,15 +1,15 @@
 {
-    "id": "1780D_0",
-    "problemId": "1780D",
-    "subTestNumber": "2",
-    "description": [
-        {
-            "input": "Mw0KMQ0KMg0KMw0K",
-            "answer": "MwoxCjEKMgo="
-        },
-        {
-            "input": "MjkNCjENCjMNCjcNCjE1DQozMQ0KNjMNCjEyNw0KMjU1DQo1MTENCjEwMjMNCjIwNDcNCjQwOTUNCjgxOTENCjE2MzgzDQozMjc2Nw0KNjU1MzUNCjEzMTA3MQ0KMjYyMTQzDQo1MjQyODcNCjEwNDg1NzUNCjIwOTcxNTENCjQxOTQzMDMNCjgzODg2MDcNCjE2Nzc3MjE1DQozMzU1NDQzMQ0KNjcxMDg4NjMNCjEzNDIxNzcyNw0KMjY4NDM1NDU1DQo1MzY4NzA5MTENCg==",
-            "answer": "MjkKMQoyCjMKNAo1CjYKNwo4CjkKMTAKMTEKMTIKMTMKMTQKMTUKMTYKMTcKMTgKMTkKMjAKMjEKMjIKMjMKMjQKMjUKMjYKMjcKMjgKMjkK"
-        }
-    ]
+  "id": "1780D_0",
+  "problemId": "1780D",
+  "subTestNumber": "2",
+  "description": [
+    {
+      "input": "Mw0KMQ0KMg0KMw0K",
+      "answer": "MwoxCjEKMgo="
+    },
+    {
+      "input": "MjkNCjENCjMNCjcNCjE1DQozMQ0KNjMNCjEyNw0KMjU1DQo1MTENCjEwMjMNCjIwNDcNCjQwOTUNCjgxOTENCjE2MzgzDQozMjc2Nw0KNjU1MzUNCjEzMTA3MQ0KMjYyMTQzDQo1MjQyODcNCjEwNDg1NzUNCjIwOTcxNTENCjQxOTQzMDMNCjgzODg2MDcNCjE2Nzc3MjE1DQozMzU1NDQzMQ0KNjcxMDg4NjMNCjEzNDIxNzcyNw0KMjY4NDM1NDU1DQo1MzY4NzA5MTENCg==",
+      "answer": "MjkKMQoyCjMKNAo1CjYKNwo4CjkKMTAKMTEKMTIKMTMKMTQKMTUKMTYKMTcKMTgKMTkKMjAKMjEKMjIKMjMKMjQKMjUKMjYKMjcKMjgKMjkK"
+    }
+  ]
 }

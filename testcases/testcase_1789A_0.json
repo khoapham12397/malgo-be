@@ -1,43 +1,43 @@
 {
-    "id": "1789A_0",
-    "problemId": "1789A",
-    "subTestNumber": "9",
-    "description": [
-        {
-            "input": "Ng0KMg0KMyA2DQozDQoxIDIgNA0KMw0KMyA2IDENCjMNCjE1IDM1IDIxDQo0DQozNSAxMCAzNSAxNA0KNQ0KMTI2MSAyMjc4MjEgMTQzIDQxNzEgMTk0MQ0K",
-            "answer": "Tm8KWWVzClllcwpObwpZZXMKWWVzCg=="
-        },
-        {
-            "input": "MQ0KMw0KMTIgMTUgMTYNCg==",
-            "answer": "WWVzCg=="
-        },
-        {
-            "input": "MQ0KMw0KNCA4IDEwDQo=",
-            "answer": "WWVzCg=="
-        },
-        {
-            "input": "MQ0KMw0KMTUgMjUgMjcNCg==",
-            "answer": "WWVzCg=="
-        },
-        {
-            "input": "MQ0KMw0KMzAgNzAgMTAyDQo=",
-            "answer": "WWVzCg=="
-        },
-        {
-            "input": "MQ0KMw0KMTUgMjQgMzUNCg==",
-            "answer": "WWVzCg=="
-        },
-        {
-            "input": "MQ0KNg0KNjAgNzIgNzYgODQgODcgODgNCg==",
-            "answer": "WWVzCg=="
-        },
-        {
-            "input": "MQ0KNQ0KMTUgMTggMjAgMzAgMzYNCg==",
-            "answer": "WWVzCg=="
-        },
-        {
-            "input": "MQ0KMw0KMTUgMjEgNTUNCg==",
-            "answer": "WWVzCg=="
-        }
-    ]
+  "id": "1789A_0",
+  "problemId": "1789A",
+  "subTestNumber": "9",
+  "description": [
+    {
+      "input": "Ng0KMg0KMyA2DQozDQoxIDIgNA0KMw0KMyA2IDENCjMNCjE1IDM1IDIxDQo0DQozNSAxMCAzNSAxNA0KNQ0KMTI2MSAyMjc4MjEgMTQzIDQxNzEgMTk0MQ0K",
+      "answer": "Tm8KWWVzClllcwpObwpZZXMKWWVzCg=="
+    },
+    {
+      "input": "MQ0KMw0KMTIgMTUgMTYNCg==",
+      "answer": "WWVzCg=="
+    },
+    {
+      "input": "MQ0KMw0KNCA4IDEwDQo=",
+      "answer": "WWVzCg=="
+    },
+    {
+      "input": "MQ0KMw0KMTUgMjUgMjcNCg==",
+      "answer": "WWVzCg=="
+    },
+    {
+      "input": "MQ0KMw0KMzAgNzAgMTAyDQo=",
+      "answer": "WWVzCg=="
+    },
+    {
+      "input": "MQ0KMw0KMTUgMjQgMzUNCg==",
+      "answer": "WWVzCg=="
+    },
+    {
+      "input": "MQ0KNg0KNjAgNzIgNzYgODQgODcgODgNCg==",
+      "answer": "WWVzCg=="
+    },
+    {
+      "input": "MQ0KNQ0KMTUgMTggMjAgMzAgMzYNCg==",
+      "answer": "WWVzCg=="
+    },
+    {
+      "input": "MQ0KMw0KMTUgMjEgNTUNCg==",
+      "answer": "WWVzCg=="
+    }
+  ]
 }

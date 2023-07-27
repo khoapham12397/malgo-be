@@ -1,31 +1,31 @@
 {
-    "id": "1811C_0",
-    "problemId": "1811C",
-    "subTestNumber": "6",
-    "description": [
-        {
-            "input": "MTENCjUNCjMgNCA0IDUNCjQNCjIgMiAxDQo1DQowIDAgMCAwDQo2DQowIDMgNCA0IDMNCjINCjEwDQo0DQozIDMgMw0KNQ0KNCAyIDUgNQ0KNA0KMyAzIDMNCjQNCjIgMSAwDQozDQo0IDQNCjYNCjggMSAzIDUgMTANCg==",
-            "answer": "MyAzIDQgNCA1IAoyIDIgMSAxIAowIDAgMCAwIDAgCjAgMCAzIDQgMyAzIAoxMCAxMCAKMyAzIDMgMyAKNCAyIDIgNSA1IAozIDMgMyAzIAoyIDEgMCAwIAo0IDQgNCAKOCAxIDEgMyA1IDEwIAo="
-        },
-        {
-            "input": "MQ0KNA0KMTIzMTIgNCA0DQo=",
-            "answer": "MTIzMTIgNCA0IDQgCg=="
-        },
-        {
-            "input": "MQ0KNQ0KMjc0NyA0IDQgNA0K",
-            "answer": "Mjc0NyA0IDQgNCA0IAo="
-        },
-        {
-            "input": "Mw0KMg0KMQ0KMw0KMSAyDQoyDQo5DQo=",
-            "answer": "MSAxIAoxIDEgMiAKOSA5IAo="
-        },
-        {
-            "input": "Ng0KMg0KMQ0KMg0KMQ0KMg0KMQ0KMg0KMQ0KMg0KMQ0KMg0KMQ0K",
-            "answer": "MSAxIAoxIDEgCjEgMSAKMSAxIAoxIDEgCjEgMSAK"
-        },
-        {
-            "input": "Mg0KMw0KMSAwDQo0DQoyIDEgMA0K",
-            "answer": "MSAwIDAgCjIgMSAwIDAgCg=="
-        }
-    ]
+  "id": "1811C_0",
+  "problemId": "1811C",
+  "subTestNumber": "6",
+  "description": [
+    {
+      "input": "MTENCjUNCjMgNCA0IDUNCjQNCjIgMiAxDQo1DQowIDAgMCAwDQo2DQowIDMgNCA0IDMNCjINCjEwDQo0DQozIDMgMw0KNQ0KNCAyIDUgNQ0KNA0KMyAzIDMNCjQNCjIgMSAwDQozDQo0IDQNCjYNCjggMSAzIDUgMTANCg==",
+      "answer": "MyAzIDQgNCA1IAoyIDIgMSAxIAowIDAgMCAwIDAgCjAgMCAzIDQgMyAzIAoxMCAxMCAKMyAzIDMgMyAKNCAyIDIgNSA1IAozIDMgMyAzIAoyIDEgMCAwIAo0IDQgNCAKOCAxIDEgMyA1IDEwIAo="
+    },
+    {
+      "input": "MQ0KNA0KMTIzMTIgNCA0DQo=",
+      "answer": "MTIzMTIgNCA0IDQgCg=="
+    },
+    {
+      "input": "MQ0KNQ0KMjc0NyA0IDQgNA0K",
+      "answer": "Mjc0NyA0IDQgNCA0IAo="
+    },
+    {
+      "input": "Mw0KMg0KMQ0KMw0KMSAyDQoyDQo5DQo=",
+      "answer": "MSAxIAoxIDEgMiAKOSA5IAo="
+    },
+    {
+      "input": "Ng0KMg0KMQ0KMg0KMQ0KMg0KMQ0KMg0KMQ0KMg0KMQ0KMg0KMQ0K",
+      "answer": "MSAxIAoxIDEgCjEgMSAKMSAxIAoxIDEgCjEgMSAK"
+    },
+    {
+      "input": "Mg0KMw0KMSAwDQo0DQoyIDEgMA0K",
+      "answer": "MSAwIDAgCjIgMSAwIDAgCg=="
+    }
+  ]
 }

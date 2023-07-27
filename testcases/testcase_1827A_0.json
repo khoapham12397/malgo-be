@@ -1,11 +1,11 @@
 {
-    "id": "1827A_0",
-    "problemId": "1827A",
-    "subTestNumber": "1",
-    "description": [
-        {
-            "input": "NQ0KNg0KOSA2IDggNCA1IDINCjQgMSA1IDYgMyAxDQozDQo0IDMgMg0KMyA0IDkNCjENCjINCjENCjMNCjIgMyA0DQoxIDMgMw0KMTINCjIgMyA3IDEwIDIzIDI4IDI5IDUwIDY5IDEzNSA0MjAgMTAwMA0KMSAxIDIgMyA1IDggMTMgMjEgMzQgNTUgODkgMTQ0DQo=",
-            "answer": "MzIKMAoxCjAKMTM4MjQK"
-        }
-    ]
+  "id": "1827A_0",
+  "problemId": "1827A",
+  "subTestNumber": "1",
+  "description": [
+    {
+      "input": "NQ0KNg0KOSA2IDggNCA1IDINCjQgMSA1IDYgMyAxDQozDQo0IDMgMg0KMyA0IDkNCjENCjINCjENCjMNCjIgMyA0DQoxIDMgMw0KMTINCjIgMyA3IDEwIDIzIDI4IDI5IDUwIDY5IDEzNSA0MjAgMTAwMA0KMSAxIDIgMyA1IDggMTMgMjEgMzQgNTUgODkgMTQ0DQo=",
+      "answer": "MzIKMAoxCjAKMTM4MjQK"
+    }
+  ]
 }

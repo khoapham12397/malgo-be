@@ -1,27 +1,27 @@
 {
-    "id": "1816A_0",
-    "problemId": "1816A",
-    "subTestNumber": "5",
-    "description": [
-        {
-            "input": "OA0KMyA0DQo0IDQNCjMgNg0KMiAyDQoxIDENCjcgMw0KMjAyMiAyMDIzDQoxMDAwMDAwMDAwIDEwMDAwMDAwMDANCg==",
-            "answer": "MQozIDQKMgozIDEKNCA0CjIKMiAxCjMgNgoyCjEgMQoyIDIKMQoxIDEKMQo3IDMKMQoyMDIyIDIwMjMKMgo5OTk5OTk5OTkgMQoxMDAwMDAwMDAwIDEwMDAwMDAwMDAK"
-        },
-        {
-            "input": "MQ0KMTU4MjU0ODc5IDE0ODI0NzE2MQ0K",
-            "answer": "MgoxNTgyNTQ4NzggMQoxNTgyNTQ4NzkgMTQ4MjQ3MTYxCg=="
-        },
-        {
-            "input": "MQ0KMTE3NjUwIDEwNQ0K",
-            "answer": "MgoxMTc2NDkgMQoxMTc2NTAgMTA1Cg=="
-        },
-        {
-            "input": "Mg0KOTk0IDk0NQ0KMTAwMCA3MzUNCg==",
-            "answer": "Mgo5OTMgMQo5OTQgOTQ1CjIKOTk5IDEKMTAwMCA3MzUK"
-        },
-        {
-            "input": "MQ0KNiAxMDUNCg==",
-            "answer": "Mgo1IDEKNiAxMDUK"
-        }
-    ]
+  "id": "1816A_0",
+  "problemId": "1816A",
+  "subTestNumber": "5",
+  "description": [
+    {
+      "input": "OA0KMyA0DQo0IDQNCjMgNg0KMiAyDQoxIDENCjcgMw0KMjAyMiAyMDIzDQoxMDAwMDAwMDAwIDEwMDAwMDAwMDANCg==",
+      "answer": "MQozIDQKMgozIDEKNCA0CjIKMiAxCjMgNgoyCjEgMQoyIDIKMQoxIDEKMQo3IDMKMQoyMDIyIDIwMjMKMgo5OTk5OTk5OTkgMQoxMDAwMDAwMDAwIDEwMDAwMDAwMDAK"
+    },
+    {
+      "input": "MQ0KMTU4MjU0ODc5IDE0ODI0NzE2MQ0K",
+      "answer": "MgoxNTgyNTQ4NzggMQoxNTgyNTQ4NzkgMTQ4MjQ3MTYxCg=="
+    },
+    {
+      "input": "MQ0KMTE3NjUwIDEwNQ0K",
+      "answer": "MgoxMTc2NDkgMQoxMTc2NTAgMTA1Cg=="
+    },
+    {
+      "input": "Mg0KOTk0IDk0NQ0KMTAwMCA3MzUNCg==",
+      "answer": "Mgo5OTMgMQo5OTQgOTQ1CjIKOTk5IDEKMTAwMCA3MzUK"
+    },
+    {
+      "input": "MQ0KNiAxMDUNCg==",
+      "answer": "Mgo1IDEKNiAxMDUK"
+    }
+  ]
 }

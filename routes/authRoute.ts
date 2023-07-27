@@ -1,11 +1,11 @@
-import { Router } from 'express';
-import { checkAuth } from '../controllers/authController';
+import { Router } from "express";
+import { checkAuth } from "../controllers/authController";
 
 const router: Router = Router();
 
-router.get('/', (req, res) =>
-  res.json({ message: 'Hello World from Auth route' })
+router.get("/", (req, res) =>
+  res.json({ message: "Hello World from Auth route" })
 );
-router.post('/check', checkAuth);
+router.post("/check", checkAuth);
 
 export default router;

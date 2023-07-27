@@ -1,87 +1,87 @@
 {
-    "id": "1796F_0",
-    "problemId": "1796F",
-    "subTestNumber": "20",
-    "description": [
-        {
-            "answer": "Nwo=",
-            "input": "NSA2IDEwDQo="
-        },
-        {
-            "answer": "MjkK",
-            "input": "MTAgMTAgMTAwDQo="
-        },
-        {
-            "answer": "MAo=",
-            "input": "MSAxMCAyNQ0K"
-        },
-        {
-            "answer": "MTk1MzYK",
-            "input": "NDI0MiA2OTY5IDEzMzMzMzMzNw0K"
-        },
-        {
-            "answer": "OTg3MTUK",
-            "input": "OTQ4NDEgNDc0NzEgNTgxODE4MTg0DQo="
-        },
-        {
-            "answer": "NDc4Cg==",
-            "input": "MTAwIDEwMCAxMDAwMA0K"
-        },
-        {
-            "answer": "MjIyCg==",
-            "input": "MTAgMTAwMCAxMDAwDQo="
-        },
-        {
-            "answer": "OTUK",
-            "input": "OTkgOSAxMjM0NQ0K"
-        },
-        {
-            "answer": "MTcyMTA0Cg==",
-            "input": "MTAwMDAwIDEwMDAwMCAxMDAwMDAwMDAwDQo="
-        },
-        {
-            "answer": "MzYxMTcK",
-            "input": "MTIzNDUgOTc2NSAzNDU2NzY3NTYNCg=="
-        },
-        {
-            "answer": "MTAxNjgK",
-            "input": "MTAwIDEwMDAwMCAxMDAwMDAwMDAwDQo="
-        },
-        {
-            "answer": "MzcxMgo=",
-            "input": "MTAwMDAwIDEwMCAxMDAwMDAwMDAwDQo="
-        },
-        {
-            "answer": "NzU5NzIK",
-            "input": "Nzc3NzcgMzMzMzMgMTIzNDU2Nzg5DQo="
-        },
-        {
-            "answer": "MzQwNQo=",
-            "input": "MTAgMTAwMDAwIDEwMDAwMDAwMDANCg=="
-        },
-        {
-            "answer": "ODA1Cg==",
-            "input": "MTAwMDAwIDEwIDEwMDAwMDAwMDANCg=="
-        },
-        {
-            "answer": "NDA4NAo=",
-            "input": "MTA1MiA0Mzc2IDIzMTgzNw0K"
-        },
-        {
-            "answer": "ODc1Nwo=",
-            "input": "MTE2MyA2Mzg5IDc4MzM2NjYNCg=="
-        },
-        {
-            "answer": "MjQ0NQo=",
-            "input": "NTEgMzkyOSA5Njg0MzA0DQo="
-        },
-        {
-            "answer": "MTI1Cg==",
-            "input": "MjIgMjMgNzY5MzcNCg=="
-        },
-        {
-            "answer": "NTcK",
-            "input": "MiA0OCA0MjMxMTkxDQo="
-        }
-    ]
+  "id": "1796F_0",
+  "problemId": "1796F",
+  "subTestNumber": "20",
+  "description": [
+    {
+      "answer": "Nwo=",
+      "input": "NSA2IDEwDQo="
+    },
+    {
+      "answer": "MjkK",
+      "input": "MTAgMTAgMTAwDQo="
+    },
+    {
+      "answer": "MAo=",
+      "input": "MSAxMCAyNQ0K"
+    },
+    {
+      "answer": "MTk1MzYK",
+      "input": "NDI0MiA2OTY5IDEzMzMzMzMzNw0K"
+    },
+    {
+      "answer": "OTg3MTUK",
+      "input": "OTQ4NDEgNDc0NzEgNTgxODE4MTg0DQo="
+    },
+    {
+      "answer": "NDc4Cg==",
+      "input": "MTAwIDEwMCAxMDAwMA0K"
+    },
+    {
+      "answer": "MjIyCg==",
+      "input": "MTAgMTAwMCAxMDAwDQo="
+    },
+    {
+      "answer": "OTUK",
+      "input": "OTkgOSAxMjM0NQ0K"
+    },
+    {
+      "answer": "MTcyMTA0Cg==",
+      "input": "MTAwMDAwIDEwMDAwMCAxMDAwMDAwMDAwDQo="
+    },
+    {
+      "answer": "MzYxMTcK",
+      "input": "MTIzNDUgOTc2NSAzNDU2NzY3NTYNCg=="
+    },
+    {
+      "answer": "MTAxNjgK",
+      "input": "MTAwIDEwMDAwMCAxMDAwMDAwMDAwDQo="
+    },
+    {
+      "answer": "MzcxMgo=",
+      "input": "MTAwMDAwIDEwMCAxMDAwMDAwMDAwDQo="
+    },
+    {
+      "answer": "NzU5NzIK",
+      "input": "Nzc3NzcgMzMzMzMgMTIzNDU2Nzg5DQo="
+    },
+    {
+      "answer": "MzQwNQo=",
+      "input": "MTAgMTAwMDAwIDEwMDAwMDAwMDANCg=="
+    },
+    {
+      "answer": "ODA1Cg==",
+      "input": "MTAwMDAwIDEwIDEwMDAwMDAwMDANCg=="
+    },
+    {
+      "answer": "NDA4NAo=",
+      "input": "MTA1MiA0Mzc2IDIzMTgzNw0K"
+    },
+    {
+      "answer": "ODc1Nwo=",
+      "input": "MTE2MyA2Mzg5IDc4MzM2NjYNCg=="
+    },
+    {
+      "answer": "MjQ0NQo=",
+      "input": "NTEgMzkyOSA5Njg0MzA0DQo="
+    },
+    {
+      "answer": "MTI1Cg==",
+      "input": "MjIgMjMgNzY5MzcNCg=="
+    },
+    {
+      "answer": "NTcK",
+      "input": "MiA0OCA0MjMxMTkxDQo="
+    }
+  ]
 }

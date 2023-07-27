@@ -32,31 +32,32 @@ export const getProblem = async (problemId: string) => {
   }
 };
 
-type GetProblemsParam = {
+export type GetProblemsParam = {
   category: string | null;
   startDif: number | null;
   endDif: number | null;
   tagList: Array<string>;
   page: number | null;
   q: string | null;
+  init: boolean | undefined;
 };
 
 export const getCodingProblems = async (params: GetProblemsParam) => {
   try {
     //const params : GetProblemsParam = req.body;
 
-    const { category, startDif, endDif, tagList, page, q } = params;
+    const { category, startDif, endDif, tagList, page, q ,init} = params;
 
     const pageNum = page == undefined ? 1 : Number(page);
 
     const skip = (pageNum - 1) * 20;
 
-    let tags: Array<number> = [];
+    let tags: Array<string> = [];
 
     if (tagList != undefined)
-      tags = tagList.map((item: string) => Number(item));
+      tags = tagList.map((item: string) => (item));
 
-    console.log(tags);
+    //console.log(tags);
     const filter = {
       categoryId:
         category != undefined && category != null
@@ -69,10 +70,10 @@ export const getCodingProblems = async (params: GetProblemsParam) => {
             ? Number(startDif)
             : undefined
       },
-      tags: tags.length>0? {
+      codeforcesTag: tags.length>0? {
         some: {
-          tagId: {
-            in: tags,
+          codeforcesTagId :{
+            in : tags
           }
         }
       }:undefined
@@ -107,7 +108,12 @@ export const getCodingProblems = async (params: GetProblemsParam) => {
     const total = await prisma.codingProblem.count({
       where: filter
     });
-
+    let categoriesAndTags = undefined;
+  
+    if(init) {
+      categoriesAndTags = await getCategoriesAndTags();
+    }
+  
     for(let i=0;i<problems.length;i++) {
       problems[i].codeforcesTag = problems[i].codeforcesTag.map((item:any) => item.codeforcesTagId);
     }
@@ -116,7 +122,8 @@ export const getCodingProblems = async (params: GetProblemsParam) => {
     return {
       problems: problems,
       totalPage: totalPage,
-      total: total
+      total: total,
+      categoriesAndTags: categoriesAndTags,
     };
   } catch (error) {
     throw error;
@@ -126,7 +133,7 @@ export const getCodingProblems = async (params: GetProblemsParam) => {
 export const getCategoriesAndTags = async () => {
   try {
     const categories = await prisma.codingProblemCategory.findMany();
-    const tags = await prisma.codingProblemTag.findMany();
+    const tags = await prisma.codeforcesTag.findMany();
     return {
       categories: categories,
       tags: tags

@@ -1,15 +1,15 @@
 {
-    "id": "1799E_0",
-    "problemId": "1799E",
-    "subTestNumber": "2",
-    "description": [
-        {
-            "answer": "IyMjCi4jCiMjCi4uIyMKLi4jIwojIyMuCiMjLi4KLiMjLi4uCiMjIy4uLgouLiMuLi4KLi4jIyMjCi4uLiMjIwouLi4jIyMKLiMjIyMKLiMjIyMKLiMjIyMKLiMjIyMKLiMuLi4KIyMuLi4KIyMjIyMKIyMjIyMKIyMjIyMKIyMjIyMKIyMjIyMKLiMjLgojIyMjCiMjIyMKLiMjLgouLiMjIwouLiMjIwouLiMuLgojIyMuLgojLi4uLgouIyMuLi4KIyMjLi4uCiMjIyMjIwouLi4jIyMKLi4uIyMuCi4uIyMuCi4uIyMjCi4uIyMjCiMjIy4uCiMjIy4uCi4jIy4uCi4uIyMKLi4jLgouLiMuCiMjIy4KIy4uLgo=",
-            "input": "MTENCjEgMw0KIy4jDQoyIDINCi4jDQojLg0KNCA0DQouLiMjDQouLi4jDQojLi4uDQojIy4uDQo2IDYNCi4jIy4uLg0KIyMuLi4uDQouLi4uLi4NCi4uLi4jIw0KLi4uLi4jDQouLi4jIyMNCjYgNQ0KLiMuLiMNCi4jLi4jDQouIy4uIw0KLiMuIyMNCi4jLi4uDQojIy4uLg0KNSA1DQojIyMjIw0KIy4uLiMNCiMuIy4jDQojLi4uIw0KIyMjIyMNCjQgNA0KLiMjLg0KIyMuIw0KIy4jIw0KLiMjLg0KNSA1DQouLiMjIw0KLi4uLiMNCi4uLi4uDQojLi4uLg0KIy4uLi4NCjUgNg0KLiMjLi4uDQojIy4uLi4NCiMuLi4uIw0KLi4uLiMjDQouLi4jIy4NCjYgNQ0KLi4jIy4NCi4uLiMjDQouLi4uIw0KIy4uLi4NCiMjLi4uDQouIyMuLg0KNSA0DQouLiMjDQouLiMuDQouLiMuDQojLi4uDQojLi4uDQo="
-        },
-        {
-            "answer": "IyMjIy4uCiMjIyMuLgojIyMjLi4KIyMjIyMjCi4uLi4uIwouLiMuCi4uIyMKIyMjLgouIy4uCiMjIyMjCiMjIyMjCiMjIyMjCi4jIyMuCi4jIyMuCiMjIyMjLgojIyMjIy4KIyMjIyMuCiMjIyMjIwojIyMjIyMK",
-            "input": "NA0KNSA2DQojIyMjLi4NCi4uLiMuLg0KLi4uLi4uDQojIyMjIyMNCi4uLi4uIw0KNCA0DQouLiMuDQouLiMjDQojIy4uDQouIy4uDQo1IDUNCiMjIyMjDQojLi4uIw0KIy4jLiMNCi4uIy4uDQouIyMjLg0KNSA2DQojIyMjIy4NCiMuLi4jLg0KIy4jLiMuDQojLi4uIyMNCiMjIyMjIw0K"
-        }
-    ]
+  "id": "1799E_0",
+  "problemId": "1799E",
+  "subTestNumber": "2",
+  "description": [
+    {
+      "answer": "IyMjCi4jCiMjCi4uIyMKLi4jIwojIyMuCiMjLi4KLiMjLi4uCiMjIy4uLgouLiMuLi4KLi4jIyMjCi4uLiMjIwouLi4jIyMKLiMjIyMKLiMjIyMKLiMjIyMKLiMjIyMKLiMuLi4KIyMuLi4KIyMjIyMKIyMjIyMKIyMjIyMKIyMjIyMKIyMjIyMKLiMjLgojIyMjCiMjIyMKLiMjLgouLiMjIwouLiMjIwouLiMuLgojIyMuLgojLi4uLgouIyMuLi4KIyMjLi4uCiMjIyMjIwouLi4jIyMKLi4uIyMuCi4uIyMuCi4uIyMjCi4uIyMjCiMjIy4uCiMjIy4uCi4jIy4uCi4uIyMKLi4jLgouLiMuCiMjIy4KIy4uLgo=",
+      "input": "MTENCjEgMw0KIy4jDQoyIDINCi4jDQojLg0KNCA0DQouLiMjDQouLi4jDQojLi4uDQojIy4uDQo2IDYNCi4jIy4uLg0KIyMuLi4uDQouLi4uLi4NCi4uLi4jIw0KLi4uLi4jDQouLi4jIyMNCjYgNQ0KLiMuLiMNCi4jLi4jDQouIy4uIw0KLiMuIyMNCi4jLi4uDQojIy4uLg0KNSA1DQojIyMjIw0KIy4uLiMNCiMuIy4jDQojLi4uIw0KIyMjIyMNCjQgNA0KLiMjLg0KIyMuIw0KIy4jIw0KLiMjLg0KNSA1DQouLiMjIw0KLi4uLiMNCi4uLi4uDQojLi4uLg0KIy4uLi4NCjUgNg0KLiMjLi4uDQojIy4uLi4NCiMuLi4uIw0KLi4uLiMjDQouLi4jIy4NCjYgNQ0KLi4jIy4NCi4uLiMjDQouLi4uIw0KIy4uLi4NCiMjLi4uDQouIyMuLg0KNSA0DQouLiMjDQouLiMuDQouLiMuDQojLi4uDQojLi4uDQo="
+    },
+    {
+      "answer": "IyMjIy4uCiMjIyMuLgojIyMjLi4KIyMjIyMjCi4uLi4uIwouLiMuCi4uIyMKIyMjLgouIy4uCiMjIyMjCiMjIyMjCiMjIyMjCi4jIyMuCi4jIyMuCiMjIyMjLgojIyMjIy4KIyMjIyMuCiMjIyMjIwojIyMjIyMK",
+      "input": "NA0KNSA2DQojIyMjLi4NCi4uLiMuLg0KLi4uLi4uDQojIyMjIyMNCi4uLi4uIw0KNCA0DQouLiMuDQouLiMjDQojIy4uDQouIy4uDQo1IDUNCiMjIyMjDQojLi4uIw0KIy4jLiMNCi4uIy4uDQouIyMjLg0KNSA2DQojIyMjIy4NCiMuLi4jLg0KIy4jLiMuDQojLi4uIyMNCiMjIyMjIw0K"
+    }
+  ]
 }

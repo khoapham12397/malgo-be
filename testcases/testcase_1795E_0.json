@@ -1,11 +1,11 @@
 {
-    "id": "1795E_0",
-    "problemId": "1795E",
-    "subTestNumber": "1",
-    "description": [
-        {
-            "answer": "Mwo2CjE1CjQyCjEyCg==",
-            "input": "NQ0KMw0KMSAxIDENCjQNCjQgMSAyIDENCjQNCjUgMTAgMTUgMTANCjENCjQyDQo5DQoxIDIgMyAyIDIgMiAzIDIgMQ0K"
-        }
-    ]
+  "id": "1795E_0",
+  "problemId": "1795E",
+  "subTestNumber": "1",
+  "description": [
+    {
+      "answer": "Mwo2CjE1CjQyCjEyCg==",
+      "input": "NQ0KMw0KMSAxIDENCjQNCjQgMSAyIDENCjQNCjUgMTAgMTUgMTANCjENCjQyDQo5DQoxIDIgMyAyIDIgMiAzIDIgMQ0K"
+    }
+  ]
 }

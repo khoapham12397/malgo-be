@@ -1,8 +1,8 @@
-import { PrismaClient, User, UserProfile } from '@prisma/client';
-import { StatusCodes } from 'http-status-codes';
-import CustomAPIError from '../config/CustomAPIError';
-import { RequestWithAuth } from '../config/Interface';
-import auth0Client from '../config/auth0Client';
+import { PrismaClient, User, UserProfile } from "@prisma/client";
+import { StatusCodes } from "http-status-codes";
+import CustomAPIError from "../config/CustomAPIError";
+import { RequestWithAuth } from "../config/Interface";
+import auth0Client from "../config/auth0Client";
 
 const prisma = new PrismaClient();
 
@@ -14,14 +14,14 @@ export const getUserProfileFromAuth0 = async (req: RequestWithAuth) => {
   // accessToken will be in req.auth.token. You can find the verifyToken middleware in server.ts file.
   if (!accessToken) {
     console.log(
-      'accessToken in req.body is empty! Trying to get it from req.auth.token!'
+      "accessToken in req.body is empty! Trying to get it from req.auth.token!"
     );
     accessToken = req.auth.token;
   }
   console.log(`accessToken at get from auth0Client: ${accessToken}`);
 
   if (!accessToken) {
-    throw new CustomAPIError('No token provided!', StatusCodes.UNAUTHORIZED);
+    throw new CustomAPIError("No token provided!", StatusCodes.UNAUTHORIZED);
   }
 
   const userFromAuth0 = await auth0Client.getProfile(accessToken);
@@ -31,7 +31,7 @@ export const getUserProfileFromAuth0 = async (req: RequestWithAuth) => {
 
 export const getUserByEmail = async (email: string) => {
   const user: User | null = await prisma.user.findUnique({
-    where: { email }
+    where: { email },
   });
   return user;
 };
@@ -43,8 +43,8 @@ export const getUserByUsername = async (
   const user: any = await prisma.user.findUnique({
     where: { username },
     include: {
-      UserProfile: includeUserProfile
-    }
+      UserProfile: includeUserProfile,
+    },
   });
   return user;
 };
@@ -58,8 +58,8 @@ export const createUser = async (
     data: {
       username,
       email,
-      auth0_id
-    }
+      auth0_id,
+    },
   });
   return user;
 };
@@ -74,9 +74,9 @@ export const createUserProfile = async (
       real_name,
       avatar,
       user: {
-        connect: { username }
-      }
-    }
+        connect: { username },
+      },
+    },
   });
   return userProfile;
 };
@@ -92,20 +92,20 @@ export const updateUserProfileAfterLogin = async (
   ) {
     await prisma.user.update({
       where: { username: userFromDB.username },
-      data: { auth0_id: userFromAuth0.sub }
+      data: { auth0_id: userFromAuth0.sub },
     });
 
     // Update user profile after updating auth0_id only if the user used Google or Github
     if (
-      userFromAuth0.sub.includes('google-oauth2') ||
-      userFromAuth0.sub.includes('github')
+      userFromAuth0.sub.includes("google-oauth2") ||
+      userFromAuth0.sub.includes("github")
     ) {
       await prisma.userProfile.update({
         where: { username: userFromDB.username },
         data: {
           real_name: userFromAuth0.name,
-          avatar: userFromAuth0.picture
-        }
+          avatar: userFromAuth0.picture,
+        },
       });
     }
   }

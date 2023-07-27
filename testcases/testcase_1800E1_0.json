@@ -1,23 +1,23 @@
 {
-    "id": "1800E1_0",
-    "problemId": "1800E1",
-    "subTestNumber": "4",
-    "description": [
-        {
-            "answer": "WUVTCllFUwpOTwpZRVMKTk8KWUVTCk5PCg==",
-            "input": "Nw0KNiAzDQp0YWxhbnQNCmF0bHRuYQ0KNyAzDQphYmFjYWJhDQphYWFhYmJjDQoxMiAzDQphYnJhY2FkYWJyYWENCmF2YWRha2VkYXZyYQ0KNSAzDQphY2Npbw0KY2ljYW8NCjUgMw0KbHVtb3MNCm1vbHVzDQo0IDMNCnV3anQNCnR3anUNCjQgMw0Ka3ZweA0Kdnhwaw0K"
-        },
-        {
-            "answer": "Tk8K",
-            "input": "MQ0KNCAzDQphYmJiDQpiYmJiDQo="
-        },
-        {
-            "answer": "Tk8K",
-            "input": "MQ0KNSAzDQphYWJjYw0KYWFkY2MNCg=="
-        },
-        {
-            "answer": "Tk8K",
-            "input": "MQ0KNSAzDQphYWFhYQ0KYWFjYWENCg=="
-        }
-    ]
+  "id": "1800E1_0",
+  "problemId": "1800E1",
+  "subTestNumber": "4",
+  "description": [
+    {
+      "answer": "WUVTCllFUwpOTwpZRVMKTk8KWUVTCk5PCg==",
+      "input": "Nw0KNiAzDQp0YWxhbnQNCmF0bHRuYQ0KNyAzDQphYmFjYWJhDQphYWFhYmJjDQoxMiAzDQphYnJhY2FkYWJyYWENCmF2YWRha2VkYXZyYQ0KNSAzDQphY2Npbw0KY2ljYW8NCjUgMw0KbHVtb3MNCm1vbHVzDQo0IDMNCnV3anQNCnR3anUNCjQgMw0Ka3ZweA0Kdnhwaw0K"
+    },
+    {
+      "answer": "Tk8K",
+      "input": "MQ0KNCAzDQphYmJiDQpiYmJiDQo="
+    },
+    {
+      "answer": "Tk8K",
+      "input": "MQ0KNSAzDQphYWJjYw0KYWFkY2MNCg=="
+    },
+    {
+      "answer": "Tk8K",
+      "input": "MQ0KNSAzDQphYWFhYQ0KYWFjYWENCg=="
+    }
+  ]
 }

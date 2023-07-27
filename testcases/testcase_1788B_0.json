@@ -1,11 +1,11 @@
 {
-    "id": "1788B_0",
-    "problemId": "1788B",
-    "subTestNumber": "1",
-    "description": [
-        {
-            "input": "NQ0KMQ0KMTYxDQo2Nw0KMTIwNg0KMTkNCg==",
-            "answer": "MCAxCjEzMCAzMQozMyAzNAoxMDMgMTEwMwoxNCA1Cg=="
-        }
-    ]
+  "id": "1788B_0",
+  "problemId": "1788B",
+  "subTestNumber": "1",
+  "description": [
+    {
+      "input": "NQ0KMQ0KMTYxDQo2Nw0KMTIwNg0KMTkNCg==",
+      "answer": "MCAxCjEzMCAzMQozMyAzNAoxMDMgMTEwMwoxNCA1Cg=="
+    }
+  ]
 }

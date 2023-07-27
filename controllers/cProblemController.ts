@@ -1,5 +1,4 @@
-import { Request, Response } from 'express';
-import { PrismaClient } from '@prisma/client';
+import { Request, Response } from "express";
 import {
   getCategoriesAndTags,
   getCodeForcesTagList,
@@ -7,25 +6,26 @@ import {
   getProblem,
   getRecommendProblemSet,
   getRelatedProblem,
-  GetRelatedProblemParam
-} from '../services/codingProblemService';
+  GetRelatedProblemParam,
+  GetProblemsParam
+} from "../services/codingProblemService";
+import { getRecommendProblemsForUser } from "../services/recommendService";
 
 export const getProblemCtl = async (req: Request, res: Response) => {
   try {
     const { problemId } = req.params;
-    //console.log("problemId: "+problemId);
     const codingProblem = await getProblem(problemId);
     if (!codingProblem) {
       return res
         .status(404)
-        .json({ successed: false, message: 'Problem not found' });
+        .json({ successed: false, message: "Problem not found" });
     }
 
     return res
       .status(200)
       .json({
         successed: true,
-        data: codingProblem
+        data: codingProblem,
       })
       .end();
   } catch (error) {
@@ -34,20 +34,13 @@ export const getProblemCtl = async (req: Request, res: Response) => {
       .status(400)
       .json({
         successed: false,
-        message: error
+        message: error,
       })
       .end();
   }
 };
 
-type GetProblemsParam = {
-  category: string | null;
-  startDif: number | null;
-  endDif: number | null;
-  tagList: Array<string>;
-  page: number | null;
-  q: string | null;
-};
+
 
 export const getCodingProblemsCtl = async (req: Request, res: Response) => {
   try {
@@ -64,7 +57,7 @@ export const getCodingProblemsCtl = async (req: Request, res: Response) => {
 
 export const getCategoriesAndTagsCtl = async (req: Request, res: Response) => {
   try {
-    console.log('vao get categories');
+    console.log("vao get categories");
     const result = await getCategoriesAndTags();
     res.status(200).json({ successed: true, data: result }).end();
   } catch (error) {
@@ -81,28 +74,48 @@ export const getCodeforcesTagsCtl = async (req: Request, res: Response) => {
     console.log(error);
     res.sendStatus(400).end();
   }
-}
+};
 export const getRelatedProblemCtl = async (req: Request, res: Response) => {
   try {
-    const problems = await getRelatedProblem(req.body as GetRelatedProblemParam);
+    const problems = await getRelatedProblem(
+      req.body as GetRelatedProblemParam
+    );
     return res.status(200).json({
-      successed: true, data: {
-        problems: problems
+      successed: true,
+      data: {
+        problems: problems,
       },
-    })
+    });
   } catch (error) {
     console.log(error);
     res.sendStatus(400).end();
   }
-}
+};
 
 export const getProblemSetByLevelCtl = async (req: Request, res: Response) => {
   try {
-      
-
     //await getRecommendProblemSet()
   } catch (error) {
     console.log(error);
     res.sendStatus(400).end();
   }
-}
+};
+
+export const getRecommendProblemsForUserCtl = async (
+  req: Request,
+  res: Response
+) => {
+  try {
+    const { username } = req.params;
+    const problemIds = await getRecommendProblemsForUser(username);
+    return res.status(200).json({
+      successed: true,
+      data: {
+        problemIds: problemIds,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+    return res.sendStatus(400).end();
+  }
+};

@@ -1,15 +1,15 @@
 {
-    "id": "1798B_0",
-    "problemId": "1798B",
-    "subTestNumber": "2",
-    "description": [
-        {
-            "answer": "OCAyIDEgCi0xCjIgMSA0IDMgCg==",
-            "input": "Mw0KMw0KNA0KMSAyIDQgOA0KMw0KMiA5IDENCjINCjEgNA0KMg0KMg0KMSAyDQoyDQoyIDENCjQNCjQNCjEgMiAzIDQNCjENCjENCjENCjQNCjENCjMNCg=="
-        },
-        {
-            "answer": "ODU5OCAK",
-            "input": "MQ0KMQ0KMQ0KODU5OA0K"
-        }
-    ]
+  "id": "1798B_0",
+  "problemId": "1798B",
+  "subTestNumber": "2",
+  "description": [
+    {
+      "answer": "OCAyIDEgCi0xCjIgMSA0IDMgCg==",
+      "input": "Mw0KMw0KNA0KMSAyIDQgOA0KMw0KMiA5IDENCjINCjEgNA0KMg0KMg0KMSAyDQoyDQoyIDENCjQNCjQNCjEgMiAzIDQNCjENCjENCjENCjQNCjENCjMNCg=="
+    },
+    {
+      "answer": "ODU5OCAK",
+      "input": "MQ0KMQ0KMQ0KODU5OA0K"
+    }
+  ]
 }

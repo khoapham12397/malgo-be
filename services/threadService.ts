@@ -1,7 +1,6 @@
-import { PrismaClient } from '@prisma/client';
-import { threadId } from 'worker_threads';
-import { addThreadToElastic } from '../elasticsearch/searchService';
-import { generateCommentId, generateThreadId } from '../utils/genId';
+import { PrismaClient } from "@prisma/client";
+import { addThreadToElastic } from "../elasticsearch/searchService";
+import { generateCommentId, generateThreadId } from "../utils/genId";
 const prisma = new PrismaClient();
 
 type CreateThreadParam = {
@@ -14,7 +13,7 @@ type CreateThreadParam = {
 };
 
 const createSummary = (content: string): string => {
-  return '';
+  return "";
 };
 
 export const createThread = async (
@@ -29,17 +28,15 @@ export const createThread = async (
 
     for (let i = 0; i < params.tags.length; i++) {
       const item = {
-        tag: { connect: { id: params.tags[i] } }
+        tag: { connect: { id: params.tags[i] } },
       };
       tags.push(item);
     }
     const user = await prisma.user.findUnique({
       where: {
-        username: username
-      }
+        username: username,
+      },
     });
-
-    console.log(user);
 
     const thread = await prisma.thread.create({
       data: {
@@ -51,26 +48,25 @@ export const createThread = async (
 
         category: {
           connect: {
-            id: Number(params.categoryId)
-          }
+            id: Number(params.categoryId),
+          },
         },
         author: {
           connect: {
-            username: username
-          }
+            username: username,
+          },
         },
 
         tags: {
-          create: tags
-        }
-      }
+          create: tags,
+        },
+      },
     });
-    
 
     addThreadToElastic({
       authorId: username,
       content: params.content,
-      id : thread.id,
+      id: thread.id,
       title: params.title,
     });
 
@@ -105,7 +101,6 @@ type ThreadCategory = {
   parentId: string | null;
 };
 
-
 type GetThreadResponse = {
   thread: Thread;
   totalRootCmt: number;
@@ -128,96 +123,89 @@ export const getThreadList = async (
     let { category, type, page } = params;
     const itemPerPage = 4;
 
-    if (typeof type != 'string') type = 'latest';
-    if (typeof page != 'string') page = '1';
-    page = Number(page)===0?1:Number(page);
-  
-    const cate = Number(category) == 0? undefined : { categoryId: Number(category)};
-    console.log(category);
-        
+    if (typeof type != "string") type = "latest";
+    if (typeof page != "string") page = "1";
+    page = Number(page) === 0 ? 1 : Number(page);
+
+    const cate =
+      Number(category) == 0 ? undefined : { categoryId: Number(category) };
+    //console.log(category);
+
     const totalThread = await prisma.thread.count({
       where: cate,
     });
-    
+
     let order;
-    if (type == 'top')
+    if (type == "top")
       order = {
-        totalComments: 'desc'
+        totalComments: "desc",
       };
     else
       order = {
-        id: type == 'latest' ? 'desc' : 'asc'
+        id: type == "latest" ? "desc" : "asc",
       };
-
-    const threadList = await prisma.thread.findMany({
-      skip: (page- 1) * itemPerPage,
+    
+    let threadList :any = await prisma.thread.findMany({
+      skip: (page - 1) * itemPerPage,
       take: itemPerPage,
       where: cate,
+      /*
       include: {
         tags: true,
         category: {
           select: {
             id: true,
             parentId: true,
-            title: true
-          }
+            title: true,
+          },
         },
       },
-      orderBy: order as any
-    });
+      */
+      orderBy: order as any,
+    });    
     
-    /*
-    const likeList:Array<boolean> = [];
-    
-    if(username) {
-      for(let i=0;i<threadList.length;i++) {
-        const like = await prisma.userLikeThread.findUnique({
-          where :{
-            username_threadId :{
-              username: username,
-              threadId: threadList[i].id,
-            }
-          },
-          select:{
-            disable : true,
-          }
-        });
-        if(!like) likeList.push(false);
-        else if(like.disable) likeList.push(false);
-        else likeList.push(true); 
+    threadList.forEach((thread:any)=> {
+      thread.category = null;
+      thread.tags = [];
+      thread.isLike = false;
+      thread.author = {
+        username : thread.authorId,
+        avatar: '',
       }
-    }
-    */
+    });
+
+    /*
     const threads: Array<Thread> = threadList.map(
-      (thread,index) =>
+      (thread, index) =>
         ({
           id: thread.id,
           content: thread.content,
           author: {
             username: thread.authorId,
-            avatar: ''
+            avatar: "",
           },
           createdAt: thread.createdAt.getTime(),
           likes: thread.likes,
           isLike: false,
-            
+
           summary: thread.summary,
           title: thread.title,
           totalComments: thread.totalComments,
           views: thread.views,
-          tags: thread.tags.map(item => item.tagId),
-          category: thread.category
+          tags: thread.tags.map((item) => item.tagId),
+          category: thread.category,
         } as Thread)
     );
-
+    */    
+      
     const resultData: GetThreadListRes = {
       page: Number(page),
       itemPerPage: itemPerPage,
-      threads: threads,
+      threads: threadList,
       totalPage:
         Math.floor(totalThread / itemPerPage) +
         (totalThread % itemPerPage == 0 ? 0 : 1),
-      totalThreads: totalThread
+      totalThreads: totalThread,
     };
     return resultData;
   } catch (error) {
@@ -234,32 +222,32 @@ export const getThread = async (
     const startTime = Date.now();
     const thread = await prisma.thread.findUnique({
       where: {
-        id: threadId
+        id: threadId,
       },
       include: {
         author: {
           select: {
-            username: true
-          }
+            username: true,
+          },
         },
         tags: true,
         category: {
           select: {
             id: true,
             parentId: true,
-            title: true
-          }
-        }
-      }
+            title: true,
+          },
+        },
+      },
     });
-    console.log(Date.now() - startTime);
+    //console.log(Date.now() - startTime);
     if (thread) {
       const likeThread =
         username != null
           ? await prisma.userLikeThread.findUnique({
               where: {
-                username_threadId: { username: username, threadId: threadId }
-              }
+                username_threadId: { username: username, threadId: threadId },
+              },
             })
           : null;
 
@@ -268,7 +256,7 @@ export const getThread = async (
         content: thread.content,
         author: {
           username: thread.author.username,
-          avatar: ''
+          avatar: "",
         },
         createdAt: thread.createdAt.getTime(),
         likes: thread.likes,
@@ -277,12 +265,12 @@ export const getThread = async (
         title: thread.title,
         totalComments: thread.totalComments,
         views: thread.views,
-        tags: thread.tags.map(item => item.tagId),
-        category: thread.category
+        tags: thread.tags.map((item) => item.tagId),
+        category: thread.category,
       };
       const responseData: GetThreadResponse = {
         thread: threadData,
-        totalRootCmt: thread.totalRootComments
+        totalRootCmt: thread.totalRootComments,
       };
       return responseData;
     } else {
@@ -329,7 +317,7 @@ export const getRootComments = async (
   try {
     const { threadId, orderType, skip } = params;
 
-    console.log('threadId:' + threadId);
+    //console.log('threadId:' + threadId);
     const comments = await prisma.comment.findMany({
       take: 10,
       skip: Number(skip),
@@ -338,23 +326,23 @@ export const getRootComments = async (
           username != undefined
             ? {
                 where: {
-                  username: username
-                }
+                  username: username,
+                },
               }
-            : false
+            : false,
       },
       where: {
-        threadId: typeof threadId != 'string' ? '' : threadId,
-        parentId: null
+        threadId: typeof threadId != "string" ? "" : threadId,
+        parentId: null,
       },
 
       orderBy: {
-        id: orderType == '0' ? 'asc' : 'desc'
-      }
+        id: orderType == "0" ? "asc" : "desc",
+      },
     });
 
     const lst = comments.map(
-      item =>
+      (item) =>
         ({
           data: {
             content: item.content,
@@ -364,7 +352,7 @@ export const getRootComments = async (
             likes: item.likes,
             parent: {
               id: item.parentId,
-              author: item.parentUsername
+              author: item.parentUsername,
             },
             rootId: item.rootId,
             threadId: item.threadId,
@@ -373,10 +361,10 @@ export const getRootComments = async (
               username != undefined
                 ? item.usersLiked.length > 0 &&
                   item.usersLiked[0].disable == false
-                : false
+                : false,
           } as CommentData,
           orderType: Number(orderType),
-          totalChildCmt: item.totalChildren
+          totalChildCmt: item.totalChildren,
         } as RootCommentRes)
     );
 
@@ -403,8 +391,8 @@ export const getChildComments = async (
 ) => {
   try {
     const { rootCmtId, skip, take } = params;
-    if (typeof rootCmtId != 'string') {
-      throw Error('bad request');
+    if (typeof rootCmtId != "string") {
+      throw Error("bad request");
     }
 
     const commentList = await prisma.comment.findMany({
@@ -413,26 +401,26 @@ export const getChildComments = async (
       where: {
         rootId: rootCmtId,
         parentId: {
-          not: null
-        }
+          not: null,
+        },
       },
       include: {
         usersLiked:
           username != undefined
             ? {
                 where: {
-                  username: username
-                }
+                  username: username,
+                },
               }
-            : false
+            : false,
       },
       orderBy: {
-        id: 'asc'
-      }
+        id: "asc",
+      },
     });
 
     const comments = commentList.map(
-      item =>
+      (item) =>
         ({
           commentData: {
             content: item.content,
@@ -442,7 +430,7 @@ export const getChildComments = async (
             likes: item.likes,
             parent: {
               id: item.parentId,
-              author: item.parentUsername
+              author: item.parentUsername,
             },
             rootId: item.rootId,
             threadId: item.threadId,
@@ -451,9 +439,9 @@ export const getChildComments = async (
               username != undefined
                 ? item.usersLiked.length > 0 &&
                   item.usersLiked[0].disable == false
-                : false
+                : false,
           } as CommentData,
-          isFetched: true
+          isFetched: true,
         } as ChildComment)
     );
 
@@ -474,7 +462,7 @@ export type AddCommentParam = {
 
 export const addComment = async (params: AddCommentParam, username: string) => {
   try {
-    prisma.$transaction(async tx => {
+    prisma.$transaction(async (tx) => {
       //const params:AddCommentParam = req.body;
       const cmtId = generateCommentId();
 
@@ -484,8 +472,8 @@ export const addComment = async (params: AddCommentParam, username: string) => {
         const parentCmt = await prisma.comment.findUnique({
           where: { id: params.parentId },
           select: {
-            depth: true
-          }
+            depth: true,
+          },
         });
         if (parentCmt) {
           depth = parentCmt.depth + 1;
@@ -494,9 +482,9 @@ export const addComment = async (params: AddCommentParam, username: string) => {
           where: { id: params.rootId },
           data: {
             totalChildren: {
-              increment: 1
-            }
-          }
+              increment: 1,
+            },
+          },
         });
       }
 
@@ -510,19 +498,19 @@ export const addComment = async (params: AddCommentParam, username: string) => {
           threadId: params.threadId,
           creatorId: username,
           depth: depth,
-          totalChildren: 0
-        }
+          totalChildren: 0,
+        },
       });
       await prisma.thread.update({
         where: { id: params.threadId },
         data: {
           totalComments: {
-            increment: 1
+            increment: 1,
           },
           totalRootComments: {
-            increment: params.parentId == null ? 1 : 0
-          }
-        }
+            increment: params.parentId == null ? 1 : 0,
+          },
+        },
       });
       const comment: CommentData = {
         content: cmt.content,
@@ -531,13 +519,13 @@ export const addComment = async (params: AddCommentParam, username: string) => {
         id: cmt.id,
         likes: cmt.likes,
         parent: {
-          id: cmt.parentId ? cmt.parentId : '',
-          author: cmt.parentUsername ? cmt.parentUsername : ''
+          id: cmt.parentId ? cmt.parentId : "",
+          author: cmt.parentUsername ? cmt.parentUsername : "",
         },
         rootId: cmt.rootId,
         threadId: cmt.threadId,
         vote: 0,
-        isLike: false
+        isLike: false,
       };
       //res.status(201).json({successed: true, data: {comment: comment}}).end();// dng;
       return { comment: comment };
@@ -553,25 +541,25 @@ export const likeThread = async (threadId: string, username: string) => {
   try {
     const likeItem = await prisma.userLikeThread.findUnique({
       where: {
-        username_threadId: { username: username, threadId: threadId }
-      }
+        username_threadId: { username: username, threadId: threadId },
+      },
     });
 
     if (likeItem) {
       await prisma.userLikeThread.update({
         where: {
-          username_threadId: { username: username, threadId: threadId }
+          username_threadId: { username: username, threadId: threadId },
         },
         data: {
-          disable: !likeItem.disable
-        }
+          disable: !likeItem.disable,
+        },
       });
     } else {
       await prisma.userLikeThread.create({
         data: {
           threadId: threadId,
-          username: username
-        }
+          username: username,
+        },
       });
     }
     await changeLikesThread(threadId, likeItem ? likeItem.disable : true);
@@ -588,25 +576,25 @@ export const likeComment = async (commentId: string, username: string) => {
   try {
     const likeCmt = await prisma.userLikeComment.findUnique({
       where: {
-        username_commentId: { username: username, commentId: commentId }
-      }
+        username_commentId: { username: username, commentId: commentId },
+      },
     });
 
     if (likeCmt) {
       await prisma.userLikeComment.update({
         where: {
-          username_commentId: { username: username, commentId: commentId }
+          username_commentId: { username: username, commentId: commentId },
         },
         data: {
-          disable: !likeCmt.disable
-        }
+          disable: !likeCmt.disable,
+        },
       });
     } else {
       await prisma.userLikeComment.create({
         data: {
           commentId: commentId,
-          username: username
-        }
+          username: username,
+        },
       });
     }
     await changeLikesComment(commentId, likeCmt ? likeCmt.disable : true);
@@ -624,7 +612,7 @@ const changeLikesThread = async (threadId: string, inc: boolean) => {
     : { likes: { decrement: 1 } };
   await prisma.thread.update({
     where: { id: threadId },
-    data: updateData
+    data: updateData,
   });
 };
 
@@ -634,7 +622,7 @@ const changeLikesComment = async (commentId: string, inc: boolean) => {
     : { likes: { decrement: 1 } };
   await prisma.comment.update({
     where: { id: commentId },
-    data: updateData
+    data: updateData,
   });
 };
 
@@ -668,7 +656,7 @@ export const editThread = async (
   username: string
 ) => {
   try {
-    console.log('vao edit thread');
+    //console.log('vao edit thread');
 
     const thrd = await prisma.thread.findUnique({
       where: { id: params.id },
@@ -676,10 +664,10 @@ export const editThread = async (
         authorId: true,
         tags: {
           select: {
-            tagId: true
-          }
-        }
-      }
+            tagId: true,
+          },
+        },
+      },
     });
 
     if (thrd == null || thrd.authorId != username) {
@@ -688,12 +676,12 @@ export const editThread = async (
     }
     const tagList: Array<any> = [],
       rmTagList: Array<any> = [];
-    const tags = thrd.tags.map(item => item.tagId);
+    const tags = thrd.tags.map((item) => item.tagId);
 
     for (let i = 0; i < params.tags.length; i++) {
       if (!tags.includes(params.tags[i])) {
         const item = {
-          tag: { connect: { id: params.tags[i] } }
+          tag: { connect: { id: params.tags[i] } },
         };
         tagList.push(item);
       }
@@ -704,13 +692,13 @@ export const editThread = async (
         rmTagList.push({
           threadId_tagId: {
             tagId: tags[i],
-            threadId: params.id
-          }
+            threadId: params.id,
+          },
         });
       }
     }
 
-    console.log('category: ' + params.category);
+    //console.log('category: ' + params.category);
     const thread = await prisma.thread.update({
       where: { id: params.id },
       data: {
@@ -718,10 +706,10 @@ export const editThread = async (
         content: params.content,
         tags: {
           create: tagList,
-          delete: rmTagList
+          delete: rmTagList,
         },
-        categoryId: Number(params.category)
-      }
+        categoryId: Number(params.category),
+      },
     });
     //return res.status(200).json({successed:true, data : params});
     return params;
@@ -732,40 +720,38 @@ export const editThread = async (
   }
 };
 
-export const getAllThreadsContent = async () =>{
-  try{
+export const getAllThreadsContent = async () => {
+  try {
     const threads = await prisma.thread.findMany({
       select: {
         id: true,
         content: true,
-      }
+      },
     });
     return threads;
-  }
-  catch(error){
+  } catch (error) {
     console.log(error);
     throw error;
   }
-}
-export const getThreadsContentByIds = async (ids: Array<string>)=>{
-  try{
+};
+export const getThreadsContentByIds = async (ids: Array<string>) => {
+  try {
     const threads = await prisma.thread.findMany({
       where: {
         id: {
           in: ids,
-        }
+        },
       },
-      select :{
-        id: true, 
-        content: true, 
+      select: {
+        id: true,
+        content: true,
         authorId: true,
         title: true,
-      }
-    })
+      },
+    });
     return threads;
-  } 
-  catch(error){
+  } catch (error) {
     console.log(error);
     throw error;
   }
-}
+};

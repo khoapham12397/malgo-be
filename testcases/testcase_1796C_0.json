@@ -1,23 +1,23 @@
 {
-    "id": "1796C_0",
-    "problemId": "1796C",
-    "subTestNumber": "4",
-    "description": [
-        {
-            "answer": "MiA0CjIgNgo1IDEKNSA3Cg==",
-            "input": "NA0KMyAxMQ0KMTMgMzcNCjEgMjINCjQgMTAwDQo="
-        },
-        {
-            "answer": "MiA0CjIgNgo1IDcKNSAxCg==",
-            "input": "NA0KMyAxMQ0KMTMgMzcNCjQgMTAwDQoxIDIyDQo="
-        },
-        {
-            "answer": "MiA0Cg==",
-            "input": "MQ0KMyAxMQ0K"
-        },
-        {
-            "answer": "MSAxNTI1NDcKNiAzMDU3NQo=",
-            "input": "Mg0KNzk3MjcwIDk0OTgxNg0KMTQwNjQgODQ4OTI1DQo="
-        }
-    ]
+  "id": "1796C_0",
+  "problemId": "1796C",
+  "subTestNumber": "4",
+  "description": [
+    {
+      "answer": "MiA0CjIgNgo1IDEKNSA3Cg==",
+      "input": "NA0KMyAxMQ0KMTMgMzcNCjEgMjINCjQgMTAwDQo="
+    },
+    {
+      "answer": "MiA0CjIgNgo1IDcKNSAxCg==",
+      "input": "NA0KMyAxMQ0KMTMgMzcNCjQgMTAwDQoxIDIyDQo="
+    },
+    {
+      "answer": "MiA0Cg==",
+      "input": "MQ0KMyAxMQ0K"
+    },
+    {
+      "answer": "MSAxNTI1NDcKNiAzMDU3NQo=",
+      "input": "Mg0KNzk3MjcwIDk0OTgxNg0KMTQwNjQgODQ4OTI1DQo="
+    }
+  ]
 }

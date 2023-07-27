@@ -1,5 +1,5 @@
-import { Request } from 'express';
-import { User } from '@prisma/client';
+import { Request } from "express";
+import { User } from "@prisma/client";
 
 export interface RequestWithAuth extends Request {
   auth?: any;
@@ -11,7 +11,7 @@ export interface RequestWithAuthAndUser extends Request {
 }
 
 export enum AdminType {
-  regular_user = 'regular_user',
-  admin = 'admin',
-  super_admin = 'super_admin'
+  regular_user = "regular_user",
+  admin = "admin",
+  super_admin = "super_admin",
 }

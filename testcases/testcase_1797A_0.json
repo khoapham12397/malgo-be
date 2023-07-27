@@ -1,23 +1,23 @@
 {
-    "id": "1797A_0",
-    "problemId": "1797A",
-    "subTestNumber": "4",
-    "description": [
-        {
-            "answer": "NAoyCjMK",
-            "input": "Mw0KNCA0DQoyIDIgMyAzDQo2IDcNCjEgMSAyIDMNCjkgOQ0KNSAxIDMgNg0K"
-        },
-        {
-            "answer": "NAo=",
-            "input": "MQ0KNSA0DQo0IDIgMyAzDQo="
-        },
-        {
-            "answer": "NAo=",
-            "input": "MQ0KMTAgMTUNCjMgMTAgOSAxMw0K"
-        },
-        {
-            "answer": "NAo=",
-            "input": "MQ0KMTAgNQ0KMiAyIDUgMg0K"
-        }
-    ]
+  "id": "1797A_0",
+  "problemId": "1797A",
+  "subTestNumber": "4",
+  "description": [
+    {
+      "answer": "NAoyCjMK",
+      "input": "Mw0KNCA0DQoyIDIgMyAzDQo2IDcNCjEgMSAyIDMNCjkgOQ0KNSAxIDMgNg0K"
+    },
+    {
+      "answer": "NAo=",
+      "input": "MQ0KNSA0DQo0IDIgMyAzDQo="
+    },
+    {
+      "answer": "NAo=",
+      "input": "MQ0KMTAgMTUNCjMgMTAgOSAxMw0K"
+    },
+    {
+      "answer": "NAo=",
+      "input": "MQ0KMTAgNQ0KMiAyIDUgMg0K"
+    }
+  ]
 }
