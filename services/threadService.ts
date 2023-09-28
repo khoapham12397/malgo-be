@@ -726,6 +726,8 @@ export const getAllThreadsContent = async () => {
       select: {
         id: true,
         content: true,
+        authorId: true,
+        title: true,
       },
     });
     return threads;

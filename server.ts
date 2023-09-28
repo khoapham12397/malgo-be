@@ -25,6 +25,8 @@ import gameRouter from './routes/gameRoute';
 import { initQuizList } from './redis/gameService';
 import { initNamespaceCodingProblem , getRecommendProblemsForUser} from './services/recommendService';
 import {checkContestListAndCalRating} from './services/ratingService';
+import { fixMathProbDescription } from './services/mathProblemService';
+import { deleteAllThread, saveThreadsFromDBToElastic } from './elasticsearch/searchService';
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -224,7 +226,7 @@ const server =  app.listen(PORT,async() => {
   .catch(error=>{
     console.log(error);
   });
-  
-  
+  //saveThreadsFromDBToElastic();
+  //deleteAllThread();
 });
 

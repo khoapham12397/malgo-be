@@ -623,3 +623,39 @@ export const getProblemSet = async (id: string) => {
     throw error;
   }
 };
+
+export const fixMathProbDescription = async ()=>{
+  try{
+    
+    const probs= await prisma.mathProblem.findMany({
+      select:{
+        id: true,
+        description: true,
+        hint: true,
+      }
+    });
+    for(let i=0;i<probs.length;i++) {
+      let fixedHint:any= probs[i].hint;
+      let fixedDescription:any = probs[i].description;
+      let updateData : any = {
+        
+      }
+      if(fixedDescription) {
+        fixedDescription = fixedDescription.replaceAll('~','$');
+        updateData.description = fixedDescription;
+      }
+      if(fixedHint) {
+        fixedHint = fixedHint.replaceAll('~','$');
+        updateData.hint = fixedHint;
+      }
+
+      await prisma.mathProblem.update({
+        where: {id: probs[i].id},
+        data: updateData,
+      });
+
+    }
+  }catch(error){
+    console.log(error);
+  }
+}

@@ -124,3 +124,24 @@ export const initUserRating = async () => {
     throw error;
   }
 };
+
+export const getRatings = async (start: number)=>{
+  try{
+    const ratings = await prisma.userRating.findMany({
+      take: 200,
+      skip: start-1,
+      orderBy :{
+        rating: 'desc',
+      }
+    });
+    const total = await prisma.userRating.count();
+    return {
+      ratings: ratings,
+      total: total,
+    };
+
+  }
+  catch(error){
+    throw error;
+  }
+}

@@ -8,22 +8,20 @@ import {
 } from "../services/threadService";
 dotenv.config();
 
-const cloudId =
-  process.env.ELASTIC_CLOUD_ID ||
-  "Malgo:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvOjQ0MyQ3NDE1MDMzZGU3MTM0ZDVkOTg4ZmVkMGYzMTc1YTYxYyRhNjliMGI4NDk5ZTg0YTAzYjRlMjYyNGU3ZDNiYTQzNw==";
+const cloudId = process.env.ELASTIC_CLOUD_ID || "fe9e5b97889e46a3aa27f6ea8e06ee7a:dXMtY2VudHJhbDEuZ2NwLmNsb3VkLmVzLmlvJGEyNzk4NDQzMTY2MzQxOGU5MmM0NmEwYTI2MTMyODY0JGYwNTcwMDU1MmUxMDRlMjlhMzA2MmY5NTQxNDVkOGQx";
+
 const username = process.env.ELASTIC_USERNAME || "elastic";
 const password = process.env.ELASTIC_PASSWORD || "2qMH0bUO5wqGfPsKG7nK3miH";
 const apiKeyManageThread =
   process.env.ELASTIC_MANAGE_THREAD_API_KEY ||
-  "OGdTc1Y0a0J1U09UNV9ENVZNMWc6bTFxTWhvdVFST3FSZzRnUmdUcDhUZw==";
+  "QjdDMTFZb0JoV3FhY0dJZnZMV3Q6ZnRMZGxickZRM0dqN3FMSzJwU2FTdw==";
 
 const client = new Client({
-  cloud: {
-    id: cloudId,
-  },
+  node: 'https://a27984431663418e92c46a0a26132864.us-central1.gcp.cloud.es.io:443',
   auth: {
-    username: username,
-    password: password,
+    //username: username,
+    //password: password,
+    apiKey:'QjdDMTFZb0JoV3FhY0dJZnZMV3Q6ZnRMZGxickZRM0dqN3FMSzJwU2FTdw=='
   },
 });
 
@@ -141,7 +139,8 @@ export const saveThreadsFromDBToElastic = async () => {
     });
     //console.log(bulkResponse);
     const count = await client.count({ index: "thread" });
-    //console.log(count);
+    console.log("Added "+count+" threads to ElasticSearch");
+
   } catch (error) {
     console.log(error);
   }
@@ -178,8 +177,9 @@ export const deleteAllThread = async () => {
       },
     });
 
-    //console.log(response);
-    await client.count({ index: "thread" });
+    const result = await client.count({ index: "thread" });
+    console.log(result.body);
+    
   } catch (error) {
     console.log(error);
   }
