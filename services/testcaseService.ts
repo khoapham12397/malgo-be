@@ -73,6 +73,7 @@ export const getTestfileName = (problemId: string) => {
 };
 
 export const getNumberSubTest = async (testCaseId: string) => {
+  /*
   const testcase = await prisma.testcase.findUnique({
     where: { id: testCaseId },
     select: {
@@ -80,7 +81,35 @@ export const getNumberSubTest = async (testCaseId: string) => {
     },
   });
   return testcase ? testcase.subTestNumber : 0;
+
+  */
+  try{
+    let txtFile = fs.readFileSync(`testcases/testcase_${testCaseId}.json`);
+    return JSON.parse(txtFile.toString()).subTestNumber;
+     
+  }
+  catch(error){
+    console.log(error);
+    throw new CustomAPIError("Testcase is not available", 400);
+  }
 };
 export const getTestCaseID = (problemId: string) => {
   return problemId + "_0";
 };
+
+
+export const writeTestcase = (testcase: string, problemId: string)=>{
+  const filename = `testcases/testcase_${problemId}_0.json`;
+  console.log(`write testcase for problem ${problemId}`);
+  let test:any = JSON.parse(testcase);
+  test.problemId = problemId;
+  test.id = getTestCaseID(problemId);
+  try{
+    fs.writeFileSync(filename, JSON.stringify(test));
+    
+  }
+  catch(error){
+    console.log(error);
+    throw new CustomAPIError(`Failed to write testcase of problem ${problemId}`, 400);
+  }  
+}

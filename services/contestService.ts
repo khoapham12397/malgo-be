@@ -14,10 +14,11 @@ export type CreateCodingContestParam = {
 export const createCodingContest = async (param: any) => {
   try {
     const cnt = await prisma.contest.count();
+    
 
     const contest = await prisma.contest.create({
       data: {
-        id: (cnt + 1).toString(),
+        id: 'ac_'+(cnt + 1).toString(),
         title: param.title,
         description: param.description,
         ruleType: "acm",
@@ -190,3 +191,4 @@ export const getContestListAfterTime = async (timestamp: number) => {
     throw error;
   }
 };
+

@@ -1,4 +1,7 @@
 import { PrismaClient } from '@prisma/client';
+import CustomAPIError from '../config/CustomAPIError';
+import { writeTestcase } from './testcaseService';
+import { uuid } from 'short-uuid';
 
 const prisma = new PrismaClient();
 
@@ -24,7 +27,9 @@ export const getProblem = async (problemId: string) => {
         }
       }
     });
-
+    if(codingProblem && codingProblem.contest &&  (new Date(codingProblem.contest.startTime).getTime() > Date.now())){
+      codingProblem.description = "";
+    } 
     return codingProblem;
   } catch (error) {
     //console.log(error);
@@ -274,3 +279,53 @@ export const getRecommendProblemSet = async (username: string, problemCnt : numb
   }
 }
 
+type CreateCodingProblem = {
+  name : string;
+  time_limit: number;
+  memory_limit : number;
+  description: string;
+  points: number;
+  testcases: string;
+  points_loss_per_min: number;
+  // adding cai gidun:
+  order_in_contest: string; //A,B,C..
+  id: string ;
+}
+
+
+export const createProblems = async(problems : Array<CreateCodingProblem>, contestId: string | null, visibleFrom: number)=> {
+  try{
+    console.log(`create problems for contest ${contestId}`);
+
+    const problemInfos : Array<any> = problems.map(prob=>({
+      id: contestId?contestId+prob.order_in_contest:prob.id,
+      timeLimit: prob.time_limit,
+      categoryId: 2,
+      title: prob.name,
+      description: prob.description,
+      difficulty: 0,
+      memoryLimit: prob.memory_limit,
+      link: null,
+      visibleFrom: new Date(visibleFrom),
+      totalPoint: prob.points,
+      contestId: contestId,
+      code: uuid(),
+      acceptedNumber: 0,
+      practicePoint: 100,
+      submissionNumber: 0,
+    }));    
+    
+    await prisma.codingProblem.createMany({
+      data: problemInfos 
+    });
+
+    problems.forEach(prob=>{
+      writeTestcase(prob.testcases,  contestId?(contestId+prob.order_in_contest):prob.id);
+    });
+    console.log('Add Problem and Test case successed!!!');
+      
+  }catch(error){
+    console.log(error);
+    throw new CustomAPIError("",400);
+  } 
+}

@@ -2,6 +2,7 @@ import { Router, Request, Response } from "express";
 import {
   addExistedProblemToContestCtl,
   createCodingContestCtl,
+  createContestWithProblemsCtl,
   getContestDetailCtl,
   getContestInfoCtl,
   getContestListCtl,
@@ -16,5 +17,7 @@ router.get("/standing/:contestId", getContestRankCtl);
 router.get("/", getContestListCtl);
 router.get("/:contestId", getContestInfoCtl);
 router.get("/:contestId/detail", getContestDetailCtl);
+router.post("/withproblems",createContestWithProblemsCtl);
 
+// api/contest/
 export default router;

@@ -10,6 +10,7 @@ COPY --from=builder ./app/dist ./dist
 COPY package.json .
 COPY package-lock.json .
 COPY ./images ./images
+COPY ./testcases ./testcases
 COPY .env .
 COPY ./prisma ./prisma
 RUN npm install

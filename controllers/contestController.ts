@@ -11,6 +11,8 @@ import {
   getContestInfo,
   getContestList,
 } from "../services/contestService";
+import { Prisma } from "@prisma/client";
+import { createProblems } from "../services/codingProblemService";
 
 export const createCodingContestCtl = async (
   req: express.Request,
@@ -196,3 +198,42 @@ export const getContestDetailCtl = async (
     });
   }
 };
+type CreateContestReq = {
+  name: string;
+  duration: number;
+  startTime: number;
+  ratingFloor: number;
+  ratingCeil: number;
+}
+
+export const createContestWithProblemsCtl = async (
+  req: express.Request,
+  res: express.Response)=>{
+  
+  try{
+    
+    const {contest , problems} = req.body;
+    const params: CreateCodingContestParam = {
+      description: '',
+      duration: Number(contest.duration)*60,
+      realTimeRank: true,
+      startTime: contest.startTime,
+      title: contest.title,
+    }
+
+    const ct = await createCodingContest(params);
+    await createProblems(problems, ct.id, contest.startTime);
+    
+    return res.status(201).json({
+      data: {
+        contest: contest,
+      }
+    });
+    
+  }catch(error: any){
+    return res.status(400).json({
+      successed: false,
+      message: error.message,
+    })
+  }
+}
