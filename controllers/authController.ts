@@ -21,7 +21,8 @@ export const checkAuth: RequestHandler = async (
     const userFromDB: User | null = await getUserByEmail(userFromAuth0.email);
 
     let username: string;
-
+    let role: string = 'regular_user';
+    
     // If the user is not found in the database, create a new user
     if (!userFromDB) {
       const uuid = shortUUID.generate();
@@ -39,6 +40,7 @@ export const checkAuth: RequestHandler = async (
       );
     } else {
       username = userFromDB.username;
+      role = userFromDB.admin_type;
       await updateUserProfileAfterLogin(userFromDB, userFromAuth0);
     }
     // create accesstoken
@@ -47,7 +49,9 @@ export const checkAuth: RequestHandler = async (
       success: true,
       message: "User logged in successfully 💪💪",
       username,
+      role: role,
       email: userFromAuth0.email,
+      
       token: generateToken(username),
     });
   } catch (error: any) {
