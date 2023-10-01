@@ -9,6 +9,7 @@ import {
 } from "../controllers/userController2";
 import { checkUserSocketExist } from "../redis/baseService";
 import { generator } from "../utils/genId";
+import { addSinleChatSessionP2P, getChatSessionP2PId } from "../redis/chatService";
 
 const prisma = new PrismaClient();
 
@@ -100,7 +101,7 @@ export const acceptFriendReq = async (
         username2: recieverId,
       },
     });
-
+    
     await prisma.friendRequest.update({
       where: {
         id: reqId,
@@ -109,42 +110,54 @@ export const acceptFriendReq = async (
         disable: true,
       },
     });
-    const usersInfo = [senderId, recieverId];
-    const chatSession = await prisma.chatSession.create({
-      data: {
-        lastUpdate: new Date(Date.now()),
-        lastMessage: {
-          message: "You are connected",
-          type: "system",
-          authorId: "system",
-        } as Prisma.JsonObject,
-        id: generator.nextId().toString(),
-        type: "p2p",
-        usersInfo: usersInfo as Prisma.JsonArray,
-      },
-    });
+    const sessionId =  await getChatSessionP2PId(senderId,recieverId);    
+    if(!sessionId) {
+      const usersInfo = [senderId, recieverId];
+    
 
-    await prisma.chatSessionUser.createMany({
-      data: [
-        {
-          sessionId: chatSession.id,
-          joinedAt: new Date(Date.now()),
-          username: senderId,
-          unseenCnt: 0,
+      const chatSession = await prisma.chatSession.create({
+        data: {
+          lastUpdate: new Date(Date.now()),
+          lastMessage: {
+            message: "You are connected",
+            type: "system",
+            authorId: "system",
+          } as Prisma.JsonObject,
+          id: generator.nextId().toString(),
+          type: "p2p",
+          usersInfo: usersInfo as Prisma.JsonArray,
         },
-        {
-          sessionId: chatSession.id,
-          joinedAt: new Date(Date.now()),
-          username: recieverId,
-          unseenCnt: 0,
-        },
-      ],
-    });
-    return friendShip;
+      });
+      
+      await addSinleChatSessionP2P({
+        id: chatSession.id, 
+        usersInfo: usersInfo,
+      });
+
+      await prisma.chatSessionUser.createMany({
+        data: [
+          {
+            sessionId: chatSession.id,
+            joinedAt: new Date(Date.now()),
+            username: senderId,
+            unseenCnt: 0,
+          },
+          {
+            sessionId: chatSession.id,
+            joinedAt: new Date(Date.now()),
+            username: recieverId,
+            unseenCnt: 0,
+          },
+        ],
+      });
+      }
+      return friendShip;
   } catch (error) {
     throw error;
   }
 };
+
+
 export const checkFriendShip = async (username1: string, username2: string) => {
   try {
     const friendShip = await prisma.friendShip.findFirst({

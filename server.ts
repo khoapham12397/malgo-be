@@ -27,6 +27,9 @@ import { initNamespaceCodingProblem , getRecommendProblemsForUser} from './servi
 import {checkContestListAndCalRating} from './services/ratingService';
 import { fixMathProbDescription } from './services/mathProblemService';
 import { deleteAllThread, saveThreadsFromDBToElastic } from './elasticsearch/searchService';
+import { addChatSessionToCache } from './services/chatService';
+import { getChatSessionP2PId } from './redis/chatService';
+import { countProblemsSubmited } from './services/submissionService';
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -226,6 +229,12 @@ const server =  app.listen(PORT,async() => {
   .catch(error=>{
     console.log(error);
   });
+  countProblemsSubmited('khoakmp97@ugDQwfabf4XVdGt3r1bp8Z')
+  .then(res=>{
+
+  });
+  
+  //addChatSessionToCache();
   //saveThreadsFromDBToElastic();
   //deleteAllThread();
 });

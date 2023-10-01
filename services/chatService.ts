@@ -11,8 +11,8 @@ import {
   ReferenceMessage,
 } from "../controllers/chatController";
 import CustomAPIError from "../config/CustomAPIError";
-import { checkUserSocketExist } from "../redis/baseService";
-
+import { checkUserSocketExist, redisClient } from "../redis/baseService";
+import {addChatSessionP2PList, addSinleChatSessionP2P} from "../redis/chatService";
 const prisma = new PrismaClient();
 /*
 export const insertChatMessage = async (params: InsertChatParam)=>{
@@ -233,6 +233,11 @@ export const insertMessageP2P = async (params: InsertChatMsgP2P) => {
         },
       });
 
+      await addSinleChatSessionP2P({
+        id: session.id, 
+        usersInfo: usersInfo,
+      });
+
       await prisma.chatSessionUser.createMany({
         data: [
           {
@@ -249,7 +254,7 @@ export const insertMessageP2P = async (params: InsertChatMsgP2P) => {
           },
         ],
       });
-
+      
       const message = await prisma.chatMessage.create({
         data: {
           id: generateMessageId(),
@@ -596,3 +601,21 @@ export const getContactList = async (username: string) => {
     throw error;
   }
 };
+
+export const addChatSessionToCache = async ()=>{
+  try{
+
+  const chatSessionList = await prisma.chatSession.findMany({
+    select: {
+      id: true, 
+      usersInfo: true, 
+    }
+    ,where :{
+      type : 'p2p'
+    }
+  });
+  addChatSessionP2PList(chatSessionList);
+  }catch(error){
+    console.log(error);
+  }
+}

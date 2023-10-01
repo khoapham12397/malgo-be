@@ -439,7 +439,6 @@ export const getAllProblemUserSubmited = async () => {
         username: true,
       },
     });
-    // nen tach ra luon di dung://
     return submissions;
   } catch (error) {
     throw error;
@@ -451,3 +450,39 @@ export const createSubmissionSimple = async () => {
     throw error;
   }
 };
+
+
+export const countProblemsSubmited = async (username: string)=>{
+
+  const allProblems = await prisma.submission.groupBy({
+    by: ['problemId'],
+    where: {
+      username: username
+    },
+  });
+  
+  const lastMonthProbs = await prisma.submission.groupBy({
+    by: ['problemId'],
+    where: {
+      username: username,
+      createTime : {
+        gte: new Date(Date.now()- 30*1000*60*60*24),
+      }
+    },
+  });
+
+  const lastYearProbs = await prisma.submission.groupBy({
+    by: ['problemId'],
+    where: {
+      username: username,
+      createTime : {
+        gte: new Date(Date.now()- 365*1000*60*60*24),
+      }
+    },
+  });
+  
+  return {
+    all : allProblems.length, lastMonth: lastMonthProbs.length,
+    lastYear: lastYearProbs.length
+  }
+}

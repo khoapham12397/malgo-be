@@ -3,6 +3,8 @@ import { Request, RequestHandler, Response } from "express";
 import { StatusCodes } from "http-status-codes";
 import CustomAPIError from "../config/CustomAPIError";
 import { getUserByUsername } from "../services/userService";
+import { getRatingOneUser } from "../services/ratingService";
+import { countProblemsSubmited } from "../services/submissionService";
 
 const prisma = new PrismaClient();
 
@@ -82,6 +84,8 @@ export const getUserProfile: RequestHandler = async (
       real_name: string;
       avatar: string;
     };
+    const rating = await getRatingOneUser(username);
+    const submitedProblemCnt = await countProblemsSubmited(username);
 
     return res.status(StatusCodes.OK).json({
       success: true,
@@ -90,7 +94,10 @@ export const getUserProfile: RequestHandler = async (
       username: userFromDB.username,
       name: real_name,
       picture: avatar,
+      rating: rating?.rating,
+      submitedProblemCnt,
     });
+  
   } catch (error: any) {
     console.log(error.message);
     return res

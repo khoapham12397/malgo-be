@@ -145,3 +145,17 @@ export const getRatings = async (start: number)=>{
     throw error;
   }
 }
+export const getRatingOneUser = async(username: string)=>{
+  try{ 
+    const rating = await prisma.userRating.findUnique({
+      where: {
+        username: username,
+      }
+    });
+    return rating;
+
+  }catch(error){
+    console.log(error);
+    throw error;
+  }
+}
