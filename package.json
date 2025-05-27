@@ -44,7 +44,7 @@
     "ger": "^0.0.85",
     "http-status-codes": "^2.2.0",
     "jsonwebtoken": "^9.0.0",
-    "multer": "^1.4.5-lts.1",
+    "multer": "^2.0.0",
     "node-cron": "^3.0.2",
     "redis": "^4.6.7",
     "short-uuid": "^4.2.2",
